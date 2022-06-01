@@ -1,6 +1,6 @@
 export const Home = () => {
     return (
-        <main className="main home">
+        <main className="main__content home">
             home
         </main>
     );

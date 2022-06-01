@@ -1,6 +1,7 @@
 import { AchievementAPI } from "./achievements";
 import { AnimeAPI } from "./anime";
 import { AnimeOnTopAPI } from "./animeOnTop";
+import { OnlineUser } from "./common";
 import { NewsAPI } from "./news";
 import { SwordArtOnlineResultAPI } from "./swordArtOnlineResults";
 import { TypeAPI } from "./types";
@@ -11,7 +12,7 @@ export interface LoginApi {
     token: string;
 }
 
-export type AnyData = AchievementAPI[] | AnimeAPI[] | AnimeOnTopAPI[] | NewsAPI[] | SwordArtOnlineResultAPI[] | TypeAPI[] | UserAPI[] | WhatsTheMelodyAPI[] | AchievementAPI | AnimeAPI | AnimeOnTopAPI | NewsAPI | NewsAPI | SwordArtOnlineResultAPI | TypeAPI | UserAPI | WhatsTheMelodyAPI | LoginApi;
+export type AnyData = AchievementAPI[] | AnimeAPI[] | AnimeOnTopAPI[] | NewsAPI[] | SwordArtOnlineResultAPI[] | TypeAPI[] | UserAPI[] | WhatsTheMelodyAPI[] | OnlineUser[] | AchievementAPI | AnimeAPI | AnimeOnTopAPI | NewsAPI | NewsAPI | SwordArtOnlineResultAPI | TypeAPI | UserAPI | WhatsTheMelodyAPI | OnlineUser | LoginApi;
 
 export type Data = AchievementAPI[] | AnimeAPI[] | AnimeOnTopAPI[] | NewsAPI[] | SwordArtOnlineResultAPI[] | TypeAPI[] | UserAPI[] | WhatsTheMelodyAPI[];
 
