@@ -9,3 +9,4 @@ export * from "./whatsTheMelody";
 export * from "./common";
 
 export * from "./response";
+export * from "./authorizationAPI";
