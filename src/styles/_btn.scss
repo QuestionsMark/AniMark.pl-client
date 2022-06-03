@@ -1,0 +1,15 @@
+.btn {
+
+}
+
+#btn {
+    background-color: $main-color;
+    color: $text-color2;
+    font-weight: bold;
+    text-transform: capitalize;
+
+    &:disabled {
+        color: rgba(0,0,0,0.4);
+        background-color: darken($main-color, 10%);
+    }
+}

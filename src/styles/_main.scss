@@ -96,6 +96,7 @@ body {
 .link {
     color: $text-color;
     text-decoration: none;
+    cursor: pointer;
 
     &:hover {
         text-decoration: underline;
@@ -108,4 +109,16 @@ body {
     object-position: center;
     width: 100%;
     min-height: 100%;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.special {
+    color: $special-color;
 }
