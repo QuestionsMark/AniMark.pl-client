@@ -5,29 +5,31 @@ import { faClapperboard, faEnvelope, faHouse, faImages, faPlus, faUser, faUserGr
 
 import { OnlineUsers } from "./OnlineUsers";
 
+import { useUser } from "../../contexts/userContext";
+
 export const Menu = () => {
 
-    const { status, authorization, user } = { status: true, authorization: 2, user: { _id: "siema" } };
+    const { user } = useUser();
 
     const profileComponent = useMemo(() => {
-        return status &&
+        return user.logged &&
             <li className="menu__item">
-                <NavLink to={`/users/${user._id}`} className="menu__link">
+                <NavLink to={`/users/${user.userId}`} className="menu__link">
                     <FontAwesomeIcon icon={faUser} className="menu__icon" />Profil
                 </NavLink>
                 <div className="menu__border" />
             </li>;
-    }, [status, user._id]);
+    }, [user]);
 
     const addNewAnimeComponent = useMemo(() => {
-        return (authorization === 1 || authorization === 2) &&
+        return ([1, 2].includes(user.rank)) &&
             <li className="menu__item">
                 <NavLink to={`/anime/create`} className="menu__link">
                     <FontAwesomeIcon icon={faPlus} className="menu__icon" />Dodaj Nowe Anime
                 </NavLink>
                 <div className="menu__border" />
             </li>;
-    }, [authorization]);
+    }, [user]);
 
     return (
         <nav className="menu">
