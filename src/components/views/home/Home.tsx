@@ -1,7 +1,12 @@
+import { LastNews } from "./LastNews";
+
 export const Home = () => {
     return (
         <main className="main__content home">
-            home
+            {/* <LastNews /> */}
+            {/* <AnimeOnTop />
+            <RecommendedProfiles />
+            <MyProjectsList /> */}
         </main>
     );
 };
