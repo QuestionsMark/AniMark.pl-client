@@ -1,0 +1,150 @@
+.comment {}
+
+.small-comment {
+
+    &__list {
+        width: 100%;
+        max-height: calc(85vh - 40px - 18px);
+        margin-bottom: 10px;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+    }
+
+    &__item {
+        position: relative;
+        display: flex;
+        padding: 6px;
+        background-color: rgba(0,0,0,0.5);
+        
+        &:nth-of-type(2n) {
+            background-color: rgba(0,0,0,0.7);
+        }
+    }
+
+    &__img-wrapper {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 6px;
+        overflow: hidden;
+    }
+
+    &__comment-content {
+        flex-grow: 1;
+        overflow: hidden;
+    }
+    
+    &__comment-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2px;
+    }
+
+    &__nick {
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+        color: $text-color2;
+    }
+
+    &__date {
+        font-size: 11px;
+    }
+
+    &__text {
+        font-size: 13px;
+        user-select: text;
+    }
+
+    &__like {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        padding: 3px 7px;
+        border: 1px solid darken($main-color, 20%);
+        border-radius: 10px;
+        margin: 0 0 10px auto;
+        cursor: pointer;
+        transition: $transition-time;
+
+        &:hover {
+            color: $text-color2;
+        }
+
+        &-icon {
+            margin-right: 3px;
+            font-size: 11px;
+
+            &.active {
+                color: $main-color;
+            }
+        }
+
+        &-amount {
+            font-size: 11px;
+            font-weight: bold;
+        }
+    }
+
+    &__admin-option {
+        left: 10px;
+        bottom: 6px;
+    }
+
+    &__add-comment {
+        flex-shrink: 0;
+        border-top: 1px solid $main-color;
+    }
+
+    &__add-comment-content {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: rgba(0,0,0,0.6);
+        margin-bottom: 6px;
+    }
+
+    &__textarea {
+        flex-grow: 1;
+        height: 50px;
+        padding: 10px;
+        border: none;
+        border-bottom: 2px solid darken($main-color, 10%);
+
+        &:focus {
+            border: none;
+            border-bottom: 2px solid $main-color;
+        }
+    }
+
+    &__send-icon {
+        width: 20px;
+        height: 18px;
+        padding: 15px;
+        border-bottom: 2px solid $main-color;
+        color: darken($special-color, 10%);
+        cursor: pointer;
+        transition: $transition-time;
+
+        &:hover {
+            color: $special-color;
+        }
+    }
+
+    &__validation-text {
+        position: absolute;
+        right: 14px;
+        bottom: 0;
+        transform: translate(0, 50%);
+        padding: 0 4px;
+        background-color: rgba(0,0,0,0.9);
+        flex-basis: 100%;
+        font-size: 12px;
+    }
+}

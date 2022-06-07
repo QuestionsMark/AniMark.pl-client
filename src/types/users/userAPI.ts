@@ -2,6 +2,12 @@ import { AchievementAPI } from "../achievements";
 import { AnimeAPI } from "../anime";
 import { TypeAPI } from "../types";
 
+export enum RoleEnum {
+    User,
+    Moderator,
+    Admin,
+}
+
 export interface Points {
     watchedAnime: number;
     comments: number;

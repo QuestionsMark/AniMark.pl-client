@@ -8,6 +8,7 @@ import { App } from './components/App';
 import './styles/index.scss';
 import { UserProvider } from './contexts/userContext';
 import { PopupProvider } from './contexts/popupContext';
+import { SocketProvider } from './contexts/socketContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -16,9 +17,11 @@ root.render(
   <React.StrictMode>
     <UserProvider>
       <PopupProvider>
-        <Router>
-          <App />
-        </Router>
+        <SocketProvider>
+          <Router>
+            <App />
+          </Router>
+        </SocketProvider>
       </PopupProvider>
     </UserProvider>
   </React.StrictMode>

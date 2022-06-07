@@ -1,10 +1,14 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-export const useScrollUp = (page?: Number) => {
+export const useScrollUp = (condition?: any) => {
 
     const location = useLocation();
     const html = useRef(document.querySelector('html'));
+
+    const [flag, setFlag] = useState(false);
+
+    const scrollUp = () => setFlag(state => !state);
 
     useEffect(() => {
         if (!html.current) return;
@@ -12,6 +16,7 @@ export const useScrollUp = (page?: Number) => {
             behavior: 'smooth',
             top: 0,
         });
-    }, [page, location]);
+    }, [flag, condition, location]);
 
+    return { scrollUp };
 };

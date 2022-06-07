@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useSocket } from "../contexts/socketContext";
 import { useAuthorization } from "../hooks/useAuthorization";
 import { useScrollUp } from "../hooks/useScrollUp";
 import { Footer } from "./Footer";
@@ -9,8 +11,28 @@ import { ResponsePopup } from "./popups/ResponsePopup";
 
 export const App = () => {
 
+    const { socket } = useSocket();
+
     useAuthorization();
     useScrollUp();
+
+    useEffect(() => {
+        if (socket === null) return;
+        socket.on('user-connected', async (message: string) => {
+            // await getWhatsTheMelody();
+            console.log(message);
+
+        });
+        return () => { socket.off('user-connected') };
+    }, [socket]);
+
+    useEffect(() => {
+        if (socket === null) return;
+        socket.on('socket-error', (response) => {
+            console.log(response);
+        });
+        return () => { socket.off('socket-error') };
+    }, [socket]);
 
     return (
         <div className="app">

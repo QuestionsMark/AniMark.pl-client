@@ -1,11 +1,13 @@
 import { Route, Routes } from "react-router-dom";
+import { RightSideProvider } from "../../contexts/rightSideContext";
 
-import { LeftSide } from "./LeftSide";
-import { RightSide } from "./RightSide";
+import { LeftSide } from "../asides/leftSide/LeftSide";
+import { RightSide } from "../asides/rightSide/RightSide";
 import { Home } from "../views/home/Home";
 import { Curtain } from "./Curtain";
 
 export const Main = () => {
+
     return (
         <div className="main">
             <Curtain />
@@ -34,7 +36,9 @@ export const Main = () => {
                 <Route path="/privacy-policy" element={<Home />} />
                 <Route path="*" element={<Home />} />
             </Routes>
-            <RightSide />
+            <RightSideProvider>
+                <RightSide />
+            </RightSideProvider>
         </div>
     );
 };

@@ -1,0 +1,12 @@
+.loading {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__img-wrapper {
+        width: 100px;
+        height: 100px;
+    }
+}

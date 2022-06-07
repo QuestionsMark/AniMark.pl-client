@@ -1,5 +1,17 @@
 .btn {
+    padding: 6px 8px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    line-height: 1.75;
+    font-size: 0.875rem;
+    letter-spacing: 0.02857em;
+    cursor: pointer;
 
+    &:focus {
+        outline: auto;
+        outline-color: $main-color;
+    }
 }
 
 #btn {

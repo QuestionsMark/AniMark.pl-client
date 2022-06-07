@@ -6,7 +6,7 @@ interface LoginPopup {
     message: string;
 }
 
-interface ResponsePopup {
+export interface ResponsePopup {
     open: boolean;
     status: boolean;
     message: string;

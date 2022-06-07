@@ -27,18 +27,25 @@
     }
 
     &__submit {
-        padding: 6px 8px;
-        border: none;
-        border-radius: 6px;
+        @extend .btn;
+    }
+
+    &__textarea {
+        border: 2px solid darken($main-color, 10%);
+        background-color: rgba(10, 10, 10, 0.9);
+        color: $text-color2;
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: bold;
         outline: none;
-        line-height: 1.75;
-        font-size: 0.875rem;
-        letter-spacing: 0.02857em;
-        cursor: pointer;
+        resize: none;
+        transition: $transition-time;
+
+        &::placeholder {
+            color: #808080;
+        }
 
         &:focus {
-            outline: auto;
-            outline-color: $main-color;
+            border: 2px solid $main-color;
         }
     }
 }
@@ -54,4 +61,16 @@
         color: $main-color;
     }
     margin-bottom: 20px;
+}
+
+#radio {
+    display: flex;
+    margin: 0;
+    & > span.MuiFormControlLabel-label {
+        font-size: 14px;
+        color: $text-color;
+    }
+    & > span.css-vqmohf-MuiButtonBase-root-MuiRadio-root {
+        color: $main-color;
+    }
 }

@@ -27,3 +27,12 @@ $transition-time: 0.3s;
     top: $top;
     transform: translate($translateX, $translateY);
 }
+
+@mixin line-limit($limit) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $limit;
+    line-clamp: $limit;
+    -webkit-box-orient: vertical;
+}
