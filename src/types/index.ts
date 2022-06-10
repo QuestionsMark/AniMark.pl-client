@@ -7,6 +7,7 @@ export * from "./types";
 export * from "./users";
 export * from "./whatsTheMelody";
 export * from "./common";
+export * from "./projects";
 
 export * from "./response";
 export * from "./authorizationAPI";

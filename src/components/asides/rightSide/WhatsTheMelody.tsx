@@ -1,6 +1,5 @@
-import { usePopup } from "../../../contexts/popupContext";
+import { useSocket } from "../../../contexts/socketContext";
 import { useUser } from "../../../contexts/userContext";
-import { fetchTool } from "../../../utils/fetchHelper";
 import { WhatsTheMelodyQuestion } from "./WhatsTheMelodyQuestion";
 import { WhatsTheMelodyResults } from "./WhatsTheMelodyResults";
 
@@ -11,13 +10,12 @@ interface Props {
 
 export const WhatsTheMelody = ({ isChecked, result }: Props) => {
 
-    const { user } = useUser();
-    const { setResponsePopup } = usePopup();
+    const { user, token } = useUser();
+    const { socket } = useSocket();
 
     const handleRollWhatsTheMelody = async () => {
-        const response = await fetchTool('whats-the-melody', 'POST');
-        if (!response.status) return setResponsePopup({ message: response.message, open: true, status: response.status });
-        // socket.emit('whats-the-melody-roll');
+        if (!socket) return;
+        socket.emit('whats-the-melody__set-new', { token });
     };
 
     return (

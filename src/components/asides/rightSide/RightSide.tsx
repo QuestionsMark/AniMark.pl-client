@@ -20,6 +20,8 @@ export const RightSide = () => {
     const { user } = useUser();
     const { socket } = useSocket();
     const { recommendedAnime, whatsTheMelodyQuestion, whatsTheMelodyResults, setComments, setRecommendedAnime, setWhatsTheMelodyQuestion, setWhatsTheMelodyResults } = useRightSide();
+    // console.log({ recommendedAnime, whatsTheMelodyQuestion, whatsTheMelodyResults });
+
 
     const { isChecked, result } = useChecked(
         () => didUserVote(whatsTheMelodyQuestion ? whatsTheMelodyQuestion.votes : null, user.userId),
@@ -49,13 +51,13 @@ export const RightSide = () => {
     // Pobranie zagadki muzycznej po zresetowaniu "Jaka to melodia?" i zresetowanie wyników oraz komentarzy
     useEffect(() => {
         if (socket === null) return;
-        socket.on('whats-the-melody__roll', () => {
+        socket.on('whats-the-melody__new', () => {
             setSource(plum);
             getWhatsTheMelodyQuestion();
             setWhatsTheMelodyResults(null);
             setComments(null);
         });
-        return () => { socket.off('whats-the-melody__roll') };
+        return () => { socket.off('whats-the-melody__new') };
     }, [socket]);
 
     // Pobieranie wyników po oddaniu głosu przez kogoś

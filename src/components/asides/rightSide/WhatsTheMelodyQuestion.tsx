@@ -8,7 +8,6 @@ import { ButtonPlus } from "../../common/ButtonPlus";
 import { usePopup } from "../../../contexts/popupContext";
 import { useRightSide } from "../../../contexts/rightSideContext";
 import { useUser } from "../../../contexts/userContext";
-import { fetchTool } from "../../../utils/fetchHelper";
 import { AdminOption } from "../../common/AdminOption";
 import { faRefresh } from "@fortawesome/free-solid-svg-icons";
 import { useSocket } from "../../../contexts/socketContext";
@@ -31,12 +30,6 @@ export const WhatsTheMelodyQuestion = ({ handleRollWhatsTheMelody }: Props) => {
         if (vote) {
             setVote('');
             if (user.logged) {
-                // const response = await fetchTool('whats-the-melody/vote', 'POST', {
-                //     wtmId: _id,
-                //     userId: user.userId,
-                //     vote,
-                // });
-                // if (!response.status) return setResponsePopup({ message: response.message, open: true, status: response.status });
                 if (!socket) return;
                 socket.emit('whats-the-melody__new-vote', { token, wtmId: _id, vote } as NewVote);
             } else {

@@ -15,20 +15,55 @@ export interface AnimeImage {
     fromAnime: string;
 }
 
-export interface ImagesObject {
+export interface AnimeImagesObject {
     background: AnimeImage;
     baner: AnimeImage;
     mini: AnimeImage;
     galeryImages: AnimeImage[];
 }
 
+export interface AnimeDescriptionAuthor {
+    _id: string;
+    username: string;
+}
+
 export interface AnimeDescription {
-    author: UserAPI;
+    author: string;
+    description: string;
+    createdAt: Date;
+}
+export interface AnimeDescriptionPopulate {
+    author: AnimeDescriptionAuthor;
     description: string;
     createdAt: Date;
 }
 
+export interface AnimeSeason {
+    _id: string;
+    title: string;
+    image: AnimeImage;
+}
+
 export interface AnimeAPI {
+    _id: string;
+    kind: Kind;
+    title: string;
+    watchLink: string;
+    info: AnimeInfo;
+    types: string[];
+    rates: Rate[];
+    averageRate: number;
+    likes: string[];
+    images: AnimeImagesObject;
+    soundtracks: Soundtrack[];
+    description: AnimeDescription;
+    seasons: string[];
+    comments: Comment[];
+    createdAt: Date;
+}
+
+// Dla pobierania pojedynczego anime
+export interface AnimePopulateAPI {
     _id: string;
     kind: Kind;
     title: string;
@@ -38,10 +73,15 @@ export interface AnimeAPI {
     rates: Rate[];
     averageRate: number;
     likes: UserAPI[];
-    images: ImagesObject;
+    images: AnimeImagesObject;
     soundtracks: Soundtrack[];
-    description: AnimeDescription;
+    description: AnimeDescriptionPopulate;
     seasons: AnimeAPI[];
     comments: Comment[];
     createdAt: Date;
+}
+
+export interface AnimeForm {
+    _id: string;
+    title: string;
 }

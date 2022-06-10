@@ -3,7 +3,7 @@
     border: none;
     border-radius: 6px;
     outline: none;
-    line-height: 1.75;
+    line-height: 1.65;
     font-size: 0.875rem;
     letter-spacing: 0.02857em;
     cursor: pointer;
@@ -15,10 +15,26 @@
 }
 
 #btn {
+    display: block;
     background-color: $main-color;
     color: $text-color2;
     font-weight: bold;
     text-transform: capitalize;
+
+    &:disabled {
+        color: rgba(0,0,0,0.4);
+        background-color: darken($main-color, 10%);
+    }
+}
+
+#btn-center {
+    display: block;
+    width: fit-content;
+    background-color: $main-color;
+    color: $text-color2;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin: 0 auto;
 
     &:disabled {
         color: rgba(0,0,0,0.4);
