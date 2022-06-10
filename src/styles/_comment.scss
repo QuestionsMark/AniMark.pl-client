@@ -129,6 +129,7 @@
         padding: 15px;
         border-bottom: 2px solid $main-color;
         color: darken($special-color, 10%);
+        background-color: rgba(10,10,10,0.9);
         cursor: pointer;
         transition: $transition-time;
 

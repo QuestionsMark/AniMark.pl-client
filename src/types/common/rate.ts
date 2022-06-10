@@ -1,6 +1,6 @@
 import { UserAPI } from "../users";
 
 export interface Rate {
-    user: UserAPI;
+    user: string;
     rate: number;
 }

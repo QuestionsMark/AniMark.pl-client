@@ -1,25 +1,23 @@
 import { Link } from "react-router-dom";
-import { NewsAPICondensed } from "../../../types";
-import { ButtonPlus } from "../../common/ButtonPlus";
+import { useHome } from "../../../contexts/homeContext";
 import { NewsElement } from "../news/NewsElement";
 
-interface Props {
-    lastNews: NewsAPICondensed[];
-}
+export const LastNews = () => {
 
-export const LastNews = ({ lastNews }: Props) => {
+    const { lastNews } = useHome();
 
     const newsList = () => {
+        if (!lastNews) return;
         return lastNews.map(n => <NewsElement key={n._id} news={n} />);
     };
 
     return (
         <section className="main__section last-news">
-            <h2 className="last-news__title">Wiadomości ze Świata Anime!</h2>
-            <div className="last-news__container">
+            <h2 className="main__title">Wiadomości ze Świata Anime!</h2>
+            <div className="last-news__articles">
                 {newsList()}
             </div>
-            <Link to="/news"><ButtonPlus className="last-news__btn">Zobacz wcześniejsze</ButtonPlus></Link>
+            <Link to="/news" id="btn-center" className="btn last-news__link">Zobacz wcześniejsze</Link>
         </section>
     );
 };

@@ -1,0 +1,19 @@
+.types {
+    &__type-brick {
+        padding: 6px 10px;
+        border-radius: 10px;
+        margin: 0 5px 5px 0;
+        color: $text-color;
+        background-color: rgba(30,30,30,0.9);
+        font-size: 14px;
+        text-decoration: none;
+
+        &.favorite {
+            color: $special-color;
+        }
+
+        &:hover {
+            color: $main-color;
+        }
+    }
+}

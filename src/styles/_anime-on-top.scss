@@ -1,0 +1,219 @@
+.anime-on-top {
+    position: relative;
+
+    &__admin-option {
+        right: 10px;
+        top: 10px;
+    }
+
+    &__winner {
+        padding: 20px;
+    }
+
+    &__anime-content {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        
+        @media (min-width: $md-mobile) {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+
+        &:nth-last-child(1) {
+            margin-bottom: 0;
+        }
+    }
+
+    &__left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        @media (min-width: $md-mobile) {
+            margin-right: 20px;
+        }
+    }
+
+    &__img-wrapper {
+        width: 100%;
+        aspect-ratio: 1/1;
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        
+        @media (min-width: $md-mobile) {
+            width: 120px;
+        }
+    }
+
+    &__statistics {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 10px 0;
+
+        &-icon {
+            margin-right: 3px;
+        }
+    }
+
+    &__value {
+        font-size: 14px;
+        font-weight: bold;
+
+        &:nth-of-type(1) {
+            margin-right: 15px;
+        }
+    }
+
+    &__right {
+        flex-grow: 1;
+    }
+
+    &__anime-title {
+        display: block;
+        width: fit-content;
+        margin-bottom: 10px;
+        font-size: 20px;
+        color: $text-color2;
+    }
+
+    &__types {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 4px;
+    }
+
+    &__description {
+        &-text {
+            @include line-limit(20);
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        &-author {
+            display: flex;
+            justify-content: flex-end;
+            font-weight: bold;
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        @media (min-width: $md-mobile) {
+            flex-direction: row;
+        }
+    }
+
+    &__soundtracks, &__seasons {
+        flex-basis: calc(50% - 10px);
+        padding: 10px 10px 0 10px;
+        border-radius: 10px;
+        background-color: rgba(25,25,25,0.9);
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__subtitle {
+        margin-bottom: 10px;
+
+        &--center {
+            text-align: center;
+        }
+    }
+
+    &__soundtrack {
+        padding: 10px;
+        border: 1px solid $main-color;
+        border-radius: 10px;
+        margin: 0 10px 10px 0;
+        background-color: #222;
+        cursor: pointer;
+        transition: $transition-time;
+
+        &:hover {
+            background-color: black;
+        }
+
+        &-icon {
+            font-size: 20px;
+        }
+
+        &-info {
+            margin-bottom: 10px;
+        }
+
+        &-stat-icon {
+            margin-right: 4px;
+            color: $main-color;
+        }
+    }
+
+    &__results-title {
+        margin-bottom: 20px;
+    }
+
+    &__results {
+        margin-bottom: 20px;
+    }
+
+    &__result-title {
+        position: relative;
+    }
+
+    &__percent {
+        position: relative;
+        margin-right: 10px;
+    }
+
+    &__results-container {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+
+    &__result {
+        @extend .recommended-anime__result;
+        padding: 10px 20px;
+        border-right: none;
+        border-left: 1px solid $main-color;
+        // box-shadow: -5px 5px 10px 3px black;
+
+        &-percent-curtain {
+            @extend .recommended-anime__result-percent-curtain;
+        }
+    }
+
+    &__all-votes {
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .MuiFormLabel-root {
+        padding: 0 5px;
+        color: $main-color;
+        background-color: rgba(0,0,0,0.9);
+    }
+
+    .MuiFormLabel-root.Mui-focused {
+        color: $main-color;
+    }
+
+    .MuiInputBase-input {
+        color: $text-color2;
+    }
+
+    .MuiSelect-icon {
+        color: $main-color;
+    }
+}

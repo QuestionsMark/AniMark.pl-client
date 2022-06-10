@@ -3,14 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { useRightSide } from "../../../contexts/rightSideContext";
 import { useHiddenAudio } from "../../../hooks/useHiddenAudio";
-import { RecommendedAnime as RecommendedAnimeAPI } from "../../../types";
+import { RecommendedAnimeAPI } from "../../../types";
 import { getKindIcon } from "../../../utils/getKindIcon";
 import { textHelper } from "../../../utils/textHelper";
 import { HiddenAudio } from "../../common/HiddenAudio";
 import { Image } from "../../common/Image";
 
 export const RecommendedAnime = () => {
-
     const { recommendedAnime } = useRightSide();
     const { _id, averageRate, description, image, kind, likes, soundtrackSrc, title, types } = recommendedAnime as RecommendedAnimeAPI;
 

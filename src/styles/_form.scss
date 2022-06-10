@@ -74,3 +74,19 @@
         color: $main-color;
     }
 }
+
+#select {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+    color: $text-color;
+    padding: 10px;
+    border-bottom: 2px solid $main-color;
+}
+div.css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
+    color: $main-color;
+}
+div.css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: $main-color;
+}

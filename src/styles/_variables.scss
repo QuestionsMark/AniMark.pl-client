@@ -36,3 +36,14 @@ $transition-time: 0.3s;
     line-clamp: $limit;
     -webkit-box-orient: vertical;
 }
+
+@mixin main-style($padding) {
+    padding: $padding;
+    border-bottom: 2px solid $main-color;
+    background-color: rgba(0,0,0,0.4);
+}
+
+@mixin image {
+    background-position: center;
+    background-size: cover;
+}

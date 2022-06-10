@@ -6,9 +6,10 @@ interface Props {
     className?: string;
     disabled?: boolean;
     handler?: () => void;
+    center?: boolean;
 }
 
-export const ButtonPlus = ({ children, className, disabled, handler }: Props) => {
+export const ButtonPlus = ({ center, children, className, disabled, handler }: Props) => {
 
     const handleClick = (e: SyntheticEvent) => {
         e.preventDefault();
@@ -18,7 +19,7 @@ export const ButtonPlus = ({ children, className, disabled, handler }: Props) =>
     };
 
     return (
-        <Button id="btn" className={`${className ? className : ''}`} disabled={disabled} onClick={handleClick}>
+        <Button id={center ? 'btn-center' : 'btn'} className={`${className ? className : ''}`} disabled={disabled} onClick={handleClick}>
             {children}
         </Button>
     );

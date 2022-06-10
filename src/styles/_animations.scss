@@ -132,3 +132,9 @@
         transform: rotate(360deg);
     }
 }
+
+@keyframes grow {
+    100% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}

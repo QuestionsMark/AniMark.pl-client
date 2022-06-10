@@ -1,5 +1,4 @@
 import { Comment } from "../common";
-import { UserAPI } from "../users";
 
 export interface OtherLink {
     link: string;
@@ -18,18 +17,18 @@ export interface NewsAPI {
     }[];
     otherLinks: OtherLink[];
     views: number;
-    viewers: UserAPI[];
+    viewers: string[];
     comments: Comment[];
     createdAt: Date;
 }
 
-export interface NewsAPICondensed {
+export interface NewsCondensedAPI {
     _id: string;
     title: string;
     description: string;
     imageSrc: string;
     views: number;
     viewers: string[];
-    comments: Number;
+    comments: number;
     createdAt: Date;
 }
