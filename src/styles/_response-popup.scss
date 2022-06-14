@@ -12,11 +12,11 @@
     overflow: hidden;
     
     &--ok {
-        color: rgb(99, 185, 99);
+        color: $green-color;
     }
     
     &--not-ok {
-        color: rgb(230, 101, 101);
+        color: $red-color;
     }
 
     &__icon {

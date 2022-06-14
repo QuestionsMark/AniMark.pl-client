@@ -2,7 +2,7 @@ import { Comment, Rate, Soundtrack } from "../common";
 import { TypeAPI } from "../types";
 import { UserAPI } from "../users";
 
-export type Kind = "movie" | "series";
+export type Kind = "movie" | "series" | "all";
 
 export interface AnimeInfo {
     scenario: string;
@@ -84,4 +84,21 @@ export interface AnimePopulateAPI {
 export interface AnimeForm {
     _id: string;
     title: string;
+}
+
+export interface AnimeFilters {
+    maxRate: number | null;
+    minRate: number | null;
+    unwantedTypes: string[];
+    wantedTypes: string[];
+    kind: Kind | 'all';
+}
+
+export interface AnimeCondensedAPI {
+    _id: string;
+    kind: Kind;
+    title: string;
+    types: TypeAPI[];
+    averageRate: number;
+    image: AnimeImage;
 }

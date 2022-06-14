@@ -1,4 +1,4 @@
-import { Comment } from "../common";
+import { Comment, CommentPopulate } from "../common";
 
 export interface OtherLink {
     link: string;
@@ -18,7 +18,7 @@ export interface NewsAPI {
     otherLinks: OtherLink[];
     views: number;
     viewers: string[];
-    comments: Comment[];
+    comments: CommentPopulate[];
     createdAt: Date;
 }
 

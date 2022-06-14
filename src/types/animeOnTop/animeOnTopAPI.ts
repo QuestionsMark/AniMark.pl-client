@@ -10,7 +10,7 @@ export interface AOTVote {
 export interface AnimeOnTopAPI {
     _id: string;
     votes: AOTVote[];
-    winner: string;
+    winner: string | null;
     createdAt: Date;
 }
 

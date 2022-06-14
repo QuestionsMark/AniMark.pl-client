@@ -1,0 +1,199 @@
+.filter {
+
+    &__title {
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+
+    &__others {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 20px;
+        gap: 20px;
+
+        @media (min-width: $md-mobile) {
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        &--part {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 250px;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgba(25,25,25,0.7);
+            
+            @media (min-width: $md-mobile) {
+                flex-basis: calc(50% - 14px);
+                max-width: none;
+            }
+
+            @media (min-width: $lg-mobile) {
+                flex-basis: calc(33.33333% - 14px);
+                max-width: none;
+            }
+        }
+    }
+    
+    &__subtitle {
+        display: flex;
+        margin-bottom: 8px;
+        color: $text-color2;
+        font-size: 16px;
+
+        &--center {
+            justify-content: center;
+        }
+    }
+
+    &__inp {
+        width: calc(50% - 5px);
+        margin-bottom: 0;
+    }
+
+    &__rate {
+        flex-grow: 1;
+        display: flex;
+        gap: 10px;
+    }
+
+    &__kind {
+
+       div.MuiFormControl-root {
+        margin-bottom: 0;
+       }
+
+       label.MuiFormLabel-root {
+        padding: 0 4px;
+        background-color: rgba(0,0,0,0.8);
+       }
+    }
+
+    &__types {
+        display: flex;
+        flex-wrap: wrap;
+
+        &-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        &-title {
+            margin-bottom: 0;
+        }
+
+        &-legend {
+            display: flex;
+            margin-left: 20px;
+            
+            @media (min-width: $sm-mobile) {
+                margin-left: 50px;
+                
+            }
+        
+            &-item {
+                display: flex;
+                align-items: center;
+                margin-right: 14px;
+                color: $text-color;
+                font-size: 14px;
+
+                &:nth-last-of-type(1) {
+                    margin-right: 0;
+                }
+            }
+    
+            &-icon {
+                &.css-i4bv87-MuiSvgIcon-root {
+                    margin-right: 2px;
+                    font-size: 20px;
+                }
+            }
+
+            &-text {
+                width: fit-content;
+            }
+        }
+
+        &-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        &-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-basis: calc(50% - 10px);
+            border-radius: 4px;
+            background-color: rgba(25,25,25,0.9);
+            
+            @media (min-width: 450px) {
+                flex-basis: calc(33.33333% - 8px);
+            }
+
+            @media (min-width: 600px) {
+                flex-basis: calc(25% - 8px);
+            }
+
+            @media (min-width: $lg-mobile) {
+                flex-basis: calc(20% - 8px);
+            }
+
+            @media (min-width: $sm-pc) {
+                flex-basis: calc(16.66666% - 9px);
+            }
+
+            @media (min-width: 1200px) {
+                flex-basis: calc(20% - 9px);
+            }
+
+            @media (min-width: $md-pc) {
+                flex-basis: calc(16.66666% - 9px);
+            }
+
+            &-name {
+                font-size: 13px;
+            }
+
+            &-icon {
+                &.css-i4bv87-MuiSvgIcon-root {
+                    margin-left: 2px;
+                    font-size: 20px;
+                    cursor: pointer;
+                }
+
+                &--green {
+                    &.css-i4bv87-MuiSvgIcon-root {
+                        color: $green-color;
+                    }
+                }
+
+                &--red {
+                    &.css-i4bv87-MuiSvgIcon-root {
+                        color: $red-color;
+                    }
+                }
+            }
+        }
+    }
+
+    &__kind {
+        .MuiFormControl-root {
+            width: 100%;
+        }
+
+        label.MuiFormLabel-root {
+            padding: 0 4px;
+            background-color: rgba(25,25,25,0.8);
+            color: $main-color;
+        }
+    }
+}

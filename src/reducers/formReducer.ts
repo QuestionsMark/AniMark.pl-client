@@ -1,3 +1,6 @@
+import { FiltersEntity } from "../components/views/anime/Anime";
+import { CheckboxState } from "../components/views/anime/TypesFilter";
+import { Kind, Sort } from "../types";
 import { LoginFormEntity } from "../validation/login";
 import { RegistrationFormEntity } from "../validation/registraction";
 
@@ -7,12 +10,21 @@ interface FormState {
     email?: string;
     username?: string;
     rulesAcceptation?: boolean;
+    kind?: Kind;
+    maxRate?: string;
+    minRate?: string;
+    wantedTypes?: string[];
+    unwantedTypes?: string[];
+    sort?: Sort;
+
 }
 
 interface FormSet {
     type: 'FORM_SET';
-    payload: LoginFormEntity | RegistrationFormEntity;
+    payload: LoginFormEntity | RegistrationFormEntity | FiltersEntity;
 }
+
+// Login and registraction actions:
 
 interface LoginChange {
     type: 'LOGIN_CHANGE';
@@ -39,7 +51,34 @@ interface RulesAcceptationChange {
     payload: boolean;
 }
 
-export type FormAction = FormSet | LoginChange | PasswordChange | EmailChange | UsernameChange | RulesAcceptationChange;
+// Filter actions:
+
+interface KindChange {
+    type: 'KIND_CHANGE',
+    payload: Kind;
+}
+
+interface MaxRateChange {
+    type: 'MAX_RATE_CHANGE',
+    payload: string;
+}
+interface MinRateChange {
+    type: 'MIN_RATE_CHANGE',
+    payload: string;
+}
+interface SortChange {
+    type: 'SORT_CHANGE',
+    payload: Sort;
+}
+interface TypesFilterChange {
+    type: 'TYPES_FILTER_CHANGE',
+    payload: {
+        checkboxState: CheckboxState;
+        id: string;
+    };
+}
+
+export type FormAction = FormSet | LoginChange | PasswordChange | EmailChange | UsernameChange | RulesAcceptationChange | KindChange | MaxRateChange | MinRateChange | SortChange | TypesFilterChange;
 
 
 export const formReducer = (state: FormState, action: FormAction): FormState => {
@@ -81,6 +120,63 @@ export const formReducer = (state: FormState, action: FormAction): FormState => 
                 ...state,
                 rulesAcceptation: action.payload,
             };
+        }
+
+        // Filter reducers:
+
+        case 'KIND_CHANGE': {
+            return {
+                ...state,
+                kind: action.payload,
+            };
+        }
+
+        case 'MAX_RATE_CHANGE': {
+            return {
+                ...state,
+                maxRate: action.payload,
+            };
+        }
+
+        case 'MIN_RATE_CHANGE': {
+            return {
+                ...state,
+                minRate: action.payload,
+            };
+        }
+
+        case 'SORT_CHANGE': {
+            return {
+                ...state,
+                sort: action.payload,
+            };
+        }
+
+        case 'TYPES_FILTER_CHANGE': {
+            const { checkboxState, id } = action.payload;
+            switch (checkboxState) {
+                case 'WE':
+                    return {
+                        ...state,
+                        wantedTypes: [...(state.wantedTypes as string[]), id],
+                    };
+
+                case 'W':
+                    return {
+                        ...state,
+                        wantedTypes: state.wantedTypes?.filter(t => t !== id),
+                        unwantedTypes: [...(state.unwantedTypes as string[]), id],
+                    };
+
+                case 'DW':
+                    return {
+                        ...state,
+                        unwantedTypes: state.unwantedTypes?.filter(t => t !== id),
+                    };
+
+                default:
+                    return state;
+            }
         }
 
         default:

@@ -1,4 +1,4 @@
-import { Comment, CommentPopulate } from "../common";
+import { Comment, CommentPopulate, Soundtrack } from "../common";
 import { UserAPI } from "../users";
 
 export interface WTMVotes {
@@ -28,4 +28,10 @@ export interface WhatsTheMelodyCondensedAPI {
     votes: WTMVotes[];
     comments: CommentPopulate[];
     createdAt: Date;
+}
+
+export interface WhatsTheMelodyCandidateAPI {
+    _id: string;
+    soundtracks: Soundtrack[];
+    title: string;
 }
