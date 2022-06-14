@@ -9,7 +9,7 @@ import { TypeAPI } from "./types";
 import { UserAPI } from "./users";
 import { WhatsTheMelodyAPI, WhatsTheMelodyQuestion, WhatsTheMelodyResults } from "./whatsTheMelody";
 
-export type AnyData = AchievementAPI[] | AnimeAPI[] | AnimeOnTopAPI[] | NewsAPI[] | SwordArtOnlineResultAPI[] | TypeAPI[] | UserAPI[] | WhatsTheMelodyAPI[] | OnlineUser[] | RecommendedAnimeAPI | AchievementAPI | AnimeAPI | AnimeOnTopAPI | NewsAPI | NewsAPI | SwordArtOnlineResultAPI | TypeAPI | UserAPI | WhatsTheMelodyAPI | OnlineUser | AuthorizationAPI | Token | Comment | Comment[] | WhatsTheMelodyQuestion | WhatsTheMelodyResults | CommentPopulate | CommentPopulate[] | AnimeOnTopWinnerAPI | AnimeOnTopPopulateAPI | NewsCondensedAPI | NewsCondensedAPI[] | AnimeForm | AnimeForm[];
+export type AnyData = AchievementAPI[] | AnimeAPI[] | AnimeOnTopAPI[] | NewsAPI[] | SwordArtOnlineResultAPI[] | TypeAPI[] | UserAPI[] | WhatsTheMelodyAPI[] | OnlineUser[] | RecommendedAnimeAPI | AchievementAPI | AnimeAPI | AnimeOnTopAPI | NewsAPI | NewsAPI | SwordArtOnlineResultAPI | TypeAPI | UserAPI | WhatsTheMelodyAPI | OnlineUser | AuthorizationAPI | Token | Comment | Comment[] | WhatsTheMelodyQuestion | WhatsTheMelodyResults | CommentPopulate | CommentPopulate[] | AnimeOnTopWinnerAPI | AnimeOnTopPopulateAPI | NewsCondensedAPI | NewsCondensedAPI[] | AnimeForm | AnimeForm[] | any;
 
 export type AnyArrayData = AchievementAPI[] | AnimeAPI[] | AnimeOnTopAPI[] | NewsAPI[] | SwordArtOnlineResultAPI[] | TypeAPI[] | UserAPI[] | WhatsTheMelodyAPI[] | OnlineUser[] | Comment[] | CommentPopulate[];
 

@@ -1,16 +1,19 @@
 import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
+import { UserDataAPI } from '../types';
 
 interface User {
     logged: boolean;
     rank: number;
     userId: string | null;
+    data: UserDataAPI | null;
 }
 
 const defaultUser: User = {
     logged: false,
     rank: 0,
     userId: null,
+    data: null,
 };
 
 interface UserContextValue {

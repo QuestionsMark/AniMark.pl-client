@@ -48,6 +48,27 @@
             border: 2px solid $main-color;
         }
     }
+
+    &__search {
+        display: block;
+        outline: none;
+        width: 100%;
+        max-width: 300px;
+        padding: 12px;
+        margin: 0 auto;
+        border: none;
+        border-left: 2px solid $main-color;
+        border-right: 2px solid $main-color;
+        border-radius: 8px;
+        background-color: rgba(10, 10, 10, 0.3);
+        color: $text-color2;
+        font-size: 14px;
+        font-weight: bold;
+
+        &::placeholder {
+            color: #808080;
+        }
+    }
 }
 
 #checkbox {

@@ -1,10 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-
-export interface Page {
-    prev: number | null;
-    current: number;
-    next: number | null;
-}
+import { Page } from "../../hooks/useSearch";
 
 export const defaultPage: Page = {
     current: 1,

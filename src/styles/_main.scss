@@ -98,7 +98,7 @@ body {
         margin-bottom: 20px;
         background-color: rgba(0,0,0,0.4);
 
-        &:nth-last-of-type(1) {
+        &:nth-last-child(1) {
             margin-bottom: 0;
         }
     }
@@ -160,11 +160,11 @@ body {
 }
 
 .red {
-    color: red;
+    color: $red-color;
 }
 
 .green {
-    color: green;
+    color: $green-color;
 }
 
 .special {

@@ -67,3 +67,9 @@ export interface RecommendedProfileAPI {
     avatar: string;
     background: string;
 }
+
+export interface UserDataAPI {
+    userAnimeData: UserAnimeData;
+    favoriteAnime: FavoriteAnime[];
+    favoriteType: string;
+}

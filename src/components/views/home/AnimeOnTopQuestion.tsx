@@ -13,7 +13,7 @@ export const AnimeOnTopQuestion = () => {
     const componentRef = useRef<HTMLDivElement>(null);
 
     const { user } = useUser();
-    const { setResponsePopup } = usePopup();
+    const { setResponsePopup, setLoginPopup } = usePopup();
     const { animeOnTop, setAnimeOnTop } = useHome();
 
     const [vote, setVote] = useState<string>('');
@@ -22,9 +22,13 @@ export const AnimeOnTopQuestion = () => {
     const handleVote = async () => {
         if (!animeOnTop) return;
         setVote('');
-        const response = await fetchTool('anime-on-top/vote', 'POST', { aotId: animeOnTop._id, userId: user.userId, vote });
-        if (!response.status) return setResponsePopup({ message: response.message, open: true, status: response.status });
-        getData('anime-on-top/actual', setAnimeOnTop, componentRef);
+        if (user.logged) {
+            const response = await fetchTool('anime-on-top/vote', 'POST', { aotId: animeOnTop._id, userId: user.userId, vote });
+            if (!response.status) return setResponsePopup({ message: response.message, open: true, status: response.status });
+            getData('anime-on-top/actual', setAnimeOnTop, componentRef);
+            return;
+        }
+        setLoginPopup({ message: '', open: true, status: false });
     };
 
     const formAnimeList = () => {
