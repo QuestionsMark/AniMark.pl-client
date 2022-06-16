@@ -52,8 +52,8 @@ export const SmallComment = ({ comment }: Props) => {
                     <small className="small-comment__date">{formatDistanceToNow(new Date(createdAt))}</small>
                 </div>
                 <p className="text small-comment__text">{text}</p>
-                <div className="small-comment__like">
-                    <FontAwesomeIcon icon={faHeart} className={`small-comment__like-icon ${isActive()}`} onClick={handleLikeClick} />
+                <div className="small-comment__like" onClick={handleLikeClick}>
+                    <FontAwesomeIcon icon={faHeart} className={`small-comment__like-icon ${isActive()}`} />
                     <p className="small-comment__like-amount">{likes.length}</p>
                 </div>
                 <AdminOption handler={handleCommentDelete} icon={faMinus} className="small-comment__admin-option" />

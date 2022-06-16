@@ -123,7 +123,6 @@ body {
 }
 
 .text {
-    margin: 0 auto;
     font-family: $font-content;
     word-wrap: break-word;
     user-select: text;
@@ -156,7 +155,11 @@ body {
     object-fit: cover;
     object-position: center;
     width: 100%;
-    min-height: 100%;
+    aspect-ratio: 1/1;
+
+    &--natural {
+        aspect-ratio: inherit;
+    }
 }
 
 .red {

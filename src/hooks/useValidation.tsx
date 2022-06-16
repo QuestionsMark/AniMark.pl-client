@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { LoginFormEntity, loginValidation } from "../validation/login";
-import { registartionValidation, RegistrationFormEntity } from "../validation/registraction";
-
-type ValidationType = "LOGIN" | "REGISTRATION";
-
-type FormEntity = LoginFormEntity | RegistrationFormEntity;
+import { FormEntity, LoginFormEntity, NewsFormEntity, RegistrationFormEntity, ValidationType } from "../types";
+import { loginValidation } from "../validation/login";
+import { newsCreateValidation } from "../validation/newsCreateValidation";
+import { registartionValidation } from "../validation/registraction";
 
 export const useValidation = (form: FormEntity, type: ValidationType) => {
 
@@ -13,12 +11,17 @@ export const useValidation = (form: FormEntity, type: ValidationType) => {
     useEffect(() => {
         switch (type) {
             case 'LOGIN': {
-                setErrors(loginValidation(form));
+                setErrors(loginValidation(form as LoginFormEntity));
                 break;
             }
 
             case 'REGISTRATION': {
                 setErrors(registartionValidation(form as RegistrationFormEntity));
+                break;
+            }
+
+            case 'NEWS_CREATE': {
+                setErrors(newsCreateValidation(form as NewsFormEntity));
                 break;
             }
         }

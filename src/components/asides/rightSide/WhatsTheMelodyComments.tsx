@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useRightSide } from "../../../contexts/rightSideContext";
 import { getData } from "../../../utils/getData";
-import { Loading } from "../../common/Loading";
+import { LoadingWithMargin } from "../../common/LoadingWithMargin";
 import { AddSmallComment } from "./AddSmallComment";
 import { SmallComment } from "./SmallComment";
 
@@ -31,7 +31,7 @@ export const WhatsTheMelodyComments = () => {
                         <AddSmallComment />
                     </div>
                 </> :
-                <Loading />}
+                <LoadingWithMargin marginHorizontal={0} marginVertical={100} />}
         </section>
     );
 };

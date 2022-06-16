@@ -17,14 +17,14 @@ export interface SearchResult {
     hasMore: boolean;
     amount: number;
     page: number;
-    // refresh: boolean;
+    refresh: boolean;
     searchPhrase: string;
     handleSearchPhraseChange: (text: string) => void;
     setPage: Dispatch<SetStateAction<number>>;
-    // setRefresh: Dispatch<SetStateAction<boolean>>;
+    setRefresh: Dispatch<SetStateAction<boolean>>;
 }
 
-export const useSearch = (collection: string, limit: number, queries: Queries, dependencies: any[] = []): SearchResult => {
+export const useSearch = (collection: string, limit: number, queries: Queries = {}, dependencies: any[] = []): SearchResult => {
 
     const stringify = () => {
         return {
@@ -39,10 +39,14 @@ export const useSearch = (collection: string, limit: number, queries: Queries, d
 
     const { setResponsePopup } = usePopup();
 
-    // const [refresh, setRefresh] = useState(false);
+    const [refresh, setRefresh] = useState(false);
     const [page, setPage] = useState(1);
     const [searchPhrase, setSearchPhrase] = useState('');
     const [stringifyQueries, setstringifyQueries] = useState(stringify());
+    const [loading, setLoading] = useState(true);
+    const [data, setData] = useState<Data>([]);
+    const [hasMore, setHasMore] = useState(false);
+    const [amount, setAmount] = useState(0);
     const [search, setSearch] = useState('');
     const handleSearchPhraseChange = (text: string) => {
         setSearchPhrase(text);
@@ -52,8 +56,7 @@ export const useSearch = (collection: string, limit: number, queries: Queries, d
     useEffect(() => {
         setData([]);
         setLoading(true);
-    }, [search, stringifyQueries]);
-    // [search, stringifyQueries, refresh]
+    }, [search, stringifyQueries, refresh]);
 
     useEffect(() => {
         if (debounceTimeoutId.current) {
@@ -68,12 +71,6 @@ export const useSearch = (collection: string, limit: number, queries: Queries, d
         }, 500);
         return clearTimeout();
     }, [searchPhrase, ...dependencies]);
-
-    const [loading, setLoading] = useState(true);
-    const [data, setData] = useState<Data>([]);
-    const [hasMore, setHasMore] = useState(false);
-    const [amount, setAmount] = useState(0);
-
 
     useEffect(() => {
         const startTime = new Date().valueOf();
@@ -120,8 +117,7 @@ export const useSearch = (collection: string, limit: number, queries: Queries, d
             cancel();
         }
 
-    }, [search, page, collection, stringifyQueries]);
-    // [search, page, collection, stringifyQueries, refresh]
+    }, [search, page, collection, stringifyQueries, refresh]);
 
-    return { loading, data, hasMore, amount, page, searchPhrase, setPage, handleSearchPhraseChange };
+    return { loading, data, hasMore, amount, page, refresh, searchPhrase, setPage, setRefresh, handleSearchPhraseChange };
 };

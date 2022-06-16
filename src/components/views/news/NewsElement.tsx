@@ -28,7 +28,7 @@ export const NewsElement = ({ news, observer }: Props) => {
     };
 
     return (
-        <article ref={observer ? observer : null} className="news-article">
+        <article ref={observer ? observer : null} className="main__subsection news-article">
             {notificationComponent()}
             <div className="news-article__img-wrapper">
                 <Image alt="Miniatura nowości" src={imageSrc} />

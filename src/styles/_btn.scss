@@ -12,6 +12,32 @@
         outline: auto;
         outline-color: $main-color;
     }
+
+    &-add {
+        width: 20px;
+        height: 20px;
+        padding: 10px;
+        border-radius: 8px;
+        color: $text-color;
+        background-color: rgba(25,25,25,0.9);
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(50,50,50,0.9);
+        }
+    }
+
+    &-close {
+        width: 20px;
+        height: 20px;
+        color: darken($main-color, 15%);
+        cursor: pointer;
+        transition: $transition-time;
+
+        &:hover {
+            color: $main-color;
+        }
+    }
 }
 
 #btn {
