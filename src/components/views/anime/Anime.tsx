@@ -1,5 +1,5 @@
 import { Dispatch, useEffect, useMemo, useReducer, useRef, useState } from "react";
-import { AnimeCondensedAPI, Kind, Sort, TypeAPI } from "../../../types";
+import { AnimeCondensedAPI, FiltersEntity, TypeAPI } from "../../../types";
 
 import { Filter } from "./Filter";
 import { AnimeElement } from "./AnimeElement";
@@ -12,15 +12,6 @@ import { useInfiniteScroll } from "../../../hooks/useInfiniteScroll";
 import { useSearch } from "../../../hooks/useSearch";
 import { ANIME_LIMIT } from "../../../utils/dataLimit";
 import { getData } from "../../../utils/getData";
-
-export interface FiltersEntity {
-    kind: Kind;
-    maxRate: string;
-    minRate: string;
-    sort: Sort;
-    unwantedTypes: string[];
-    wantedTypes: string[];
-}
 
 const defaultFilter: FiltersEntity = {
     kind: 'all',
@@ -44,7 +35,7 @@ export const Anime = () => {
     const { lastDataElementRef } = useInfiniteScroll(amount, hasMore, loading, page, ANIME_LIMIT, setPage);
 
     const animeList = () => {
-        return (data as AnimeCondensedAPI[]).map((a, i) => <AnimeElement key={a._id} anime={a} place={i + 1} refference={(i + 1) % ANIME_LIMIT === 0 ? lastDataElementRef : undefined} />);
+        return (data as AnimeCondensedAPI[]).map((a, i) => <AnimeElement key={a._id} anime={a} place={i + 1} observer={(i + 1) % ANIME_LIMIT === 0 ? lastDataElementRef : undefined} />);
     };
 
     const searchComponent = useMemo(() => <Search handleSearch={handleSearchPhraseChange} value={searchPhrase} className="anime__search" />, [searchPhrase]);
@@ -58,10 +49,10 @@ export const Anime = () => {
     }, []);
 
     return (
-        <main ref={componentRef} className="main__content home">
+        <main ref={componentRef} className="main__content anime">
+            {searchComponent}
             {types ?
                 <>
-                    {searchComponent}
                     {filterComponent}
                     <ResultsCount amount={amount} value="Znalezione anime" className="anime__results-count" />
                     {animeListComponent}

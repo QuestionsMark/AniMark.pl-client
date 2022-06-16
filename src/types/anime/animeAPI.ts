@@ -51,7 +51,7 @@ export interface AnimeAPI {
     watchLink: string;
     info: AnimeInfo;
     types: string[];
-    rates: Rate[];
+    rate: Rate[];
     averageRate: number;
     likes: string[];
     images: AnimeImagesObject;

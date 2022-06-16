@@ -1,12 +1,11 @@
 import { useState } from "react";
 import Popup from "reactjs-popup";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import { usePopup } from "../../contexts/popupContext";
 
 import { LoginContent } from "./LoginContent";
 import { RegistrationContent } from "./RegistrationContent";
+import { CloseButton } from "../common/CloseButton";
 
 export const LoginPopup = () => {
 
@@ -28,7 +27,7 @@ export const LoginPopup = () => {
 
     return (
         <Popup open={open} modal className="modal-popup login-popup" onClose={close}>
-            <FontAwesomeIcon icon={faXmark} className="login-popup__icon" onClick={close} />
+            <CloseButton handler={close} className="login-popup__icon" />
             {registrationContent ?
                 <RegistrationContent openLoginContent={handleToggleContent} /> :
                 <LoginContent openRegistrationContent={handleToggleContent} />}

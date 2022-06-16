@@ -17,14 +17,6 @@
 
     &__icon {
         @include position-absolute(calc(100% - 20px), 20px, -100%, 0);
-        font-size: 20px;
-        color: darken($main-color, 15%);
-        cursor: pointer;
-        transition: $transition-time;
-
-        &:hover {
-            color: $main-color;
-        }
     }
 
     &__title {

@@ -12,10 +12,10 @@ import { getKindIcon } from "../../../utils/getKindIcon";
 interface Props {
     anime: AnimeCondensedAPI;
     place: number;
-    refference?: (node: HTMLLIElement) => void;
+    observer?: (node: HTMLLIElement) => void;
 }
 
-export const AnimeElement = ({ anime, place, refference }: Props) => {
+export const AnimeElement = ({ anime, place, observer }: Props) => {
     const { _id, averageRate, image, kind, title, types } = anime;
 
     const typesList = () => {
@@ -23,7 +23,7 @@ export const AnimeElement = ({ anime, place, refference }: Props) => {
     };
 
     return (
-        <li className="main__subsection anime__item" ref={refference ? refference : null}>
+        <li className="main__subsection anime__item" ref={observer ? observer : null}>
             <div className="anime__mobile-left">
                 <p className="anime__place">{place <= 3 ? <FontAwesomeIcon icon={faTrophy} className="anime__place-icon" /> : place}</p>
                 <div className="anime__mobile-rate">

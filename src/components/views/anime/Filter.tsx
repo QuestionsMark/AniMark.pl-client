@@ -1,10 +1,9 @@
 import { Dispatch, useMemo } from "react";
 import { FormAction } from "../../../reducers/formReducer";
-import { FiltersEntity } from "./Anime";
 import { KindFilter } from "./KindFilter";
 import { RateFilter } from "./RateFilter";
 import { SortFilter } from "./SortFilter";
-import { TypeAPI } from "../../../types";
+import { FiltersEntity, TypeAPI } from "../../../types";
 import { TypesFilter } from "./TypesFilter";
 
 interface Props {

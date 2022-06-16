@@ -1,5 +1,6 @@
 import { HOST_ADDRESS } from "../config";
 import { ClientApiResponse, ClientErrorResponse, ClientResponse } from "../types";
+import { getLocalStorage } from "./localStorageHelper";
 
 type Method = 'POST' | 'DELETE' | 'PATCH' | 'PUT' | 'GET';
 
@@ -42,3 +43,20 @@ export const fetchApiTool = async (path: string): Promise<ClientApiResponse> => 
         return { message: 'Wystąpił błąd. Spróbuj jeszcze raz.', status: false };
     }
 };
+
+export const fetchWithFileUpload = async (path: string, method: Method = 'POST', body: FormData): Promise<ClientResponse> => {
+    try {
+        const response = await fetch(`${HOST_ADDRESS}/${path}`, {
+            method,
+            headers: {
+                'authorization': getLocalStorage('token'),
+            },
+            body,
+        });
+        const res = await response.json();
+        if (response.ok) return { ...res, status: true };
+        return showProblem(response, res);
+    } catch (error) {
+        return { message: 'Wystąpił błąd. Spróbuj jeszcze raz.', status: false };
+    }
+}

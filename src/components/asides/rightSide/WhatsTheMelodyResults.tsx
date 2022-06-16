@@ -6,7 +6,7 @@ import { VoteResultsAPI } from "../../../types";
 import { getData } from "../../../utils/getData";
 import { AdminOption } from "../../common/AdminOption";
 import { AudioComponent } from "../../common/Audio";
-import { Loading } from "../../common/Loading";
+import { LoadingWithMargin } from "../../common/LoadingWithMargin";
 import { VoteResultsElement } from "./VoteResultsElement";
 
 interface Props {
@@ -68,7 +68,7 @@ export const WhatsTheMelodyResults = ({ handleRollWhatsTheMelody }: Props) => {
                     {resultsList()}
                 </div>
                 <p className="recommended-anime__votes"><strong>{getVotesAmount()}</strong> oddanych głosów</p>
-            </> : <Loading />}
+            </> : <LoadingWithMargin marginHorizontal={0} marginVertical={100} />}
         </section>
     );
 };

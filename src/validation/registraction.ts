@@ -1,10 +1,4 @@
-export interface RegistrationFormEntity {
-    login: string;
-    password: string;
-    email: string;
-    username: string;
-    rulesAcceptation: boolean;
-}
+import { RegistrationFormEntity } from "../types";
 
 export const defaultRegistrationForm: RegistrationFormEntity = {
     email: '',
@@ -14,7 +8,7 @@ export const defaultRegistrationForm: RegistrationFormEntity = {
     username: '',
 };
 
-export const registartionValidation = (form: RegistrationFormEntity) => {
+export const registartionValidation = (form: RegistrationFormEntity): string[] => {
     const errors: string[] = [];
     const { email, login, password, rulesAcceptation, username } = form;
 

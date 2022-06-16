@@ -1,14 +1,11 @@
-export interface LoginFormEntity {
-    login: string;
-    password: string;
-}
+import { LoginFormEntity } from "../types";
 
 export const defaultLoginForm: LoginFormEntity = {
     login: '',
     password: '',
 };
 
-export const loginValidation = (form: LoginFormEntity) => {
+export const loginValidation = (form: LoginFormEntity): string[] => {
     const errors: string[] = [];
     const { login, password } = form;
 
