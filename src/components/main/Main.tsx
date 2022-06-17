@@ -7,6 +7,7 @@ import { RightSide } from "../asides/rightSide/RightSide";
 import { Anime } from "../views/anime/Anime";
 import { Home } from "../views/home/Home";
 import { News } from "../views/news/News";
+import { Users } from "../views/users/Users";
 import { Curtain } from "./Curtain";
 
 export const Main = () => {
@@ -23,7 +24,7 @@ export const Main = () => {
                     <Route path="/anime-create" element={<Home />} />
                     <Route path="/news" element={<News />} />
                     <Route path="/news/:id" element={<Home />} />
-                    <Route path="/users" element={<Home />} />
+                    <Route path="/users" element={<Users />} />
                     <Route path="/users/:id" element={<Home />} />
                     <Route path="/galery" element={<Home />} />
                     <Route path="/galery/:id" element={<Home />} />
