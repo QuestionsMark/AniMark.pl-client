@@ -1,0 +1,52 @@
+.profile {
+    &__menu {
+        position: relative;
+        overflow-x: auto;
+        overflow-y: hidden;
+        box-shadow: 0 0 8px 4px black;
+        background-color: black;
+        z-index: 1;
+        
+        &-list {
+            display: flex;
+        }
+
+        &-item {
+            width: max-content;
+            flex-shrink: 0;
+    
+            &:hover .profile__menu-border {
+                width: 100%;
+            }
+        }
+
+        &-link {
+            display: flex;
+            align-items: center;
+            padding: 10px 14px;
+            line-height: 40px;
+            color: $text-color;
+            font-weight: bold;
+            text-decoration: none;
+    
+            &.active {
+                color: $main-color;
+            }
+        }
+
+        &-border {
+            background-color: $text-color;
+            width: 0;
+            height: 2px;
+            margin-top: -2px;
+            transition: 0.2s;
+        }
+    }
+
+    &__title {
+        margin-bottom: 20px;
+        font-size: 20px;
+        color: $text-color2;
+        text-align: center;
+    }
+}

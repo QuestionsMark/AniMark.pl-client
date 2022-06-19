@@ -1,0 +1,164 @@
+.profile-home {
+
+    &__header {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 440px;
+        background: linear-gradient(180deg, black 0%, rgb(100, 0, 35) 45%, rgba(245,0,87,1) 46%, rgb(100, 0, 35) 47%, black 100%);
+        box-shadow: inset 0 0 40px 10px black, 0 0 8px 4px black;
+    }
+
+    &__avatar-container {
+        @include position-absolute(50%, 50%, -50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__avatar {
+        width: 220px;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        box-shadow: 0 0 20px 10px black;
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+    
+    &__username {
+        width: max-content;
+        color: $text-color2;
+        font-size: 20px;
+    }
+    
+    &__like {
+        @include position-absolute(calc(100% - 20px), 20px, -100%, 0);
+
+        &-icon {
+            color: $text-color;
+
+            &.active {
+                color: $main-color;
+            }
+        }
+    }
+
+    &__main {
+        padding: 26px 20px 20px;
+    }
+
+    &__statistics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    &__info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        flex-basis: 100%;
+        padding: 10px;
+        background-color: rgba(25,25,25,0.9);
+        font-weight: bold;
+
+        @media (min-width: $md-mobile) {
+            flex-basis: calc(50% - 10px);
+        }
+        
+        @media (min-width: $lg-mobile) {
+            flex-basis: calc(33.33333% - 14px);
+        }
+
+        &--time {
+            flex-basis: 100%;
+        }
+    }
+
+    &__introduction {
+
+
+        &-text {
+            font-size: 15px;
+        }
+    }
+
+    &__favorite-anime {
+
+        &-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        &-item {
+            margin-right: 0;
+        }
+    }
+
+    &__anime-data {
+        padding: 0;
+        overflow: hidden;
+
+        &-menu {
+            position: relative;
+            overflow-x: auto;
+            overflow-y: hidden;
+            background-color: black;
+            z-index: 1;
+
+            &-list {
+                display: flex;
+            }
+
+            &-item {
+                width: max-content;
+                flex-shrink: 0;
+                
+                &:hover .profile-home__anime-data-menu-border {
+                    width: 100%;
+                }
+            }
+
+            &-link {
+                position: relative;
+                align-items: center;
+                padding: 10px 14px;
+                line-height: 40px;
+                color: $text-color;
+                font-weight: bold;
+                text-decoration: none;
+                flex-shrink: 0;
+                cursor: pointer;
+    
+                &.active {
+                    color: $main-color;
+                }
+            }
+
+            &-border {
+                background-color: $text-color;
+                width: 0;
+                height: 2px;
+                margin-top: -2px;
+                transition: 0.2s;
+            }
+        }
+
+        &-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 10px;
+        }
+
+        &-item {
+            margin: 0;
+        }
+
+    }
+}

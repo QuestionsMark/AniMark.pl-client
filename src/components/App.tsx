@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { usePopup } from "../contexts/popupContext";
 import { useSocket } from "../contexts/socketContext";
 import { useAuthorization } from "../hooks/useAuthorization";
+import { useBackground } from "../hooks/useBackground";
 import { useScrollUp } from "../hooks/useScrollUp";
 import { SocketErrorResponse } from "../types";
 import { Footer } from "./Footer";
@@ -18,6 +19,7 @@ export const App = () => {
 
     useAuthorization();
     useScrollUp();
+    useBackground();
 
     useEffect(() => {
         if (socket === null) return;

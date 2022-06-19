@@ -15,17 +15,18 @@ body {
     font-family: $font-content;
     background-color: #111;
     // background-color: white;
+    background-image: url(../images/background.webp);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
     color: $text-color;
+    transition: background-image 0.5s 0.5s;
 }
 
 .main {
     position: relative;
     padding-top: 60px;
     min-height: 100vh;
-    background-image: url(../images/background.webp);
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
     user-select: none;
 
     &__left-side, &__right-side {

@@ -8,6 +8,7 @@ import { Anime } from "../views/anime/Anime";
 import { Galery } from "../views/galery/Galery";
 import { Home } from "../views/home/Home";
 import { News } from "../views/news/News";
+import { Profile } from "../views/profile/Profile";
 import { Users } from "../views/users/Users";
 import { Curtain } from "./Curtain";
 
@@ -21,21 +22,21 @@ export const Main = () => {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/anime" element={<Anime />} />
-                    <Route path="/anime/:id" element={<Home />} />
+                    <Route path="/anime/:animeId" element={<Home />} />
                     <Route path="/anime-create" element={<Home />} />
                     <Route path="/news" element={<News />} />
-                    <Route path="/news/:id" element={<Home />} />
+                    <Route path="/news/:newsId" element={<Home />} />
                     <Route path="/users" element={<Users />} />
-                    <Route path="/users/:id" element={<Home />} />
+                    <Route path="/users/:userId/*" element={<Profile />} />
                     <Route path="/galery" element={<Galery />} />
-                    <Route path="/galery/:id" element={<Home />} />
+                    <Route path="/galery/:animeId" element={<Home />} />
                     <Route path="/types" element={<Home />} />
-                    <Route path="/types/:id" element={<Home />} />
+                    <Route path="/types/:typeId" element={<Home />} />
                     <Route path="/sources" element={<Home />} />
                     <Route path="/achievements" element={<Home />} />
                     <Route path="/rules" element={<Home />} />
                     <Route path="/projects" element={<Home />} />
-                    <Route path="/projects/:id" element={<Home />} />
+                    <Route path="/projects/:projectId" element={<Home />} />
                     <Route path="/whats-the-melody" element={<Home />} />
                     <Route path="/sword-art-online-clicker" element={<Home />} />
                     <Route path="/city-defence" element={<Home />} />
