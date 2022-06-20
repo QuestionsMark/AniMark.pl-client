@@ -3,7 +3,7 @@ import axios, { Canceler, AxiosError } from 'axios';
 import { HOST_ADDRESS } from '../config';
 import { getLocalStorage } from '../utils/localStorageHelper';
 import { usePopup } from '../contexts/popupContext';
-import { Data, Queries } from '../types';
+import { Queries } from '../types';
 
 export interface Page {
     prev: number | null;
@@ -12,7 +12,7 @@ export interface Page {
 }
 
 export interface SearchResult {
-    data: any;
+    data: any[];
     loading: boolean;
     hasMore: boolean;
     amount: number;
@@ -44,7 +44,7 @@ export const useSearch = (collection: string, limit: number, queries: Queries = 
     const [searchPhrase, setSearchPhrase] = useState('');
     const [stringifyQueries, setstringifyQueries] = useState(stringify());
     const [loading, setLoading] = useState(true);
-    const [data, setData] = useState<Data>([]);
+    const [data, setData] = useState<any[]>([]);
     const [hasMore, setHasMore] = useState(false);
     const [amount, setAmount] = useState(0);
     const [search, setSearch] = useState('');
