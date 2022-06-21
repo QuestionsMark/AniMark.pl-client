@@ -7,8 +7,8 @@ interface Props {
 
 export const UserFavoriteAnimeMore = ({ count }: Props) => {
     return (
-        <li className="users__favorite-anime-item users__favorite-anime-item--more">
-            <FontAwesomeIcon icon={faPlus} className="users__favorite-anime-item-icon" />
+        <li className="favorite-anime favorite-anime--more">
+            <FontAwesomeIcon icon={faPlus} className="favorite-anime-icon" />
             {count - 3}
         </li>
     );

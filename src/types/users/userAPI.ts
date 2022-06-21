@@ -1,5 +1,5 @@
 import { AchievementAPI } from "../achievements";
-import { AnimeImage } from "../anime";
+import { AnimeAPI, AnimeImage, AnimeImagesObject } from "../anime";
 import { TypeAPI } from "../types";
 
 export enum RoleEnum {
@@ -24,11 +24,58 @@ export interface WatchedAnime {
     rate: number;
 }
 
+export interface UserAnimeDataAnimeComdensedAPI {
+    _id: string;
+    title: string;
+    image: AnimeImage;
+}
+
+export interface WatchedAnimeCondensedAPI {
+    anime: UserAnimeDataAnimeComdensedAPI;
+    rate: number;
+}
+
+export interface WatchedAnimePopulateAPI {
+    anime: {
+        _id: string;
+        title: string;
+        images: AnimeImagesObject;
+    };
+    rate: number;
+}
+
+
 export interface UserAnimeData {
     planned: string[];
     processOfWatching: string[];
     stopped: string[];
     watched: WatchedAnime[];
+}
+
+export interface UserAnimeDataPopulateAPI {
+    planned: {
+        _id: string;
+        title: string;
+        images: AnimeImagesObject;
+    }[];
+    processOfWatching: {
+        _id: string;
+        title: string;
+        images: AnimeImagesObject;
+    }[];
+    stopped: {
+        _id: string;
+        title: string;
+        images: AnimeImagesObject;
+    }[];
+    watched: WatchedAnimePopulateAPI[];
+}
+
+export interface UserAnimeDataCondensedAPI {
+    planned: UserAnimeDataAnimeComdensedAPI[];
+    processOfWatching: UserAnimeDataAnimeComdensedAPI[];
+    stopped: UserAnimeDataAnimeComdensedAPI[];
+    watched: WatchedAnimeCondensedAPI[];
 }
 
 export interface Introduction {
@@ -41,10 +88,18 @@ export interface FavoriteAnime {
     rate: number;
 }
 
+export interface FavoriteAnimePopulate {
+    anime: {
+        _id: string;
+        title: string;
+        images: AnimeImagesObject;
+    },
+    rate: number;
+}
+
 export interface FavoriteAnimeCondensed {
-    _id: string;
-    title: string;
-    image: AnimeImage;
+    anime: UserAnimeDataAnimeComdensedAPI;
+    rate: number;
 }
 
 export interface UserAPI {
@@ -62,6 +117,7 @@ export interface UserAPI {
     likes: string[];
     achievements: string[];
     points: Points;
+    sumOfPoints: number;
     userAnimeData: UserAnimeData;
     introduction: Introduction;
     favoriteAnime: FavoriteAnime[];
@@ -85,9 +141,9 @@ export interface UserPopulateAPI {
     achievements: AchievementAPI[];
     points: Points;
     sumOfPoints: number;
-    userAnimeData: UserAnimeData;
+    userAnimeData: UserAnimeDataPopulateAPI;
     introduction: Introduction;
-    favoriteAnime: FavoriteAnime[];
+    favoriteAnime: FavoriteAnimePopulate[];
     favoriteType: TypeAPI;
     createdAt: Date;
 }

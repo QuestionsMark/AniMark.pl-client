@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { FormEntity, LoginFormEntity, NewsFormEntity, RegistrationFormEntity, ValidationType } from "../types";
+import { AnimeCreateEntity, FormEntity, LoginFormEntity, NewsFormEntity, RegistrationFormEntity, ValidationType } from "../types";
+import { animeCreateValidation } from "../validation/animeCreateValidation";
 import { loginValidation } from "../validation/login";
 import { newsCreateValidation } from "../validation/newsCreateValidation";
 import { registartionValidation } from "../validation/registraction";
@@ -22,6 +23,11 @@ export const useValidation = (form: FormEntity, type: ValidationType) => {
 
             case 'NEWS_CREATE': {
                 setErrors(newsCreateValidation(form as NewsFormEntity));
+                break;
+            }
+
+            case 'ANIME_CREATE': {
+                setErrors(animeCreateValidation(form as AnimeCreateEntity));
                 break;
             }
         }

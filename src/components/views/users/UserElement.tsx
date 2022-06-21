@@ -6,7 +6,7 @@ import { UserCondensedAPI } from "../../../types";
 import { textHelper } from "../../../utils/textHelper";
 import { Image } from "../../common/Image";
 import { UserAchievementElement } from "./UserAchievementElement";
-import { UserFavoriteAnimeElement } from "./UserFavoriteAnimeElement";
+import { FavoriteAnimeElement } from "../../common/FavoriteAnimeElement";
 import { UserFavoriteAnimeMore } from "./UserFavoriteAnimeMore";
 
 interface Props {
@@ -35,7 +35,7 @@ export const UserElement = ({ place, user, observer }: Props) => {
     const favoriteAnimeList = () => {
         return favoriteAnime
             .slice(0, 3)
-            .map(a => <UserFavoriteAnimeElement key={a._id} anime={a} />);
+            .map(a => <FavoriteAnimeElement key={a.anime._id} anime={a} className="users__favorite-anime-item" />);
     };
 
     return (

@@ -1,6 +1,6 @@
 import { CheckboxState } from "../components/views/anime/TypesFilter";
-import { FiltersEntity, ImagePreview, Kind, LoginFormEntity, NewsFormEntity, OtherLink, RegistrationFormEntity, Sort } from "../types";
-import { setPreviewForFiles } from "../utils/setPreviewForFiles";
+import { AnimeCreatePreview, AudioPreview, FiltersEntity, ImagePreview, Kind, LoginFormEntity, NewsFormEntity, OtherLink, RegistrationFormEntity, Sort } from "../types";
+import { getSingleImagePreview, setPreviewForFiles, setSoundtracksPreviewForFiles } from "../utils/setPreviewForFiles";
 
 interface FormState {
     login?: string;
@@ -21,6 +21,22 @@ interface FormState {
     preview?: ImagePreview[];
     title?: string;
     videos?: string[];
+
+    scenario?: string;
+    productionYear?: number | null;
+    epizodesCount?: number | null;
+    epizodeDuration?: number | null;
+    hours?: number | null;
+    minutes?: number | null;
+    watchLink?: string;
+    types?: string[];
+    seasons?: string[];
+    background?: File | null;
+    baner?: File | null;
+    mini?: File | null;
+    animeImagesPreview?: AnimeCreatePreview;
+    soundtracks?: File[] | null;
+    soundtracksPreview?: AudioPreview[];
 }
 
 interface FormSet {
@@ -146,11 +162,93 @@ interface VideosDelete {
     payload: number;
 }
 
-export type FormAction = FormSet | LoginChange | PasswordChange | EmailChange | UsernameChange | RulesAcceptationChange | KindChange | MaxRateChange | MinRateChange | SortChange | TypesFilterChange | TitleChange | DescriptionChange | OtherLinksAdd | OtherLinksChange | OtherLinksDelete | VideosAdd | VideosChange | VideosDelete | ImagesChange | ImagesOrderChange | ImagesDelete | ChoosedImagesChange;
+
+// Akcje tworzenia anime:
+
+interface ScenarioChange {
+    type: 'SCENARIO_CHANGE';
+    payload: string;
+}
+interface ProductionYearChange {
+    type: 'PRODUCTION_YEAR_CHANGE';
+    payload: number;
+}
+interface epizodesCountChange {
+    type: 'EPIZODES_COUNT_CHANGE';
+    payload: number;
+}
+interface epizodeDurationChange {
+    type: 'EPIZODE_DURATION_CHANGE';
+    payload: number;
+}
+interface HoursChange {
+    type: 'HOURS_CHANGE';
+    payload: number;
+}
+interface MinutesChange {
+    type: 'MINUTES_CHANGE';
+    payload: number;
+}
+interface WatchLinkChange {
+    type: 'WATCH_LINK_CHANGE';
+    payload: string;
+}
+interface TypesChange {
+    type: 'TYPES_CHANGE';
+    payload: string;
+}
+interface SeasonsChange {
+    type: 'SEASONS_CHANGE';
+    payload: string;
+}
+interface BackgroundChange {
+    type: 'BACKGROUND_CHANGE';
+    payload: File[] | null;
+}
+interface BanerChange {
+    type: 'BANER_CHANGE';
+    payload: File[] | null;
+}
+interface MiniChange {
+    type: 'MINI_CHANGE';
+    payload: File[] | null;
+}
+interface SoundtracksChange {
+    type: 'SOUNDTRACKS_CHANGE';
+    payload: {
+        value: File[] | null;
+        maxCount: number;
+    };
+}
+interface SoundtracksOrderChange {
+    type: 'SOUNDTRACKS_ORDER_CHANGE';
+    payload: number;
+}
+interface SoundtracksDelete {
+    type: 'SOUNDTRACKS_DELETE';
+    payload: number;
+}
+interface SoundtracksComposerChange {
+    type: 'SOUNDTRACKS_COMPOSER_CHANGE';
+    payload: {
+        index: number;
+        value: string;
+    };
+}
+interface SoundtracksTitleChange {
+    type: 'SOUNDTRACKS_TITLE_CHANGE';
+    payload: {
+        index: number;
+        value: string;
+    };
+}
+
+export type FormAction = FormSet | LoginChange | PasswordChange | EmailChange | UsernameChange | RulesAcceptationChange | KindChange | MaxRateChange | MinRateChange | SortChange | TypesFilterChange | TitleChange | DescriptionChange | OtherLinksAdd | OtherLinksChange | OtherLinksDelete | VideosAdd | VideosChange | VideosDelete | ImagesChange | ImagesOrderChange | ImagesDelete | ChoosedImagesChange | ScenarioChange | ProductionYearChange | epizodeDurationChange | epizodesCountChange | HoursChange | MinutesChange | WatchLinkChange | TypesChange | SeasonsChange | BackgroundChange | BanerChange | MiniChange | SoundtracksChange | SoundtracksComposerChange | SoundtracksDelete | SoundtracksTitleChange | SoundtracksOrderChange;
 
 
 export const formReducer = (state: FormState, action: FormAction): FormState => {
     switch (action.type) {
+
         case 'FORM_SET': {
             return action.payload;
         }
@@ -375,6 +473,174 @@ export const formReducer = (state: FormState, action: FormAction): FormState => 
             return {
                 ...state,
                 videos: state.videos?.filter((l, i) => i !== action.payload),
+            }
+        }
+
+        // Anime create reducers:
+
+        case 'SCENARIO_CHANGE': {
+            return {
+                ...state,
+                scenario: action.payload,
+            }
+        }
+
+        case 'PRODUCTION_YEAR_CHANGE': {
+            return {
+                ...state,
+                productionYear: action.payload,
+            }
+        }
+
+        case 'EPIZODES_COUNT_CHANGE': {
+            return {
+                ...state,
+                epizodesCount: action.payload,
+            }
+        }
+
+        case 'EPIZODE_DURATION_CHANGE': {
+            return {
+                ...state,
+                epizodeDuration: action.payload,
+            }
+        }
+
+        case 'HOURS_CHANGE': {
+            return {
+                ...state,
+                hours: action.payload,
+            }
+        }
+
+        case 'MINUTES_CHANGE': {
+            return {
+                ...state,
+                minutes: action.payload,
+            }
+        }
+
+        case 'WATCH_LINK_CHANGE': {
+            return {
+                ...state,
+                watchLink: action.payload,
+            }
+        }
+
+        case 'TYPES_CHANGE': {
+            const { payload } = action;
+            const isHere = state.types?.findIndex(t => t === payload) !== -1;
+            if (isHere) return { ...state, types: state.types?.filter(t => t !== payload) };
+            return { ...state, types: [...(state.types as any), payload] };
+        }
+
+        case 'SEASONS_CHANGE': {
+            const { payload } = action;
+            const isHere = state.seasons?.findIndex(s => s === payload) !== -1;
+            if (isHere) return { ...state, seasons: state.seasons?.filter(s => s !== payload) };
+            return { ...state, seasons: [...(state.seasons as any), payload] };
+        }
+
+        case 'BACKGROUND_CHANGE': {
+            return {
+                ...state, background: action.payload ? action.payload[0] : null, animeImagesPreview: {
+                    background: getSingleImagePreview(action.payload ? action.payload[0] : null),
+                    baner: (state.animeImagesPreview as AnimeCreatePreview).baner,
+                    mini: (state.animeImagesPreview as AnimeCreatePreview).mini,
+                }
+            };
+        }
+
+        case 'BANER_CHANGE': {
+            return {
+                ...state, baner: action.payload ? action.payload[0] : null, animeImagesPreview: {
+                    background: (state.animeImagesPreview as AnimeCreatePreview).background,
+                    baner: getSingleImagePreview(action.payload ? action.payload[0] : null),
+                    mini: (state.animeImagesPreview as AnimeCreatePreview).mini,
+                }
+            };
+        }
+
+        case 'MINI_CHANGE': {
+            return {
+                ...state, mini: action.payload ? action.payload[0] : null, animeImagesPreview: {
+                    background: (state.animeImagesPreview as AnimeCreatePreview).background,
+                    baner: (state.animeImagesPreview as AnimeCreatePreview).baner,
+                    mini: getSingleImagePreview(action.payload ? action.payload[0] : null),
+                }
+            };
+        }
+
+        case 'SOUNDTRACKS_CHANGE': {
+            const { maxCount, value } = action.payload;
+            if (state.soundtracks && value && value.length > 0) {
+                return {
+                    ...state,
+                    soundtracks: [...state.soundtracks, ...value],
+                    soundtracksPreview: [...(state.soundtracksPreview as AudioPreview[]), ...setSoundtracksPreviewForFiles(value)],
+                }
+            }
+            if (!state.images) {
+                return {
+                    ...state,
+                    soundtracks: value && value.length > 0 ? value : null,
+                    soundtracksPreview: setSoundtracksPreviewForFiles(value && value.length > 0 ? value : []),
+                }
+            }
+            return {
+                ...state,
+            }
+        }
+
+        case 'SOUNDTRACKS_ORDER_CHANGE': {
+            if (!state.soundtracks || state.soundtracks.length < 2 || !state.soundtracksPreview || state.soundtracksPreview.length < 2) return state;
+            const { payload } = action;
+            const soundtracks = [...state.soundtracks];
+            const prevImg = soundtracks[payload - 1];
+            const mp3 = soundtracks[payload];
+            const restSoundtracks = soundtracks.slice(payload + 1);
+
+            const previews = [...state.soundtracksPreview];
+            const prevPreview = previews[payload - 1];
+            const preview = previews[payload];
+            const restPreviews = previews.slice(payload + 1);
+            return {
+                ...state,
+                soundtracks: [...soundtracks.splice(0, payload - 1), mp3, prevImg, ...restSoundtracks],
+                soundtracksPreview: [...previews.splice(0, payload - 1), preview, prevPreview, ...restPreviews],
+            }
+        }
+
+        case 'SOUNDTRACKS_COMPOSER_CHANGE': {
+            const { index, value } = action.payload;
+            return {
+                ...state,
+                soundtracksPreview: state.soundtracksPreview?.map((s, i) => {
+                    if (i !== index) return s;
+                    return { ...s, composer: value };
+                }),
+            }
+        }
+
+        case 'SOUNDTRACKS_DELETE': {
+            const { payload } = action;
+            const newSoundtracks = state.soundtracks?.filter((s, i) => i !== payload);
+            const newPreview = newSoundtracks && newSoundtracks.length > 0 ? state.soundtracksPreview?.filter((s, i) => i !== payload) : [];
+            return {
+                ...state,
+                soundtracks: newSoundtracks && newSoundtracks.length > 0 ? newSoundtracks : null,
+                soundtracksPreview: newPreview,
+            }
+        }
+
+        case 'SOUNDTRACKS_TITLE_CHANGE': {
+            const { index, value } = action.payload;
+            return {
+                ...state,
+                soundtracksPreview: state.soundtracksPreview?.map((s, i) => {
+                    if (i !== index) return s;
+                    return { ...s, title: value };
+                }),
             }
         }
 

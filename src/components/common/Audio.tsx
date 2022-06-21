@@ -7,9 +7,10 @@ import { Loading } from './Loading';
 
 interface Props {
     id: string;
+    isStatic?: boolean;
 }
 
-export const AudioComponent = ({ id }: Props) => {
+export const AudioComponent = ({ id, isStatic }: Props) => {
 
     const componentRef = useRef<HTMLDivElement>(null);
     const inpProgressDOM = useRef<HTMLInputElement>(null);
@@ -136,7 +137,7 @@ export const AudioComponent = ({ id }: Props) => {
 
     return (
         <div className="audio" ref={componentRef}>
-            <audio src={`${HOST_ADDRESS}/audio/${src}`} className='audio__audio' onTimeUpdate={handleTimeUpdate} onLoadedData={onLoadHandler} onEnded={handleComplete} />
+            <audio src={isStatic ? src : `${HOST_ADDRESS}/audio/${src}`} className='audio__audio' onTimeUpdate={handleTimeUpdate} onLoadedData={onLoadHandler} onEnded={handleComplete} />
             {src ? <div className="audio__interface">
                 <div className="audio__run">
                     {togglePlayPauseComponent()}
