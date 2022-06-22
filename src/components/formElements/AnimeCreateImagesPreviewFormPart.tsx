@@ -1,7 +1,7 @@
 import { Dispatch } from "react";
 import { FormAction } from "../../reducers/formReducer";
 import { AnimeCreatePreview } from "../../types";
-import { ImagePreviewElement } from "./ImagePreviewElement";
+import { AnimeCreateImagePreviewElement } from "./AnimeCreateImagePreviewElement";
 
 interface Props {
     className?: string;
@@ -12,14 +12,19 @@ interface Props {
 }
 
 export const AnimeCreateImagesPreviewFormPart = ({ dispatch, preview, sizeLimit, className, title }: Props) => {
+
+    const { background, baner, mini } = preview;
+
     return (
-        <div className={className ? className : ''}>
-            <h3 className="form__subtitle">{title ? title : 'Podgląd'}</h3>
-            <ul className="form__anime-create-images-preview">
-                <ImagePreviewElement dispatch={dispatch} index={0} preview={preview.background} sizeLimit={sizeLimit} />
-                <ImagePreviewElement dispatch={dispatch} index={1} preview={preview.baner} sizeLimit={sizeLimit} />
-                <ImagePreviewElement dispatch={dispatch} index={2} preview={preview.mini} sizeLimit={sizeLimit} />
-            </ul>
-        </div>
+        <>
+            {(background.src || baner.src || mini.src) && <div className={className ? className : ''}>
+                <h3 className="form__subtitle">{title ? title : 'Podgląd'}</h3>
+                <ul className="form__anime-create-images-preview">
+                    {background.src && <AnimeCreateImagePreviewElement preview={background} sizeLimit={sizeLimit} title="Tło" />}
+                    {baner.src && <AnimeCreateImagePreviewElement preview={baner} sizeLimit={sizeLimit} title="Baner" />}
+                    {mini.src && <AnimeCreateImagePreviewElement preview={mini} sizeLimit={sizeLimit} title="Okładka" />}
+                </ul>
+            </div>}
+        </>
     );
 };

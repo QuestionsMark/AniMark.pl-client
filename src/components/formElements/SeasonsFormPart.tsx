@@ -1,5 +1,5 @@
 import { Checkbox, FormControlLabel } from "@mui/material";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useMemo } from "react";
 import { FormAction } from "../../reducers/formReducer";
 import { AnimeForm } from "../../types";
 import { SEASONS_TO_CHOOSE_LIMIT } from "../../utils/dataLimit";
@@ -25,7 +25,7 @@ interface Props {
 export const SeasonsFormPart = ({ amount, handleSearchPhraseChange, hasMore, loading, page, searchPhrase, seasons, setPage, value, className, title, dispatch }: Props) => {
 
     const isChecked = (season: string) => {
-        return value.findIndex(t => t === season) !== -1;
+        return value.findIndex(s => s === season) !== -1;
     };
 
     const seasonsList = () => {
@@ -38,14 +38,16 @@ export const SeasonsFormPart = ({ amount, handleSearchPhraseChange, hasMore, loa
         />);
     };
 
+    const seasonsComponent = useMemo(() => <ul className="form__seasons-list">
+        {seasonsList()}
+        {!loading && hasMore && amount > SEASONS_TO_CHOOSE_LIMIT * page && <AddButton handler={() => setPage(state => state + 1)} className="form__seasons-more" />}
+    </ul>, [value, seasons]);
+
     return (
         <div className={className ? className : ''}>
-            <h3 className="form__subtitle">{title ? title : 'Link do oglądania'}</h3>
+            <h3 className="form__subtitle">{title ? title : 'Sezony / Powiązane anime'}</h3>
             <Search handleSearch={handleSearchPhraseChange} value={searchPhrase} className="form__seasons-search" />
-            <ul className="form__seasons-list">
-                {seasonsList()}
-                {!loading && hasMore && amount > SEASONS_TO_CHOOSE_LIMIT * page && <AddButton handler={() => setPage(state => state + 1)} className="form__seasons-more" />}
-            </ul>
+            {seasonsComponent}
             {loading && <LoadingWithMargin marginHorizontal={0} marginVertical={50} />}
         </div>
     );

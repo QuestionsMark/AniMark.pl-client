@@ -137,7 +137,7 @@ export const AudioComponent = ({ id, isStatic }: Props) => {
 
     return (
         <div className="audio" ref={componentRef}>
-            <audio src={isStatic ? src : `${HOST_ADDRESS}/audio/${src}`} className='audio__audio' onTimeUpdate={handleTimeUpdate} onLoadedData={onLoadHandler} onEnded={handleComplete} />
+            <audio src={isStatic ? src : `${HOST_ADDRESS}/media/${src}`} className='audio__audio' onTimeUpdate={handleTimeUpdate} onLoadedData={onLoadHandler} onEnded={handleComplete} />
             {src ? <div className="audio__interface">
                 <div className="audio__run">
                     {togglePlayPauseComponent()}

@@ -32,7 +32,7 @@ export const useBackground = () => {
             } else {
                 prevUserId.current = '';
             }
-            bodyRef.current.style.backgroundImage = background ? `url(${HOST_ADDRESS}/image/${background})` : '';
+            bodyRef.current.style.backgroundImage = background ? `url(${HOST_ADDRESS}/media/${background})` : '';
         })()
     }, [pathname]);
 };

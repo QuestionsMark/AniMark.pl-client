@@ -18,6 +18,7 @@ export const KindFormPart = ({ value, className, title, dispatch }: Props) => {
                 <RadioGroup
                     aria-labelledby="demo-controlled-radio-buttons-group"
                     name="controlled-radio-buttons-group"
+                    className="form__kind-list my"
                     value={value}
                     onChange={(e) => dispatch({ type: 'KIND_CHANGE', payload: e.target.value as Kind })}
                 >

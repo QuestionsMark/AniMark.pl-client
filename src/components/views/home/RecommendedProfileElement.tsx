@@ -18,7 +18,7 @@ export const RecommendedProfileElement = ({ profile }: Props) => {
     }
 
     return (
-        <Link to={`/users/${_id}`} className="recommended-profiles__profile" style={{ backgroundImage: `url('${HOST_ADDRESS}/image/${background}')` }}>
+        <Link to={`/users/${_id}`} className="recommended-profiles__profile" style={{ backgroundImage: `url('${HOST_ADDRESS}/media/${background}')` }}>
             <div className="recommended-profiles__curtain" />
             <div className="recommended-profiles__statistics">
                 <FontAwesomeIcon icon={faMedal} className="recommended-profiles__icon special" />

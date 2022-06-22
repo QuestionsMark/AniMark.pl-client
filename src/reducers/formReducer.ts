@@ -1,5 +1,5 @@
 import { CheckboxState } from "../components/views/anime/TypesFilter";
-import { AnimeCreatePreview, AudioPreview, FiltersEntity, ImagePreview, Kind, LoginFormEntity, NewsFormEntity, OtherLink, RegistrationFormEntity, Sort } from "../types";
+import { AnimeCreateEntity, AnimeCreatePreview, AudioPreview, FiltersEntity, ImagePreview, Kind, LoginFormEntity, NewsFormEntity, OtherLink, RegistrationFormEntity, Sort } from "../types";
 import { getSingleImagePreview, setPreviewForFiles, setSoundtracksPreviewForFiles } from "../utils/setPreviewForFiles";
 
 interface FormState {
@@ -41,7 +41,7 @@ interface FormState {
 
 interface FormSet {
     type: 'FORM_SET';
-    payload: LoginFormEntity | RegistrationFormEntity | FiltersEntity | NewsFormEntity;
+    payload: LoginFormEntity | RegistrationFormEntity | FiltersEntity | NewsFormEntity | AnimeCreateEntity;
 }
 
 // Login and registraction actions:

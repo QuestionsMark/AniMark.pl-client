@@ -20,7 +20,7 @@ export const FavoriteAnimeElement = ({ anime, className }: Props) => {
     const { _id, image, title } = anime.anime;
 
     return (
-        <Popup key={_id} className="normal-popup" position="top center" offsetY={2} on="hover" mouseEnterDelay={200} trigger={<Link to={`/anime/${_id}`} className={`favorite-anime${className ? ' ' + className : ''}`} style={{ backgroundImage: `url('${HOST_ADDRESS}/image/${image.src}')` }} />}>
+        <Popup key={_id} className="normal-popup" position="top center" offsetY={2} on="hover" mouseEnterDelay={200} trigger={<Link to={`/anime/${_id}`} className={`favorite-anime${className ? ' ' + className : ''}`} style={{ backgroundImage: `url('${HOST_ADDRESS}/media/${image.src}')` }} />}>
             {title} {anime.rate ? <div className="favorite-anime-rate" ><FontAwesomeIcon icon={faStar} className="favorite-anime-icon" />{anime.rate}</div> : null}
         </Popup>
     );

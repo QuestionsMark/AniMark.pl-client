@@ -10,6 +10,6 @@ interface Props {
 
 export const HiddenAudio = ({ src, audioRef, isStatic, autoplay }: Props) => {
     return (
-        <audio ref={audioRef} src={isStatic ? src : `${HOST_ADDRESS}/audio/${src}`} autoPlay={autoplay} className="audio--hidden" />
+        <audio ref={audioRef} src={isStatic ? src : `${HOST_ADDRESS}/media/${src}`} autoPlay={autoplay} className="audio--hidden" />
     );
 };

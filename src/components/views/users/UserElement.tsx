@@ -39,7 +39,7 @@ export const UserElement = ({ place, user, observer }: Props) => {
     };
 
     return (
-        <li className="users__item" ref={observer ? observer : null} style={{ backgroundImage: `url(${HOST_ADDRESS}/image/${background})` }}>
+        <li className="users__item" ref={observer ? observer : null} style={{ backgroundImage: `url(${HOST_ADDRESS}/media/${background})` }}>
             <div className="users__curtain" />
             <header className="users__header">
                 <div className="users__avatar">
