@@ -16,7 +16,7 @@ interface ConfirmPopup {
     open: boolean;
     question: string;
     acceptHandler: () => void;
-    declineHandler: () => void;
+    declineHandler?: () => void;
 }
 
 interface PopupContextValue {
@@ -44,7 +44,6 @@ const defaultConfirmPopup: ConfirmPopup = {
     open: false,
     question: '',
     acceptHandler: () => { },
-    declineHandler: () => { },
 }
 
 const PopupContext = createContext<PopupContextValue>(null!);

@@ -55,12 +55,12 @@ export const UserElement = ({ place, user, observer }: Props) => {
                         <p className="users__value">{place}</p>
                     </div>
                     <div className="users__specification">
-                        <FontAwesomeIcon icon={faHeart} className="users__specification-icon" />
-                        <p className="users__value">{likes.length}</p>
-                    </div>
-                    <div className="users__specification">
                         <FontAwesomeIcon icon={faMedal} className="users__specification-icon" />
                         <p className="users__value">{sumOfPoints}</p>
+                    </div>
+                    <div className="users__specification">
+                        <FontAwesomeIcon icon={faHeart} className="users__specification-icon" />
+                        <p className="users__value">{likes.length}</p>
                     </div>
                     <div className="users__specification">
                         {favoriteType ? favoriteType : 'Brak'}

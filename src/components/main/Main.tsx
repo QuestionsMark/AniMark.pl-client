@@ -9,6 +9,7 @@ import { AnimeCreate } from "../views/animeCreate/AnimeCreate";
 import { Galery } from "../views/galery/Galery";
 import { Home } from "../views/home/Home";
 import { News } from "../views/news/News";
+import { NewsPage } from "../views/news/NewsPage";
 import { Profile } from "../views/profile/Profile";
 import { Users } from "../views/users/Users";
 import { Curtain } from "./Curtain";
@@ -26,7 +27,7 @@ export const Main = () => {
                     <Route path="/anime/:animeId" element={<Home />} />
                     <Route path="/anime-create" element={<AnimeCreate />} />
                     <Route path="/news" element={<News />} />
-                    <Route path="/news/:newsId" element={<Home />} />
+                    <Route path="/news/:newsId" element={<NewsPage />} />
                     <Route path="/users" element={<Users />} />
                     <Route path="/users/:userId/*" element={<Profile />} />
                     <Route path="/galery" element={<Galery />} />

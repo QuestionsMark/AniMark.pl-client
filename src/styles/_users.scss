@@ -134,11 +134,11 @@
         }
         
         &:nth-of-type(2) > .users__specification-icon {
-            color: $main-color;
+            color: $special-color;
         }
         
         &:nth-of-type(3) > .users__specification-icon {
-            color: $special-color;
+            color: $main-color;
         }
         
         .users__specification-icon {
