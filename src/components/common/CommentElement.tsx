@@ -7,7 +7,7 @@ import { usePopup } from "../../contexts/popupContext";
 import { useUser } from "../../contexts/userContext";
 import { Collection, CommentPopulate } from "../../types";
 import { fetchTool } from "../../utils/fetchHelper";
-import { getPath } from "../../utils/getCollection";
+import { getPath } from "../../utils/getPath";
 import { textHelper } from "../../utils/textHelper";
 import { AdminOption } from "./AdminOption";
 import { Image } from "./Image";

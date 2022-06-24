@@ -5,7 +5,7 @@ import { usePopup } from "../../contexts/popupContext";
 import { useUser } from "../../contexts/userContext";
 import { Collection } from "../../types";
 import { fetchTool } from "../../utils/fetchHelper";
-import { getPath } from "../../utils/getCollection";
+import { getPath } from "../../utils/getPath";
 import { textMaxLengthHelper } from "../../utils/textHelper";
 import { Image } from "./Image";
 
