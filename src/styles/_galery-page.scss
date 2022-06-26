@@ -5,14 +5,12 @@
     }
 
     &__title {
-        height: 80px;
         padding: 20px 80px;
         box-shadow: 0 0 8px 4px rgba(0,0,0,0.8);
         color: $main-color;
         background-color: rgba(0,0,0,0.8);
-        font-size: 26px;
+        font-size: 24px;
         text-align: center;
-        line-height: 40px;
     }
 
     &__list {
@@ -34,6 +32,7 @@
         @media (min-width: $md-mobile) {
             flex-basis: calc(50% - 10px);
         }
+        
         @media (min-width: $lg-mobile) {
             flex-basis: calc(33.33333% - 14px);
         }
