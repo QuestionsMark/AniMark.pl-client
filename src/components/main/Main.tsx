@@ -8,6 +8,7 @@ import { Anime } from "../views/anime/Anime";
 import { AnimePage } from "../views/anime/anime-page/AnimePage";
 import { AnimeCreate } from "../views/animeCreate/AnimeCreate";
 import { Galery } from "../views/galery/Galery";
+import { GaleryPage } from "../views/galery/GaleryPage";
 import { Home } from "../views/home/Home";
 import { News } from "../views/news/News";
 import { NewsPage } from "../views/news/NewsPage";
@@ -32,7 +33,7 @@ export const Main = () => {
                     <Route path="/users" element={<Users />} />
                     <Route path="/users/:userId/*" element={<Profile />} />
                     <Route path="/galery" element={<Galery />} />
-                    <Route path="/galery/:animeId" element={<Home />} />
+                    <Route path="/galery/:animeId" element={<GaleryPage />} />
                     <Route path="/types" element={<Home />} />
                     <Route path="/types/:typeId" element={<Home />} />
                     <Route path="/sources" element={<Home />} />
