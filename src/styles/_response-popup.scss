@@ -1,6 +1,7 @@
 .response-popup {
     position: relative;
-    width: 500px;
+    width: calc(100vw - 40px);
+    max-width: 500px;
     min-height: 180px;
     padding: 30px 30px;
     border-radius: 10px;

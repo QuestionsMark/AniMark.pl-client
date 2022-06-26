@@ -5,6 +5,7 @@ import { RightSideProvider } from "../../contexts/rightSideContext";
 import { LeftSide } from "../asides/leftSide/LeftSide";
 import { RightSide } from "../asides/rightSide/RightSide";
 import { Anime } from "../views/anime/Anime";
+import { AnimePage } from "../views/anime/anime-page/AnimePage";
 import { AnimeCreate } from "../views/animeCreate/AnimeCreate";
 import { Galery } from "../views/galery/Galery";
 import { Home } from "../views/home/Home";
@@ -24,7 +25,7 @@ export const Main = () => {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/anime" element={<Anime />} />
-                    <Route path="/anime/:animeId" element={<Home />} />
+                    <Route path="/anime/:animeId" element={<AnimePage />} />
                     <Route path="/anime-create" element={<AnimeCreate />} />
                     <Route path="/news" element={<News />} />
                     <Route path="/news/:newsId" element={<NewsPage />} />

@@ -22,6 +22,11 @@
         background-color: rgba(25,25,25,0.9);
         cursor: pointer;
 
+        &.active {
+            color: $main-color;
+            box-shadow: inset 0 0 6px 3px $main-color;
+        }
+
         &:hover {
             background-color: rgba(50,50,50,0.9);
         }

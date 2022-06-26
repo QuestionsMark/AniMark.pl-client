@@ -4,9 +4,10 @@ import { useUser } from "../../../contexts/userContext";
 
 interface Props {
     animeId: string;
+    className?: string;
 }
 
-export const AnimeButtons = ({ animeId }: Props) => {
+export const AnimeButtons = ({ animeId, className }: Props) => {
     const { user } = useUser();
 
     const checkActive = (status: AnimeStatus): boolean => {
@@ -28,7 +29,7 @@ export const AnimeButtons = ({ animeId }: Props) => {
     };
 
     return (
-        <div className="anime__status">
+        <div className={`anime__status${className ? ' ' + className : ''}`}>
             <AnimeStatusButton active={checkActive('PLANNED')} animeId={animeId} status="PLANNED" text="Planowane" />
             <AnimeStatusButton active={checkActive('PROCESS_OF_WATCHING')} animeId={animeId} status="PROCESS_OF_WATCHING" text="W trakcie oglądania" />
             <AnimeStatusButton active={checkActive('STOPPED')} animeId={animeId} status="STOPPED" text="Wstrzymane" />
