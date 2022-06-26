@@ -20,13 +20,10 @@ export const useBackground = () => {
                     if (!status) return;
                     background = results;
                 } else {
-                    if (prevId.current === parts[2]) {
-                        background = bodyRef.current.style.backgroundImage;
-                    } else {
-                        const { status, results } = await fetchTool(`users/${parts[2]}/background`);
-                        if (!status) return;
-                        background = results;
-                    }
+                    if (prevId.current === parts[2]) return;
+                    const { status, results } = await fetchTool(`users/${parts[2]}/background`);
+                    if (!status) return;
+                    background = results;
                 }
                 prevId.current = parts[2];
             } else if (parts[1] === 'anime' && parts[2]) {
@@ -35,13 +32,10 @@ export const useBackground = () => {
                     if (!status) return;
                     background = results;
                 } else {
-                    if (prevId.current === parts[2]) {
-                        background = bodyRef.current.style.backgroundImage;
-                    } else {
-                        const { status, results } = await fetchTool(`anime/${parts[2]}/background`);
-                        if (!status) return;
-                        background = results;
-                    }
+                    if (prevId.current === parts[2]) return;
+                    const { status, results } = await fetchTool(`anime/${parts[2]}/background`);
+                    if (!status) return;
+                    background = results;
                 }
                 prevId.current = parts[2];
             } else {
