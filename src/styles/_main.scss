@@ -161,6 +161,10 @@ body {
     &--natural {
         aspect-ratio: inherit;
     }
+
+    &--radius {
+        border-radius: 10px;
+    }
 }
 
 .red {
