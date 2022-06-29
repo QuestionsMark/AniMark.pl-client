@@ -18,14 +18,14 @@ interface Props {
 
 export const GraphicsToChooseFormPart = ({ className, graphicsCount, title, value, dispatch }: Props) => {
 
-    const { amount, data, hasMore, loading, page, searchPhrase, setPage, handleSearchPhraseChange } = useSearch('anime/images-form', IMAGES_TO_CHOOSE_LIMIT);
+    const { amount, data, hasMore, loading, page, searchPhrase, setPage, handleSearchPhraseChange } = useSearch<AnimeImage>('anime/images-form', IMAGES_TO_CHOOSE_LIMIT);
 
     const isActive = (src: string) => {
         return value.findIndex(s => s === src) !== -1;
     }
 
     const graphicsToChoose = () => {
-        return data.map((i: AnimeImage) => <ChooseGraphicElement key={i.src} active={isActive(i.src)} dispatch={dispatch} graphicsCount={graphicsCount} image={i} />);
+        return data.map(i => <ChooseGraphicElement key={i.src} active={isActive(i.src)} dispatch={dispatch} graphicsCount={graphicsCount} image={i} />);
     };
 
     return (

@@ -30,12 +30,12 @@ export const Anime = () => {
 
     const { kind, maxRate, minRate, sort, unwantedTypes, wantedTypes } = state;
 
-    const { amount, data, hasMore, loading, page, searchPhrase, handleSearchPhraseChange, setPage } = useSearch('anime', ANIME_LIMIT, { maxRate, minRate, sort, unwantedTypes, wantedTypes, kind }, [kind, maxRate, minRate, sort, unwantedTypes, wantedTypes]);
+    const { amount, data, hasMore, loading, page, searchPhrase, handleSearchPhraseChange, setPage } = useSearch<AnimeCondensedAPI>('anime', ANIME_LIMIT, { maxRate, minRate, sort, unwantedTypes, wantedTypes, kind }, [kind, maxRate, minRate, sort, unwantedTypes, wantedTypes]);
 
     const { lastDataElementRef } = useInfiniteScroll(amount, hasMore, loading, page, ANIME_LIMIT, setPage);
 
     const animeList = () => {
-        return (data as AnimeCondensedAPI[]).map((a, i) => <AnimeElement key={a._id} anime={a} place={i + 1} observer={(i + 1) % ANIME_LIMIT === 0 ? lastDataElementRef : undefined} />);
+        return data.map((a, i) => <AnimeElement key={a._id} anime={a} place={i + 1} observer={(i + 1) % ANIME_LIMIT === 0 ? lastDataElementRef : undefined} />);
     };
 
     const searchComponent = useMemo(() => <Search handleSearch={handleSearchPhraseChange} value={searchPhrase} className="anime__search" />, [searchPhrase]);

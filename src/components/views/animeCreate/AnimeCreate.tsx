@@ -1,13 +1,15 @@
 import { Dispatch, FormEvent, useMemo, useReducer, useRef } from "react";
 import { usePopup } from "../../../contexts/popupContext";
+import { useUser } from "../../../contexts/userContext";
 import { useData } from "../../../hooks/useData";
 import { useSearch } from "../../../hooks/useSearch";
 import { useValidation } from "../../../hooks/useValidation";
 import { FormAction, formReducer } from "../../../reducers/formReducer";
-import { AnimeCreateEntity, TypeFormListAPI } from "../../../types";
+import { AnimeCreateEntity, AnimeSeason, TypeFormListAPI } from "../../../types";
 import { fetchWithFileUpload } from "../../../utils/fetchHelper";
 import { getValidationMessage } from "../../../utils/getValidationMessage";
 import { Loading } from "../../common/Loading";
+import { SmallNotFound } from "../../common/SmallNotFound";
 import { SubmitButton } from "../../common/SubmitButton";
 import { AnimeCreateImagesFormPart } from "../../formElements/AnimeCreateImagesFormPart";
 import { AnimeCreateImagesPreviewFormPart } from "../../formElements/AnimeCreateImagesPreviewFormPart";
@@ -58,6 +60,7 @@ export const AnimeCreate = () => {
 
     const componentRef = useRef<HTMLElement>(null);
 
+    const { user } = useUser();
     const { setResponsePopup } = usePopup();
 
     const [state, dispatch] = useReducer(formReducer, animeCreate) as [AnimeCreateEntity, Dispatch<FormAction>];
@@ -65,7 +68,7 @@ export const AnimeCreate = () => {
     const { errors } = useValidation(state, 'ANIME_CREATE');
 
     const { data: types } = useData<TypeFormListAPI[]>('types/form', componentRef);
-    const { data: seasons, amount, handleSearchPhraseChange, hasMore, loading, page, searchPhrase, setPage } = useSearch('anime/seasons-form', 20);
+    const { data: seasons, amount, handleSearchPhraseChange, hasMore, loading, page, searchPhrase, setPage } = useSearch<AnimeSeason>('anime/seasons-form', 20);
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
@@ -133,7 +136,7 @@ export const AnimeCreate = () => {
 
     return (
         <main ref={componentRef} className="main__content anime-create">
-            {types && seasons ? <form className="anime-create__form" onSubmit={handleSubmit}>
+            {types && seasons ? user.userId ? <form className="anime-create__form" onSubmit={handleSubmit}>
                 {kindFormPartComponent}
                 {titleFormInputComponent}
                 {infoFormPartComponent}
@@ -148,7 +151,7 @@ export const AnimeCreate = () => {
                     <SubmitButton errors={errors.length} value="Dodaj nowe anime" className="anime-create__submit" />
                     <ValidationFormPart errors={errors} />
                 </div>
-            </form> : <Loading />}
+            </form> : <SmallNotFound /> : <Loading />}
         </main>
     );
 };

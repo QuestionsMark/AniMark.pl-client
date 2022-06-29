@@ -21,12 +21,11 @@ export const ProfileHeader = ({ likes, username, avatar, setRefresh }: Props) =>
     const { userId } = useParams();
 
     const handleProfileLike = async () => {
-        if (user) {
-            const { status, message } = await fetchTool(`users/${userId}/like/${user.userId}`, 'PUT');
-            if (!status) return setResponsePopup({ message, open: true, status });
-            return setRefresh(state => state === null ? false : !state);
-        }
-        setLoginPopup({ message: '', open: true, status: false });
+        if (!user.userId) return setLoginPopup({ message: '', open: true, status: false });
+        const { status, message } = await fetchTool(`users/${userId}/like/${user.userId}`, 'PUT');
+        if (!status) return setResponsePopup({ message, open: true, status });
+        return setRefresh(state => state === null ? false : !state);
+        
     };
 
     return (

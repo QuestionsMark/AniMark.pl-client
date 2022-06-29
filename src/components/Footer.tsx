@@ -32,6 +32,8 @@ export const Footer = () => {
                     <div className="footer__links-wrapper">
                         <p className="footer__link-wrapper"><Link to="/project-ideas" className="link footer__link--small">pomysły projektów</Link></p>
                         <p className="footer__link-wrapper"><Link to="/whats-the-melody" className="link footer__link--small">jaka to melodia</Link></p>
+                        <p className="footer__link-wrapper"><Link to="/sword-art-online-clicker" className="link footer__link--small">ranking SAO clicker</Link></p>
+                        <p className="footer__link-wrapper"><Link to="/city-defence" className="link footer__link--small">ranking city defence</Link></p>
                     </div>
                 </div>
             </div>
