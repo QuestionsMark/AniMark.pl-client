@@ -6,3 +6,6 @@ export const COMMENTS_LIMIT = 25;
 export const IMAGES_TO_CHOOSE_LIMIT = 50;
 export const PROFILE_ANIME_TOP_LIMIT = 20;
 export const SEASONS_TO_CHOOSE_LIMIT = 20;
+export const TYPES_LIMIT = 10;
+export const WHATS_THE_MELODY_LIMIT = 20;
+export const RANKING_LIMIT = 50;

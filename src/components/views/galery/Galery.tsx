@@ -20,7 +20,7 @@ export const Galery = () => {
     const htmlRef = useRef(document.querySelector('html'));
     const windowRef = useRef(window);
 
-    const { amount, data, hasMore, loading, page, searchPhrase, handleSearchPhraseChange, setPage } = useSearch('anime/galery', GALERY_LIMIT);
+    const { amount, data, hasMore, loading, page, searchPhrase, handleSearchPhraseChange, setPage } = useSearch<galeryAPI>('anime/galery', GALERY_LIMIT);
     const { lastDataElementRef } = useInfiniteScroll(amount, hasMore, loading, page, GALERY_LIMIT, setPage);
 
 
@@ -31,7 +31,7 @@ export const Galery = () => {
         if (!htmlRef.current) return;
         const columns: Columns = { column1: [], column2: [], column3: [], column4: [] };
         let counter = 1;
-        for (const folder of data as galeryAPI[]) {
+        for (const folder of data) {
             (columns as any)[`column${counter}`].push(folder);
             if (htmlRef.current.clientWidth >= 780) {
                 counter = counter === 4 ? 1 : counter + 1;
