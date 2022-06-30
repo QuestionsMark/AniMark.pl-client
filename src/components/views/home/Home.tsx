@@ -37,8 +37,8 @@ export const Home = () => {
         <main ref={componentRef} className="main__content home">
             {animeOnTop && lastNews && recommendedProfiles && projects ?
                 <>
-                    <LastNews />
                     <AnimeOnTop />
+                    <LastNews />
                     <RecommendedProfiles />
                     <MyProjects />
                 </> :

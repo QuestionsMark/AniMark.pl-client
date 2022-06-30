@@ -15,6 +15,9 @@ import { Home } from "../views/home/Home";
 import { News } from "../views/news/News";
 import { NewsPage } from "../views/news/NewsPage";
 import { Profile } from "../views/profile/Profile";
+import { Projects } from "../views/projects/Projects";
+import { Rules } from "../views/rules/Rules";
+import { Source } from "../views/sources/Source";
 import { SwordArtOnlineClicker } from "../views/swordArtOnlineClicker/SwordArtOnlineClicker";
 import { TypePage } from "../views/types/TypePage";
 import { Types } from "../views/types/Types";
@@ -42,11 +45,11 @@ export const Main = () => {
                     <Route path="/galery/:animeId" element={<GaleryPage />} />
                     <Route path="/types" element={<Types />} />
                     <Route path="/types/:typeId" element={<TypePage />} />
-                    <Route path="/sources" element={<Home />} />
+                    <Route path="/source" element={<Source />} />
                     <Route path="/achievements" element={<Home />} />
-                    <Route path="/rules" element={<Home />} />
-                    <Route path="/projects" element={<Home />} />
-                    <Route path="/projects/:projectId" element={<Home />} />
+                    <Route path="/rules" element={<Rules />} />
+                    <Route path="/projects" element={<Projects />} />
+                    <Route path="/projects/:projectId" element={<NotFound />} />
                     <Route path="/whats-the-melody" element={<WhatsTheMelodyHistory />} />
                     <Route path="/sword-art-online-clicker" element={<SwordArtOnlineClicker />} />
                     <Route path="/city-defence" element={<CityDefence />} />
