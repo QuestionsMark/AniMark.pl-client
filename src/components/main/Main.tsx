@@ -5,6 +5,7 @@ import { RightSideProvider } from "../../contexts/rightSideContext";
 import { LeftSide } from "../asides/leftSide/LeftSide";
 import { RightSide } from "../asides/rightSide/RightSide";
 import { NotFound } from "../NotFound";
+import { Achievements } from "../views/achievements/Achievements";
 import { Anime } from "../views/anime/Anime";
 import { AnimePage } from "../views/anime/anime-page/AnimePage";
 import { AnimeCreate } from "../views/animeCreate/AnimeCreate";
@@ -46,7 +47,7 @@ export const Main = () => {
                     <Route path="/types" element={<Types />} />
                     <Route path="/types/:typeId" element={<TypePage />} />
                     <Route path="/source" element={<Source />} />
-                    <Route path="/achievements" element={<Home />} />
+                    <Route path="/achievements" element={<Achievements />} />
                     <Route path="/rules" element={<Rules />} />
                     <Route path="/projects" element={<Projects />} />
                     <Route path="/projects/:projectId" element={<NotFound />} />
