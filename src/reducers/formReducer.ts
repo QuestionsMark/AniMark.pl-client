@@ -3,6 +3,7 @@ import { AnimeCreateEntity, AnimeCreatePreview, AudioPreview, FiltersEntity, Ima
 import { getSingleImagePreview, setPreviewForFiles, setSoundtracksPreviewForFiles } from "../utils/setPreviewForFiles";
 
 interface FormState {
+    name?: string;
     login?: string;
     password?: string;
     email?: string;
@@ -17,11 +18,11 @@ interface FormState {
     description?: string;
     choosedImages?: string[];
     images?: File[] | null;
+    links?: OtherLink[];
     otherLinks?: OtherLink[];
     preview?: ImagePreview[];
     title?: string;
     videos?: string[];
-
     scenario?: string;
     productionYear?: number | null;
     epizodesCount?: number | null;
@@ -37,6 +38,7 @@ interface FormState {
     animeImagesPreview?: AnimeCreatePreview;
     soundtracks?: File[] | null;
     soundtracksPreview?: AudioPreview[];
+    technologies?: string[];
 }
 
 interface FormSet {
@@ -243,7 +245,36 @@ interface SoundtracksTitleChange {
     };
 }
 
-export type FormAction = FormSet | LoginChange | PasswordChange | EmailChange | UsernameChange | RulesAcceptationChange | KindChange | MaxRateChange | MinRateChange | SortChange | TypesFilterChange | TitleChange | DescriptionChange | OtherLinksAdd | OtherLinksChange | OtherLinksDelete | VideosAdd | VideosChange | VideosDelete | ImagesChange | ImagesOrderChange | ImagesDelete | ChoosedImagesChange | ScenarioChange | ProductionYearChange | epizodeDurationChange | epizodesCountChange | HoursChange | MinutesChange | WatchLinkChange | TypesChange | SeasonsChange | BackgroundChange | BanerChange | MiniChange | SoundtracksChange | SoundtracksComposerChange | SoundtracksDelete | SoundtracksTitleChange | SoundtracksOrderChange;
+
+// Akcje tworzenia projektu:
+
+interface LinksChange {
+    type: 'LINKS_CHANGE';
+    payload: {
+        type: 'SRC' | 'NOTE';
+        index: number;
+        value: string;
+    };
+}
+interface LinksAdd {
+    type: 'LINKS_ADD';
+}
+interface LinksDelete {
+    type: 'LINKS_DELETE';
+    payload: number;
+}
+
+interface NameChange {
+    type: 'NAME_CHANGE';
+    payload: string;
+}
+
+interface TechnologiesChange {
+    type: 'TECHNOLOGIES_CHANGE';
+    payload: string;
+}
+
+export type FormAction = FormSet | LoginChange | PasswordChange | EmailChange | UsernameChange | RulesAcceptationChange | KindChange | MaxRateChange | MinRateChange | SortChange | TypesFilterChange | TitleChange | DescriptionChange | OtherLinksAdd | OtherLinksChange | OtherLinksDelete | VideosAdd | VideosChange | VideosDelete | ImagesChange | ImagesOrderChange | ImagesDelete | ChoosedImagesChange | ScenarioChange | ProductionYearChange | epizodeDurationChange | epizodesCountChange | HoursChange | MinutesChange | WatchLinkChange | TypesChange | SeasonsChange | BackgroundChange | BanerChange | MiniChange | SoundtracksChange | SoundtracksComposerChange | SoundtracksDelete | SoundtracksTitleChange | SoundtracksOrderChange | LinksAdd | LinksChange | LinksDelete | NameChange | TechnologiesChange;
 
 
 export const formReducer = (state: FormState, action: FormAction): FormState => {
@@ -642,6 +673,51 @@ export const formReducer = (state: FormState, action: FormAction): FormState => 
                     return { ...s, title: value };
                 }),
             }
+        }
+
+
+        // Projects create reducers:
+
+        case 'LINKS_ADD': {
+            return {
+                ...state,
+                links: [...state.links as OtherLink[], { note: '', src: '' }],
+            }
+        }
+
+        case 'LINKS_CHANGE': {
+            return {
+                ...state,
+                links: state.links?.map((link, i) => {
+                    const { index, type, value } = action.payload;
+                    if (type === 'NOTE') {
+                        if (index === i) return { ...link, note: value };
+                        return link;
+                    } else if (type === 'SRC') {
+                        if (index === i) return { ...link, src: value };
+                        return link;
+                    }
+                    return link;
+                }) as OtherLink[],
+            }
+        }
+
+        case 'LINKS_DELETE': {
+            return {
+                ...state,
+                links: state.links?.filter((l, i) => i !== action.payload),
+            }
+        }
+
+        case 'NAME_CHANGE': {
+            return { ...state, name: action.payload };
+        }
+
+        case 'TECHNOLOGIES_CHANGE': {
+            const { payload } = action;
+            const isHere = state.technologies?.findIndex(t => t === payload) !== -1;
+            if (isHere) return { ...state, technologies: state.technologies?.filter(s => s !== payload) };
+            return { ...state, technologies: [...(state.technologies as any), payload] };
         }
 
         default:

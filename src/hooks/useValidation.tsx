@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { AnimeCreateEntity, FormEntity, LoginFormEntity, NewsFormEntity, RegistrationFormEntity, ValidationType } from "../types";
+import { AnimeCreateEntity, FormEntity, LoginFormEntity, NewsFormEntity, ProjectCreateEntity, RegistrationFormEntity, ValidationType } from "../types";
 import { animeCreateValidation } from "../validation/animeCreateValidation";
 import { loginValidation } from "../validation/login";
 import { newsCreateValidation } from "../validation/newsCreateValidation";
+import { projectCreateValidation } from "../validation/projectCreateValidation";
 import { registartionValidation } from "../validation/registraction";
 
 export const useValidation = (form: FormEntity, type: ValidationType) => {
@@ -28,6 +29,11 @@ export const useValidation = (form: FormEntity, type: ValidationType) => {
 
             case 'ANIME_CREATE': {
                 setErrors(animeCreateValidation(form as AnimeCreateEntity));
+                break;
+            }
+
+            case 'PROJECT_CREATE': {
+                setErrors(projectCreateValidation(form as ProjectCreateEntity));
                 break;
             }
         }

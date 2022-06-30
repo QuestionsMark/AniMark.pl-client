@@ -24,13 +24,12 @@ export const Footer = () => {
                         <p className="footer__link-wrapper"><Link to="/rules" className="link footer__link--small">regulamin</Link></p>
                         <p className="footer__link-wrapper"><Link to="/source" className="link footer__link--small">źródła</Link></p>
                         <p className="footer__link-wrapper"><Link to="/achievements" className="link footer__link--small">osiągnięcia</Link></p>
-                        <p className="footer__link-wrapper"><Link to="/my-another-projects" className="link footer__link--small">projekty</Link></p>
+                        <p className="footer__link-wrapper"><Link to="/projects" className="link footer__link--small">projekty</Link></p>
                     </div>
                 </div>
                 <div className="footer__part footer__additions">
                     <h2 className="footer__title">Dodadki/Nowinki</h2>
                     <div className="footer__links-wrapper">
-                        <p className="footer__link-wrapper"><Link to="/project-ideas" className="link footer__link--small">pomysły projektów</Link></p>
                         <p className="footer__link-wrapper"><Link to="/whats-the-melody" className="link footer__link--small">jaka to melodia</Link></p>
                         <p className="footer__link-wrapper"><Link to="/sword-art-online-clicker" className="link footer__link--small">ranking SAO clicker</Link></p>
                         <p className="footer__link-wrapper"><Link to="/city-defence" className="link footer__link--small">ranking city defence</Link></p>

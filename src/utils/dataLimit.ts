@@ -9,3 +9,4 @@ export const SEASONS_TO_CHOOSE_LIMIT = 20;
 export const TYPES_LIMIT = 10;
 export const WHATS_THE_MELODY_LIMIT = 20;
 export const RANKING_LIMIT = 50;
+export const PROJECTS_LIMIT = 20;
