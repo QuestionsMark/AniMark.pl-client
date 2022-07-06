@@ -136,7 +136,7 @@ export const AnimeCreate = () => {
 
     return (
         <main ref={componentRef} className="main__content anime-create">
-            {types && seasons ? user.userId ? <form className="anime-create__form" onSubmit={handleSubmit}>
+            {types && seasons ? user.userId && [2].includes(user.rank) ? <form className="anime-create__form" onSubmit={handleSubmit}>
                 {kindFormPartComponent}
                 {titleFormInputComponent}
                 {infoFormPartComponent}

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { formatDistanceToNow } from "date-fns";
 import { useRef } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useUser } from "../../../contexts/userContext";
 import { useData } from "../../../hooks/useData";
 import { NewsAPI } from "../../../types";
 import { textHelper } from "../../../utils/textHelper";
@@ -17,6 +18,7 @@ export const NewsPage = () => {
 
     const componentRef = useRef<HTMLElement>(null);
     const { newsId } = useParams();
+    const { user } = useUser();
 
     const { data, setRefresh } = useData<NewsAPI | null>(`news/${newsId}`, componentRef);
 
@@ -36,7 +38,7 @@ export const NewsPage = () => {
     return (
         <main ref={componentRef} className="main__content news-page">
             {data ? <div className="news-page__content">
-                <Link to="edit" className="news-page__edit-link"><IconButton handler={() => { }} icon={faGear} className="special" /></Link>
+                {user.userId && [1, 2].includes(user.rank) && <Link to="edit" className="news-page__edit-link"><IconButton handler={() => { }} icon={faGear} className="special" /></Link>}
                 <h2 className="news-page__title">{data.title}</h2>
                 <div className="news-page__container">
                     <div className="main__subsection news-page__text text text--indent">

@@ -1,14 +1,18 @@
 import { useRef } from "react";
 import { useParams } from "react-router-dom";
+import { useUser } from "../../../contexts/userContext";
 import { useData } from "../../../hooks/useData";
 import { NewsAPI } from "../../../types";
 import { Loading } from "../../common/Loading";
+import { SmallNotFound } from "../../common/SmallNotFound";
 import { NewsEditForm } from "./NewsEditForm";
 
 export const NewsEdit = () => {
 
     const componentRef = useRef<HTMLElement>(null);
     const { newsId } = useParams();
+
+    const { user } = useUser();
 
     const { data, setRefresh } = useData<NewsAPI | null>(`news/${newsId}`, componentRef, [newsId], true);
 
@@ -28,7 +32,7 @@ export const NewsEdit = () => {
 
     return (
         <main ref={componentRef} className="main__content news-edit">
-            {data ? <NewsEditForm news={getNewsObject()} setRefresh={setRefresh} /> : <Loading />}
+            {data ? user.userId && [2].includes(user.rank) ? <NewsEditForm news={getNewsObject()} setRefresh={setRefresh} /> : <SmallNotFound /> : <Loading />}
         </main>
     );
 };
