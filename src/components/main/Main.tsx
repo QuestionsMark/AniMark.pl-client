@@ -7,6 +7,7 @@ import { RightSide } from "../asides/rightSide/RightSide";
 import { NotFound } from "../NotFound";
 import { Achievements } from "../views/achievements/Achievements";
 import { Anime } from "../views/anime/Anime";
+import { AnimeEdit } from "../views/anime/anime-edit/AnimeEdit";
 import { AnimePage } from "../views/anime/anime-page/AnimePage";
 import { AnimeCreate } from "../views/animeCreate/AnimeCreate";
 import { CityDefence } from "../views/cityDefence/CityDefence";
@@ -38,7 +39,7 @@ export const Main = () => {
                     <Route path="/" element={<Home />} />
                     <Route path="/anime" element={<Anime />} />
                     <Route path="/anime/:animeId" element={<AnimePage />} />
-                    <Route path="/anime/:animeId/edit" element={<AnimePage />} />
+                    <Route path="/anime/:animeId/edit" element={<AnimeEdit />} />
                     <Route path="/anime-create" element={<AnimeCreate />} />
                     <Route path="/news" element={<News />} />
                     <Route path="/news/:newsId" element={<NewsPage />} />

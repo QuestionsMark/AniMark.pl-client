@@ -1,7 +1,13 @@
 .anime-page {
 
     &__header {
+        position: relative;
         box-shadow: 0 0 8px 4px rgba(0,0,0,0.8);
+    }
+
+    &__edit-link {
+        @include position-absolute(calc(100% - 30px), 30px, -100%, 0);
+        z-index: 1;
     }
 
     &__content {

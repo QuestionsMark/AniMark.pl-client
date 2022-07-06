@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
-import { AnimeCreateEntity, FormEntity, LoginFormEntity, NewsEditEntity, NewsFormEntity, ProjectCreateEntity, RegistrationFormEntity, ValidationType } from "../types";
+import { AnimeCreateEntity, AnimeEditEntity, AudioPreview, FormEntity, ImagePreview, LoginFormEntity, NewsEditEntity, NewsFormEntity, ProjectCreateEntity, RegistrationFormEntity, ValidationType } from "../types";
 import { animeCreateValidation } from "../validation/animeCreateValidation";
+import { animeEditInformationsValidation } from "../validation/animeEditInformationsValidation";
+import { imageEditValidation } from "../validation/imageEditValidation";
 import { loginValidation } from "../validation/login";
 import { newsCreateValidation } from "../validation/newsCreateValidation";
 import { newsEditValidation } from "../validation/newsEditValidation";
 import { projectCreateValidation } from "../validation/projectCreateValidation";
 import { registartionValidation } from "../validation/registraction";
+import { soundtracksAddValidation } from "../validation/soundtracksAddValidation";
 
 export const useValidation = (form: FormEntity, type: ValidationType, prevState?: FormEntity) => {
 
@@ -38,8 +41,23 @@ export const useValidation = (form: FormEntity, type: ValidationType, prevState?
                 break;
             }
 
+            case 'ANIME_EDIT': {
+                setErrors(animeEditInformationsValidation(form as AnimeEditEntity, prevState as AnimeEditEntity));
+                break;
+            }
+
             case 'PROJECT_CREATE': {
                 setErrors(projectCreateValidation(form as ProjectCreateEntity));
+                break;
+            }
+
+            case 'IMAGE_EDIT': {
+                setErrors(imageEditValidation(form as ImagePreview));
+                break;
+            }
+
+            case 'SOUNDTRACKS_ADD': {
+                setErrors(soundtracksAddValidation(form as AudioPreview[]));
                 break;
             }
         }

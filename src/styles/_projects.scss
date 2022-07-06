@@ -130,13 +130,6 @@
         }
 
         &-link {
-            display: block;
-            padding: 4px 10px;
-            border-radius: 8px;
-            color: $text-color2;
-            background-color: $main-color;
-            font-weight: bold;
-
             &:hover {
                 text-decoration: none;
             }

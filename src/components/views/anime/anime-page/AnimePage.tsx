@@ -1,9 +1,11 @@
+import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { useRef } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useUser } from "../../../../contexts/userContext";
 import { useData } from "../../../../hooks/useData";
 import { AnimePageAPI } from "../../../../types";
 import { Comments } from "../../../common/Comments";
+import { IconButton } from "../../../common/IconButton";
 import { Loading } from "../../../common/Loading";
 import { AnimeBaner } from "./AnimeBaner";
 import { AnimeDescription } from "./AnimeDescription";
@@ -27,6 +29,7 @@ export const AnimePage = () => {
             {data ?
                 <>
                     <header className="anime-page__header">
+                        {user.userId && [1, 2].includes(user.rank) && <Link to="edit" className="anime-page__edit-link"><IconButton handler={() => { }} icon={faGear} className="special" /></Link>}
                         <AnimeBaner
                             averageRate={data.averageRate}
                             image={data.images.baner}
