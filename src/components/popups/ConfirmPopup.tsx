@@ -32,8 +32,8 @@ export const ConfirmPopup = () => {
                     {textHelper(question)}
                 </div>
                 <div className="response-popup__buttons">
-                    <button className="response-popup__buttons-btn--accept" onClick={handleAccept}>Tak</button>
-                    <button className="response-popup__buttons-btn--decline" onClick={handleDecline}>Nie</button>
+                    <button id="btn" className="btn response-popup__buttons-btn--accept" onClick={handleAccept}>Tak</button>
+                    <button id="btn" className="btn response-popup__buttons-btn--decline" onClick={handleDecline}>Nie</button>
                 </div>
             </div>
         </Popup>

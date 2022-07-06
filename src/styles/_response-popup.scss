@@ -39,6 +39,13 @@
     }
 
     &__text {
+        margin-bottom: 40px;
         color: $text-color;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
     }
 }

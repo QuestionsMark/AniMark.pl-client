@@ -14,7 +14,7 @@ export const ProjectOtherLinkElement = ({ link }: Props) => {
 
     return (
         <li className="projects__other-links-item">
-            {isStatic ? <Link to={src} className="link projects__other-links-link">{note}</Link> : <a href={src} target="_blank" rel="noreferrer" className="link projects__other-links-link">{note}</a>}
+            {isStatic ? <Link to={src} id="btn" className="link btn projects__other-links-link">{note}</Link> : <a href={src} target="_blank" rel="noreferrer" id="btn" className="link btn projects__other-links-link">{note}</a>}
         </li>
     );
 };

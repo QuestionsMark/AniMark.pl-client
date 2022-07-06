@@ -3,11 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useLocation } from "react-router-dom";
 
 export const SmallNotFound = () => {
-
     const { pathname } = useLocation();
-    console.log(pathname);
-    
-
     return (
         <div className="not-found__content">
             <FontAwesomeIcon icon={faTriangleExclamation} className="not-found__icon" />

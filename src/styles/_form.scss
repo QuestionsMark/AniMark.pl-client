@@ -159,6 +159,7 @@
         }
 
         &-item {
+            list-style: none;
             position: relative;
             flex-basis: 100%;
             padding: 10px;
@@ -267,8 +268,19 @@
         }
     }
 
+    &__soundtracks {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .form__validation-list {
+            margin-top: 0;
+        }
+    }
+
     &__soundtrack-preview {
         &-item {
+            position: relative;
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
@@ -322,6 +334,38 @@
         &-delete-icon {
             @include position-absolute(calc(100% - 10px), 10px, -100%, 0);
             color: $red-color;
+        }
+    }
+    
+    &__saved-soundtracks {
+        &-delete-icon {
+            @include position-absolute(calc(100% - 10px), 10px, -100%, 0);
+            color: $red-color;
+        }
+    }
+
+    &__anime-saved-images {
+        &-part {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            background-color: rgba(25,25,25,0.8);
+
+            .form__image-preview-item {
+                margin-bottom: 0;
+            }
+
+            .form__validation-list {
+                padding: 0 20px;
+                margin-top: 0;
+                padding-top: 0;
+            }
+        }
+
+        &-submit {
+            margin: 0 auto;
         }
     }
 }
