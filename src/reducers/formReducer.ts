@@ -130,6 +130,7 @@ interface ChoosedImagesChange {
     payload: {
         graphicsCount: number;
         value: string;
+        savedImages?: string[];
     };
 }
 
@@ -393,9 +394,10 @@ export const formReducer = (state: FormState, action: FormAction): FormState => 
         }
 
         case 'CHOOSED_IMAGES_CHANGE': {
-            const { graphicsCount, value } = action.payload;
+            const { graphicsCount, value, savedImages } = action.payload;
             const isChoosed = state.choosedImages?.findIndex(i => i === value) !== -1;
             if (isChoosed) return { ...state, choosedImages: state.choosedImages?.filter(i => i !== value) }
+            if (savedImages && savedImages.includes(value)) return state;
             if (graphicsCount > 4) return state;
             return { ...state, choosedImages: [...state.choosedImages as string[], value] };
         }

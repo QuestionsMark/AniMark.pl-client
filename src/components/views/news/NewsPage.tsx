@@ -2,12 +2,13 @@ import { faComment, faEye, faGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { formatDistanceToNow } from "date-fns";
 import { useRef } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useData } from "../../../hooks/useData";
 import { NewsAPI } from "../../../types";
 import { textHelper } from "../../../utils/textHelper";
 import { AdminOption } from "../../common/AdminOption";
 import { Comments } from "../../common/Comments";
+import { IconButton } from "../../common/IconButton";
 import { Loading } from "../../common/Loading";
 import { NewsGrapgicElement } from "./NewsGrapgicElement";
 import { NewsVideoElement } from "./NewsVideoElement";
@@ -35,7 +36,7 @@ export const NewsPage = () => {
     return (
         <main ref={componentRef} className="main__content news-page">
             {data ? <div className="news-page__content">
-                {/* <AdminOption handler={handle} icon={faGear} className="news-page__admin-option" /> */}
+                <Link to="edit" className="news-page__edit-link"><IconButton handler={() => { }} icon={faGear} className="special" /></Link>
                 <h2 className="news-page__title">{data.title}</h2>
                 <div className="news-page__container">
                     <div className="main__subsection news-page__text text text--indent">

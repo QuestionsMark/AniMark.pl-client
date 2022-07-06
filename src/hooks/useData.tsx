@@ -14,7 +14,7 @@ export function useData<T>(path: string, ref: RefObject<HTMLElement>, dependenci
     useEffect(() => {
         if (reset) {
             setData(null);
-        } 
+        }
         getData(path, setData, ref);
     }, [...dependencies]);
     return { data, setRefresh };

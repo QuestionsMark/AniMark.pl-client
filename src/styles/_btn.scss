@@ -13,6 +13,10 @@
         outline-color: $main-color;
     }
 
+    &:disabled {
+        cursor: default;
+    }
+
     &-add {
         width: 20px;
         height: 20px;
