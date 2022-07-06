@@ -14,6 +14,7 @@ import { Galery } from "../views/galery/Galery";
 import { GaleryPage } from "../views/galery/GaleryPage";
 import { Home } from "../views/home/Home";
 import { News } from "../views/news/News";
+import { NewsEdit } from "../views/news/NewsEdit";
 import { NewsPage } from "../views/news/NewsPage";
 import { Profile } from "../views/profile/Profile";
 import { Projects } from "../views/projects/Projects";
@@ -37,9 +38,11 @@ export const Main = () => {
                     <Route path="/" element={<Home />} />
                     <Route path="/anime" element={<Anime />} />
                     <Route path="/anime/:animeId" element={<AnimePage />} />
+                    <Route path="/anime/:animeId/edit" element={<AnimePage />} />
                     <Route path="/anime-create" element={<AnimeCreate />} />
                     <Route path="/news" element={<News />} />
                     <Route path="/news/:newsId" element={<NewsPage />} />
+                    <Route path="/news/:newsId/edit" element={<NewsEdit />} />
                     <Route path="/users" element={<Users />} />
                     <Route path="/users/:userId/*" element={<Profile />} />
                     <Route path="/galery" element={<Galery />} />

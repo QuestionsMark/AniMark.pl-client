@@ -1,5 +1,9 @@
 .news-page {
 
+    &__edit-link {
+        @include position-absolute(calc(100% - 10px), 10px, -100%, 0);
+    }
+
     &__title {
         padding: 40px;
         box-shadow: 0 0 8px 4px rgba(0,0,0,0.7);

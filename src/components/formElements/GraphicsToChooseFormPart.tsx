@@ -12,20 +12,24 @@ interface Props {
     title?: string;
     className?: string;
     value: string[];
+    savedImages?: string[];
     graphicsCount: number;
     dispatch: Dispatch<FormAction>;
 }
 
-export const GraphicsToChooseFormPart = ({ className, graphicsCount, title, value, dispatch }: Props) => {
+export const GraphicsToChooseFormPart = ({ className, graphicsCount, title, value, savedImages, dispatch }: Props) => {
 
     const { amount, data, hasMore, loading, page, searchPhrase, setPage, handleSearchPhraseChange } = useSearch<AnimeImage>('anime/images-form', IMAGES_TO_CHOOSE_LIMIT);
 
     const isActive = (src: string) => {
+        if (savedImages) {
+            return [...savedImages, ...value].findIndex(s => s === src) !== -1;
+        }
         return value.findIndex(s => s === src) !== -1;
     }
 
     const graphicsToChoose = () => {
-        return data.map(i => <ChooseGraphicElement key={i.src} active={isActive(i.src)} dispatch={dispatch} graphicsCount={graphicsCount} image={i} />);
+        return data.map(i => <ChooseGraphicElement key={i.src} active={isActive(i.src)} dispatch={dispatch} graphicsCount={graphicsCount} image={i} savedImages={savedImages} />);
     };
 
     return (
