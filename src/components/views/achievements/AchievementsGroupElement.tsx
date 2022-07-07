@@ -1,5 +1,4 @@
 import { faAward, faMedal, faRankingStar } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { AchievementAPI, AchievementsGroup } from "../../../types";
 import { textHelper } from "../../../utils/textHelper";
@@ -8,16 +7,23 @@ import { AchievementsStatisticElement } from "./AchievementsStatisticElement";
 
 interface Props {
     group: AchievementsGroup;
+    userCheck?: boolean;
+    userAchievements?: string[];
 }
 
-export const AchievementsGroupElement = ({ group }: Props) => {
+export const AchievementsGroupElement = ({ group, userCheck, userAchievements }: Props) => {
 
     const { items, name } = group;
 
     const [info, setInfo] = useState<AchievementAPI>(items[0]);
 
+    const checkIsDone = (id: string) => {
+        if (!userAchievements) return false;
+        return userAchievements.includes(id);
+    };
+
     const achievementsList = () => {
-        return items.map(a => <AchievementCircleElement key={a._id} achievement={a} isActive={info._id === a._id} setInfo={setInfo} />);
+        return items.map(a => <AchievementCircleElement key={a._id} achievement={a} isActive={info._id === a._id} setInfo={setInfo} isDone={userCheck ? checkIsDone(a._id) : false} />);
     };
 
     return (

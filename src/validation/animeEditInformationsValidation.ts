@@ -49,7 +49,20 @@ export const animeEditInformationsValidation = (state: AnimeEditEntity, prevStat
         watchLink === prevState.watchLink &&
         JSON.stringify(seasons) === JSON.stringify(prevState.seasons)
     ) {
-        errors.push('Nie wykryto zmian.');
+        if (
+            kind === 'movie' &&
+            hours === prevState.hours &&
+            minutes === prevState.minutes
+        ) {
+            errors.push('Nie wykryto zmian.');
+        }
+        if (
+            kind === 'series' &&
+            epizodeDuration === prevState.epizodeDuration &&
+            epizodesCount === prevState.epizodesCount
+        ) {
+            errors.push('Nie wykryto zmian.');
+        }
     }
 
     return errors;
