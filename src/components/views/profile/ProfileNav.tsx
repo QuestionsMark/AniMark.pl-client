@@ -25,7 +25,7 @@ export const ProfileNav = ({ userId }: Props) => {
                     <div className="profile__menu-border" />
                 </li>
                 {userId === user.userId && <li className="profile__menu-item">
-                    <NavLink to={`/users/${userId}/edit-profile`} className="profile__menu-link">Edycja Profilu</NavLink>
+                    <NavLink to={`/users/${userId}/edit`} className="profile__menu-link">Edycja Profilu</NavLink>
                     <div className="profile__menu-border" />
                 </li>}
                 {userId === user.userId && <li className="profile__menu-item">

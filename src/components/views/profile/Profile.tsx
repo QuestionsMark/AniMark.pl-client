@@ -3,6 +3,7 @@ import { Route, Routes, useParams } from "react-router-dom";
 import { useData } from "../../../hooks/useData";
 import { ProfileAPI } from "../../../types";
 import { Loading } from "../../common/Loading";
+import { SmallNotFound } from "../../common/SmallNotFound";
 import { ProfileAchievements } from "./profile-achievements/ProfileAchievements";
 import { ProfileAnime } from "./profile-anime/ProfileAnime";
 import { ProfileEdit } from "./profile-edit/ProfileEdit";
@@ -23,8 +24,9 @@ export const Profile = () => {
                     <Route path="/" element={<ProfileHome profile={data} setRefresh={setRefresh} />} />
                     <Route path="/anime" element={<ProfileAnime />} />
                     <Route path="/achievements" element={<ProfileAchievements />} />
-                    <Route path="/edit-profile" element={<ProfileEdit profile={data} setRefresh={setRefresh} />} />
+                    <Route path="/edit" element={<ProfileEdit profile={data} setRefresh={setRefresh} />} />
                     <Route path="/privacy-settings" element={<ProfileHome profile={data} setRefresh={setRefresh} />} />
+                    <Route path="*" element={<SmallNotFound />} />
                 </Routes>
             </> : <Loading />}
         </main>

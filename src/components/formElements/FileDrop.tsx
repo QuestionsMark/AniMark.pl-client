@@ -7,12 +7,13 @@ interface Props {
     defaultValue: string;
     fileType: FileType;
     multiple?: boolean;
+    customClassName?: string;
     handler: (files: File[] | null) => void;
 }
 
-export const FileDrop = ({ defaultValue, fileType, multiple = false, handler }: Props) => {
+export const FileDrop = ({ customClassName, defaultValue, fileType, multiple = false, handler }: Props) => {
 
-    const { className, files, value, getInputProps, getRootProps, resetValue } = useFileDrop(defaultValue, fileType, multiple);
+    const { className, files, value, getInputProps, getRootProps, resetValue } = useFileDrop(defaultValue, fileType, multiple, customClassName);
 
     useEffect(() => {
         if (!files) return;

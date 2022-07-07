@@ -22,18 +22,26 @@
             width: 60px;
             aspect-ratio: 1/1;
             cursor: pointer;
+            
+            &.done {
+                .achievements__group-circle {
+                    color: $special-color;
+                    box-shadow: 0 0 6px 3px $special-color;
+                }
+            }
+
+            &.active {
+                .achievements__group-circle {
+                    color: $main-color;
+                }
+            }
 
             &:hover {
                 .achievements__group-circle {
                     color: $main-color;
                 }
             }
-            
-            &.active {
-                .achievements__group-circle {
-                    color: $main-color;
-                }
-            }
+
         }
 
         &-circle {

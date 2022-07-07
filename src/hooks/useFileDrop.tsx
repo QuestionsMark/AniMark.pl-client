@@ -3,7 +3,7 @@ import { useDropzone } from "react-dropzone";
 
 type FileType = 'image' | 'audio';
 
-export const useFileDrop = (defalutValue: string, fileType: FileType, multiple: boolean) => {
+export const useFileDrop = (defalutValue: string, fileType: FileType, multiple: boolean, customClassName: string | null = null) => {
 
     const [value, setValue] = useState(defalutValue);
     const [files, setFiles] = useState<File[] | null>(null);
@@ -60,7 +60,7 @@ export const useFileDrop = (defalutValue: string, fileType: FileType, multiple: 
     });
 
     const className = useMemo(() => {
-        const classNames = ['filedrop'];
+        const classNames = customClassName ? [customClassName, 'filedrop'] : ['filedrop'];
         if (isFocused) {
             classNames.push('filedrop--focus');
         }

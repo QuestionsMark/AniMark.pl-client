@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { AnimeCreateEntity, AnimeEditEntity, AudioPreview, FormEntity, ImagePreview, LoginFormEntity, NewsEditEntity, NewsFormEntity, ProjectCreateEntity, RegistrationFormEntity, ValidationType } from "../types";
+import { AnimeCreateEntity, AnimeEditEntity, AudioPreview, FormEntity, ImagePreview, LoginFormEntity, NewsEditEntity, NewsFormEntity, ProfileEditEntity, ProjectCreateEntity, RegistrationFormEntity, ValidationType } from "../types";
 import { animeCreateValidation } from "../validation/animeCreateValidation";
 import { animeEditInformationsValidation } from "../validation/animeEditInformationsValidation";
 import { imageEditValidation } from "../validation/imageEditValidation";
+import { profileBackgroundsAddValidation } from "../validation/profileBackgroundsAddValidation";
 import { loginValidation } from "../validation/login";
 import { newsCreateValidation } from "../validation/newsCreateValidation";
 import { newsEditValidation } from "../validation/newsEditValidation";
+import { profileEditValidation } from "../validation/profileEditValidation";
 import { projectCreateValidation } from "../validation/projectCreateValidation";
 import { registartionValidation } from "../validation/registraction";
 import { soundtracksAddValidation } from "../validation/soundtracksAddValidation";
@@ -56,12 +58,22 @@ export const useValidation = (form: FormEntity, type: ValidationType, prevState?
                 break;
             }
 
+            case 'PROFILE_IMAGES_ADD': {
+                setErrors(profileBackgroundsAddValidation(form as ImagePreview[], prevState as string[]));
+                break;
+            }
+
             case 'SOUNDTRACKS_ADD': {
                 setErrors(soundtracksAddValidation(form as AudioPreview[]));
                 break;
             }
+
+            case 'PROFILE_EDIT': {
+                setErrors(profileEditValidation(form as ProfileEditEntity, prevState as ProfileEditEntity));
+                break;
+            }
         }
-    }, [form]);
+    }, [form, prevState]);
 
     return { errors };
 };

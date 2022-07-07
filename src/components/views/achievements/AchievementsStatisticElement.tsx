@@ -13,7 +13,7 @@ interface Props {
 
 export const AchievementsStatisticElement = ({ color, icon, info, name }: Props) => {
     return (
-        <p className="achievements__group-info">
+        <div className="achievements__group-info">
             <Popup
                 className="normal-popup"
                 trigger={
@@ -28,6 +28,6 @@ export const AchievementsStatisticElement = ({ color, icon, info, name }: Props)
                 {name}
             </Popup>
             <span className="achievements__group-info-value">{info}</span>
-        </p>
+        </div>
     );
 };

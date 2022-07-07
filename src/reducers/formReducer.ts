@@ -1,5 +1,5 @@
 import { CheckboxState } from "../components/views/anime/TypesFilter";
-import { AnimeCreateEntity, AnimeCreatePreview, AudioPreview, FiltersEntity, ImagePreview, Kind, LoginFormEntity, NewsFormEntity, OtherLink, RegistrationFormEntity, Sort } from "../types";
+import { AnimeCreateEntity, AnimeCreatePreview, AudioPreview, FiltersEntity, ImagePreview, Introduction, Kind, LoginFormEntity, NewsFormEntity, OtherLink, ProfileEditEntity, RegistrationFormEntity, Sort } from "../types";
 import { getSingleImagePreview, setPreviewForFiles, setSoundtracksPreviewForFiles } from "../utils/setPreviewForFiles";
 
 interface FormState {
@@ -39,11 +39,17 @@ interface FormState {
     soundtracks?: File[] | null;
     soundtracksPreview?: AudioPreview[];
     technologies?: string[];
+
+    avatar?: File | null;
+    avatarPreview?: ImagePreview;
+    introduction?: Introduction;
+    profileBackground?: string;
+    favoriteType?: string;
 }
 
 interface FormSet {
     type: 'FORM_SET';
-    payload: LoginFormEntity | RegistrationFormEntity | FiltersEntity | NewsFormEntity | AnimeCreateEntity;
+    payload: LoginFormEntity | RegistrationFormEntity | FiltersEntity | NewsFormEntity | AnimeCreateEntity | ProfileEditEntity;
 }
 
 // Login and registraction actions:
@@ -123,6 +129,9 @@ interface ImagesOrderChange {
 interface ImagesDelete {
     type: 'IMAGES_DELETE';
     payload: number;
+}
+interface ImagesDeleteAll {
+    type: 'IMAGES_DELETE_ALL';
 }
 
 interface ChoosedImagesChange {
@@ -275,7 +284,33 @@ interface TechnologiesChange {
     payload: string;
 }
 
-export type FormAction = FormSet | LoginChange | PasswordChange | EmailChange | UsernameChange | RulesAcceptationChange | KindChange | MaxRateChange | MinRateChange | SortChange | TypesFilterChange | TitleChange | DescriptionChange | OtherLinksAdd | OtherLinksChange | OtherLinksDelete | VideosAdd | VideosChange | VideosDelete | ImagesChange | ImagesOrderChange | ImagesDelete | ChoosedImagesChange | ScenarioChange | ProductionYearChange | epizodeDurationChange | epizodesCountChange | HoursChange | MinutesChange | WatchLinkChange | TypesChange | SeasonsChange | BackgroundChange | BanerChange | MiniChange | SoundtracksChange | SoundtracksComposerChange | SoundtracksDelete | SoundtracksTitleChange | SoundtracksOrderChange | LinksAdd | LinksChange | LinksDelete | NameChange | TechnologiesChange;
+
+
+// Profile edit actions:
+
+interface AvatarChange {
+    type: 'AVATAR_CHANGE';
+    payload: File[] | null;
+}
+interface IntroductionChange {
+    type: 'INTRODUCTION_CHANGE';
+    payload: {
+        type: 'TITLE' | 'DESCRIPTION';
+        value: string;
+    };
+}
+interface ProfileBackgroundChange {
+    type: 'PROFILE_BACKGROUND_CHANGE';
+    payload: string;
+}
+interface FavoriteTypeChange {
+    type: 'FAVORITE_TYPE_CHANGE';
+    payload: string;
+}
+
+
+
+export type FormAction = FormSet | LoginChange | PasswordChange | EmailChange | UsernameChange | RulesAcceptationChange | KindChange | MaxRateChange | MinRateChange | SortChange | TypesFilterChange | TitleChange | DescriptionChange | OtherLinksAdd | OtherLinksChange | OtherLinksDelete | VideosAdd | VideosChange | VideosDelete | ImagesChange | ImagesOrderChange | ImagesDelete | ImagesDeleteAll | ChoosedImagesChange | ScenarioChange | ProductionYearChange | epizodeDurationChange | epizodesCountChange | HoursChange | MinutesChange | WatchLinkChange | TypesChange | SeasonsChange | BackgroundChange | BanerChange | MiniChange | SoundtracksChange | SoundtracksComposerChange | SoundtracksDelete | SoundtracksTitleChange | SoundtracksOrderChange | LinksAdd | LinksChange | LinksDelete | NameChange | TechnologiesChange | AvatarChange | IntroductionChange | ProfileBackgroundChange | FavoriteTypeChange;
 
 
 export const formReducer = (state: FormState, action: FormAction): FormState => {
@@ -450,6 +485,13 @@ export const formReducer = (state: FormState, action: FormAction): FormState => 
                 ...state,
                 images: newImages && newImages.length > 0 ? newImages : null,
                 preview: newPreview,
+            }
+        }
+        case 'IMAGES_DELETE_ALL': {
+            return {
+                ...state,
+                images: null,
+                preview: [],
             }
         }
 
@@ -720,6 +762,37 @@ export const formReducer = (state: FormState, action: FormAction): FormState => 
             const isHere = state.technologies?.findIndex(t => t === payload) !== -1;
             if (isHere) return { ...state, technologies: state.technologies?.filter(s => s !== payload) };
             return { ...state, technologies: [...(state.technologies as any), payload] };
+        }
+
+
+        // Profile edit reducers:
+
+        case 'AVATAR_CHANGE': {
+            const { payload } = action;
+            return {
+                ...state,
+                avatar: payload ? payload[0] : null,
+                avatarPreview: getSingleImagePreview(payload ? payload[0] : null),
+            }
+        }
+
+        case 'FAVORITE_TYPE_CHANGE': {
+            return { ...state, favoriteType: action.payload };
+        }
+
+        case 'PROFILE_BACKGROUND_CHANGE': {
+            return { ...state, profileBackground: action.payload };
+        }
+
+        case 'INTRODUCTION_CHANGE': {
+            const { type, value } = action.payload;
+            return {
+                ...state,
+                introduction: {
+                    description: type === 'DESCRIPTION' ? value : state.introduction?.description as string,
+                    title: type === 'TITLE' ? value : state.introduction?.title as string,
+                }
+            }
         }
 
         default:

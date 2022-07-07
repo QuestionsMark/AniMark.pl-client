@@ -2,6 +2,7 @@ import { ImagePreview } from "../types";
 
 export const imageEditValidation = (image: ImagePreview) => {
     const errors: string[] = [];
+    if (!image) return ['Nie wykryto zmian.'];
     const { size, src } = image;
 
     if (src.slice(0, 5) !== 'blob:') {
