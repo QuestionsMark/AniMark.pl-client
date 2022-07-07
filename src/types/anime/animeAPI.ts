@@ -1,4 +1,4 @@
-import { Comment, Rate, Soundtrack } from "../common";
+import { Comment, CommentPopulate, Rate, Soundtrack } from "../common";
 import { TypeAPI } from "../types";
 import { UserAPI } from "../users";
 
@@ -70,14 +70,14 @@ export interface AnimePopulateAPI {
     watchLink: string;
     info: AnimeInfo;
     types: TypeAPI[];
-    rates: Rate[];
+    rate: Rate[];
     averageRate: number;
-    likes: UserAPI[];
+    likes: string[];
     images: AnimeImagesObject;
     soundtracks: Soundtrack[];
     description: AnimeDescriptionPopulate;
     seasons: AnimeAPI[];
-    comments: Comment[];
+    comments: CommentPopulate[];
     createdAt: Date;
 }
 
@@ -101,4 +101,37 @@ export interface AnimeCondensedAPI {
     types: TypeAPI[];
     averageRate: number;
     image: AnimeImage;
+}
+
+export interface AnimeCreatePreview {
+    mini: {
+        size: number;
+        src: string;
+    };
+    baner: {
+        size: number;
+        src: string;
+    };
+    background: {
+        size: number;
+        src: string;
+    };
+}
+
+export interface AnimePageAPI {
+    _id: string;
+    kind: Kind;
+    title: string;
+    watchLink: string;
+    info: AnimeInfo;
+    types: TypeAPI[];
+    rate: Rate[];
+    averageRate: number;
+    likes: string[];
+    images: AnimeImagesObject;
+    soundtracks: Soundtrack[];
+    description: AnimeDescriptionPopulate;
+    seasons: AnimeSeason[];
+    comments: CommentPopulate[];
+    createdAt: Date;
 }

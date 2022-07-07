@@ -6,7 +6,7 @@ import { fetchTool } from "../utils/fetchHelper";
 export const useBackground = () => {
 
     const bodyRef = useRef(document.body);
-    const prevUserId = useRef<string | null>(null);
+    const prevId = useRef<string | null>(null);
     const { pathname } = useLocation();
 
     useEffect(() => {
@@ -15,24 +15,33 @@ export const useBackground = () => {
             const parts = pathname.split('/');
             let background: string = '';
             if (parts[1] === 'users' && parts[2]) {
-                if (!prevUserId.current) {
+                if (!prevId.current) {
                     const { status, results } = await fetchTool(`users/${parts[2]}/background`);
                     if (!status) return;
                     background = results;
                 } else {
-                    if (prevUserId.current === parts[2]) {
-                        background = bodyRef.current.style.backgroundImage;
-                    } else {
-                        const { status, results } = await fetchTool(`users/${parts[2]}/background`);
-                        if (!status) return;
-                        background = results;
-                    }
+                    if (prevId.current === parts[2]) return;
+                    const { status, results } = await fetchTool(`users/${parts[2]}/background`);
+                    if (!status) return;
+                    background = results;
                 }
-                prevUserId.current = parts[2];
+                prevId.current = parts[2];
+            } else if (parts[1] === 'anime' && parts[2]) {
+                if (!prevId.current) {
+                    const { status, results } = await fetchTool(`anime/${parts[2]}/background`);
+                    if (!status) return;
+                    background = results;
+                } else {
+                    if (prevId.current === parts[2]) return;
+                    const { status, results } = await fetchTool(`anime/${parts[2]}/background`);
+                    if (!status) return;
+                    background = results;
+                }
+                prevId.current = parts[2];
             } else {
-                prevUserId.current = '';
+                prevId.current = '';
             }
-            bodyRef.current.style.backgroundImage = background ? `url(${HOST_ADDRESS}/image/${background})` : '';
+            bodyRef.current.style.backgroundImage = background ? `url('${HOST_ADDRESS}/media/${background}')` : '';
         })()
     }, [pathname]);
 };

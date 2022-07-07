@@ -24,7 +24,7 @@ export const Menu = () => {
     const addNewAnimeComponent = useMemo(() => {
         return ([1, 2].includes(user.rank)) &&
             <li className="menu__item">
-                <NavLink to={`/anime/create`} className="menu__link">
+                <NavLink to={`/anime-create`} className="menu__link">
                     <FontAwesomeIcon icon={faPlus} className="menu__icon" />Dodaj Nowe Anime
                 </NavLink>
                 <div className="menu__border" />

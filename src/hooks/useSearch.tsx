@@ -11,8 +11,8 @@ export interface Page {
     next: number | null;
 }
 
-export interface SearchResult {
-    data: any[];
+export interface SearchResult<T> {
+    data: T[];
     loading: boolean;
     hasMore: boolean;
     amount: number;
@@ -24,7 +24,7 @@ export interface SearchResult {
     setRefresh: Dispatch<SetStateAction<boolean>>;
 }
 
-export const useSearch = (collection: string, limit: number, queries: Queries = {}, dependencies: any[] = []): SearchResult => {
+export function useSearch<T>(collection: string, limit: number, queries: Queries = {}, dependencies: any[] = []): SearchResult<T> {
 
     const stringify = () => {
         return {

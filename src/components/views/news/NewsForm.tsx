@@ -50,6 +50,7 @@ export const NewsForm = ({ close, setRefresh }: Props) => {
         const { message, status } = await fetchWithFileUpload('news', 'POST', data);
         if (!status) return setResponsePopup({ message, open: true, status });
         setRefresh(state => !state);
+        setResponsePopup({ message, open: true, status })
         close();
     };
 

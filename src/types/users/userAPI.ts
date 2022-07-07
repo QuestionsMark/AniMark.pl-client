@@ -158,6 +158,7 @@ export interface RecommendedProfileAPI {
 }
 
 export interface UserDataAPI {
+    avatar: string;
     userAnimeData: UserAnimeData;
     favoriteAnime: FavoriteAnime[];
     favoriteType: string;
@@ -174,4 +175,10 @@ export interface UserCondensedAPI {
     introduction: Introduction;
     favoriteAnime: FavoriteAnimeCondensed[];
     favoriteType: string;
+}
+
+export interface UserInfoAPI {
+    _id: string;
+    username: string;
+    avatar: string;
 }

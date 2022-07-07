@@ -1,4 +1,129 @@
-.comment {}
+.comment {
+
+    &__add {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+
+        &-avatar {
+            flex-shrink: 0;
+            width: 80px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        &-form {
+            position: relative;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        &-textarea {
+            flex-grow: 1;
+            height: 80px;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        &-submit-icon {
+            width: 20px;
+            height: 20px;
+            padding: 10px;
+            cursor: pointer;
+            color: darken($special-color, 10%);
+            transition: $transition-time;
+
+            &:hover {
+                color: $special-color;
+            }
+        }
+
+        &-validation-text {
+            @include position-absolute(calc(100% - 60px), 100%, -100%, -50%);
+            font-size: 12px;
+            width: max-content;
+            padding: 0 4px;
+            background-color: rgba(0,0,0,0.8);
+        }
+    }
+
+    &__item {
+        position: relative;
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+
+        &:nth-last-child(1) {
+            margin-bottom: 0;
+        }
+    }
+
+    &__admin-option {
+        @include position-absolute(100%, 100%, calc(-100% - 5px), calc(-100% + 6px));
+    }
+
+    &__avatar {
+        flex-shrink: 0;
+        width: 80px;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    &__content {
+        flex-grow: 1;
+        overflow: hidden;
+    }
+
+    &__info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4px;
+    }
+
+    &__username {
+        color: $text-color2;
+    }
+
+    &__date {
+        font-size: 12px;
+    }
+
+    &__text {
+        font-size: 14px;
+    }
+
+    &__like {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        padding: 3px 7px;
+        border: 1px solid darken($main-color, 20%);
+        border-radius: 8px;
+        margin: 0 0 10px auto;
+        cursor: pointer;
+        transition: $transition-time;
+
+        &:hover {
+            color: $text-color2;
+        }
+
+        &-icon {
+            margin-right: 3px;
+            font-size: 11px;
+
+            &.active {
+                color: $main-color;
+            }
+        }
+
+        &-value {
+            font-size: 11px;
+            font-weight: bold;
+        }
+    }
+}
 
 .small-comment {
 
@@ -68,7 +193,7 @@
         width: fit-content;
         padding: 3px 7px;
         border: 1px solid darken($main-color, 20%);
-        border-radius: 10px;
+        border-radius: 8px;
         margin: 0 0 10px auto;
         cursor: pointer;
         transition: $transition-time;
