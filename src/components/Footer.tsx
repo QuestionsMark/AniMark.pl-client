@@ -21,14 +21,15 @@ export const Footer = () => {
                         <p className="footer__link-wrapper"><Link to="/users" className="link footer__link--small">użytkownicy</Link></p>
                         <p className="footer__link-wrapper"><Link to="/types" className="link footer__link--small">gatunki</Link></p>
                         <p className="footer__link-wrapper"><Link to="/galery" className="link footer__link--small">galeria</Link></p>
-                        <p className="footer__link-wrapper"><Link to="/rules" className="link footer__link--small">regulamin</Link></p>
-                        <p className="footer__link-wrapper"><Link to="/source" className="link footer__link--small">źródła</Link></p>
                         <p className="footer__link-wrapper"><Link to="/achievements" className="link footer__link--small">osiągnięcia</Link></p>
                         <p className="footer__link-wrapper"><Link to="/projects" className="link footer__link--small">projekty</Link></p>
+                        <p className="footer__link-wrapper"><Link to="/source" className="link footer__link--small">źródła</Link></p>
+                        <p className="footer__link-wrapper"><Link to="/rules" className="link footer__link--small">regulamin</Link></p>
+                        <p className="footer__link-wrapper"><Link to="/privacy-policy" className="link footer__link--small">polityka prywatności</Link></p>
                     </div>
                 </div>
                 <div className="footer__part footer__additions">
-                    <h2 className="footer__title">Dodadki/Nowinki</h2>
+                    <h2 className="footer__title">Dodadkowe odnośniki</h2>
                     <div className="footer__links-wrapper">
                         <p className="footer__link-wrapper"><Link to="/whats-the-melody" className="link footer__link--small">jaka to melodia</Link></p>
                         <p className="footer__link-wrapper"><Link to="/sword-art-online-clicker" className="link footer__link--small">ranking SAO clicker</Link></p>

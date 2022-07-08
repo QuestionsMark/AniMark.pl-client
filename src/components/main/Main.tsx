@@ -5,6 +5,7 @@ import { RightSideProvider } from "../../contexts/rightSideContext";
 import { LeftSide } from "../asides/leftSide/LeftSide";
 import { RightSide } from "../asides/rightSide/RightSide";
 import { NotFound } from "../NotFound";
+import { PrivacyPolicy } from "../PrivacyPolicy";
 import { Achievements } from "../views/achievements/Achievements";
 import { Anime } from "../views/anime/Anime";
 import { AnimeEdit } from "../views/anime/anime-edit/AnimeEdit";
@@ -58,7 +59,7 @@ export const Main = () => {
                     <Route path="/whats-the-melody" element={<WhatsTheMelodyHistory />} />
                     <Route path="/sword-art-online-clicker" element={<SwordArtOnlineClicker />} />
                     <Route path="/city-defence" element={<CityDefence />} />
-                    <Route path="/privacy-policy" element={<Home />} />
+                    <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </HomeProvider>
