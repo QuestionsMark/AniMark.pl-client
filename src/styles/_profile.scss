@@ -62,16 +62,15 @@
     }
 }
 
-.profile-achievements {
+.profile-achievements, .profile-edit, .profile-privacy-settings {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     padding: 20px;
 }
 
-.profile-edit {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
+.profile-privacy-settings {
+    &__form-submit {
+        margin: 0 auto;
+    }
 }

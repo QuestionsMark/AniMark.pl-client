@@ -496,6 +496,44 @@
             margin-top: 0;
         }
     }
+
+    &__email {
+        &-inp {
+            margin-bottom: 0;
+            width: 100%;
+        }
+    }
+
+    &__login {
+        &-inp {
+            margin-bottom: 0;
+            width: 100%;
+        }
+    }
+
+    &__password {
+        &-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        &-inp {
+            margin-bottom: 0;
+            width: 100%;
+        }
+    }
+
+    &__confirm-password {
+        &-inp {
+            margin-bottom: 0;
+            width: 100%;
+        }
+
+        .form__validation-list {
+            margin-bottom: 20px;
+        }
+    }
 }
 
 #checkbox {

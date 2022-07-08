@@ -1,5 +1,5 @@
 import { CheckboxState } from "../components/views/anime/TypesFilter";
-import { AnimeCreateEntity, AnimeCreatePreview, AudioPreview, FiltersEntity, ImagePreview, Introduction, Kind, LoginFormEntity, NewsFormEntity, OtherLink, ProfileEditEntity, RegistrationFormEntity, Sort } from "../types";
+import { AnimeCreateEntity, AnimeCreatePreview, AudioPreview, FiltersEntity, ImagePreview, Introduction, Kind, LoginFormEntity, NewsFormEntity, OtherLink, PrivacyEditEntity, ProfileEditEntity, RegistrationFormEntity, Sort } from "../types";
 import { getSingleImagePreview, setPreviewForFiles, setSoundtracksPreviewForFiles } from "../utils/setPreviewForFiles";
 
 interface FormState {
@@ -39,17 +39,18 @@ interface FormState {
     soundtracks?: File[] | null;
     soundtracksPreview?: AudioPreview[];
     technologies?: string[];
-
     avatar?: File | null;
     avatarPreview?: ImagePreview;
     introduction?: Introduction;
     profileBackground?: string;
     favoriteType?: string;
+    passwordAgain?: string;
+    passwordConfirm?: string;
 }
 
 interface FormSet {
     type: 'FORM_SET';
-    payload: LoginFormEntity | RegistrationFormEntity | FiltersEntity | NewsFormEntity | AnimeCreateEntity | ProfileEditEntity;
+    payload: LoginFormEntity | RegistrationFormEntity | FiltersEntity | NewsFormEntity | AnimeCreateEntity | ProfileEditEntity | PrivacyEditEntity;
 }
 
 // Login and registraction actions:
@@ -61,6 +62,16 @@ interface LoginChange {
 
 interface PasswordChange {
     type: 'PASSWORD_CHANGE';
+    payload: string;
+}
+
+interface PasswordAgainChange {
+    type: 'PASSWORD_AGAIN_CHANGE';
+    payload: string;
+}
+
+interface ConfirmPasswordChange {
+    type: 'CONFIRM_PASSWORD_CHANGE';
     payload: string;
 }
 
@@ -310,7 +321,7 @@ interface FavoriteTypeChange {
 
 
 
-export type FormAction = FormSet | LoginChange | PasswordChange | EmailChange | UsernameChange | RulesAcceptationChange | KindChange | MaxRateChange | MinRateChange | SortChange | TypesFilterChange | TitleChange | DescriptionChange | OtherLinksAdd | OtherLinksChange | OtherLinksDelete | VideosAdd | VideosChange | VideosDelete | ImagesChange | ImagesOrderChange | ImagesDelete | ImagesDeleteAll | ChoosedImagesChange | ScenarioChange | ProductionYearChange | epizodeDurationChange | epizodesCountChange | HoursChange | MinutesChange | WatchLinkChange | TypesChange | SeasonsChange | BackgroundChange | BanerChange | MiniChange | SoundtracksChange | SoundtracksComposerChange | SoundtracksDelete | SoundtracksTitleChange | SoundtracksOrderChange | LinksAdd | LinksChange | LinksDelete | NameChange | TechnologiesChange | AvatarChange | IntroductionChange | ProfileBackgroundChange | FavoriteTypeChange;
+export type FormAction = FormSet | LoginChange | PasswordChange | PasswordAgainChange | ConfirmPasswordChange | EmailChange | UsernameChange | RulesAcceptationChange | KindChange | MaxRateChange | MinRateChange | SortChange | TypesFilterChange | TitleChange | DescriptionChange | OtherLinksAdd | OtherLinksChange | OtherLinksDelete | VideosAdd | VideosChange | VideosDelete | ImagesChange | ImagesOrderChange | ImagesDelete | ImagesDeleteAll | ChoosedImagesChange | ScenarioChange | ProductionYearChange | epizodeDurationChange | epizodesCountChange | HoursChange | MinutesChange | WatchLinkChange | TypesChange | SeasonsChange | BackgroundChange | BanerChange | MiniChange | SoundtracksChange | SoundtracksComposerChange | SoundtracksDelete | SoundtracksTitleChange | SoundtracksOrderChange | LinksAdd | LinksChange | LinksDelete | NameChange | TechnologiesChange | AvatarChange | IntroductionChange | ProfileBackgroundChange | FavoriteTypeChange;
 
 
 export const formReducer = (state: FormState, action: FormAction): FormState => {
@@ -331,6 +342,18 @@ export const formReducer = (state: FormState, action: FormAction): FormState => 
             return {
                 ...state,
                 password: action.payload,
+            };
+        }
+        case 'PASSWORD_AGAIN_CHANGE': {
+            return {
+                ...state,
+                passwordAgain: action.payload,
+            };
+        }
+        case 'CONFIRM_PASSWORD_CHANGE': {
+            return {
+                ...state,
+                passwordConfirm: action.payload,
             };
         }
 
