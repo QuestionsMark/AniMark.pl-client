@@ -29,6 +29,28 @@ body {
     min-height: 100vh;
     user-select: none;
 
+    &__show-right-side {
+        position: fixed;
+        right: -8px;
+        top: 80px;
+        padding: 8px;
+        border: 2px solid $main-color;
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+        background-color: black;
+        z-index: 100;
+
+        @media (min-width: 1200px) {
+            display: none;
+        }
+
+        &-icon {
+            display: block;
+            width: 20px;
+            height: 20px;
+        }
+    }
+
     &__left-side, &__right-side {
         position: fixed;
         top: 60px;
@@ -50,10 +72,19 @@ body {
     
     &__right-side {
         right: 0;
+        width: 100vw;
         transform: translateX(100%);
-
+        transition: transform 0.5s;
+        
+        &.active {
+            background-color: black;
+            transform: translateX(8px);
+        }
+        
         @media (min-width: 1200px) {
-            transform: translateX(0);
+            width: calc(19% - 8px);
+            transform: translateX(0) !important;
+            background-color: transparent !important;
         }
     }
 
@@ -110,7 +141,6 @@ body {
         font-size: 26px;
         text-align: center;
     }
-
 }
 
 .curtain {

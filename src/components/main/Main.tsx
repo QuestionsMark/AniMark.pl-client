@@ -28,6 +28,7 @@ import { Types } from "../views/types/Types";
 import { Users } from "../views/users/Users";
 import { WhatsTheMelodyHistory } from "../views/whatsTheMelody/WhatsTheMelodyHistory";
 import { Curtain } from "./Curtain";
+import { ShowRightSide } from "./ShowRightSide";
 
 export const Main = () => {
 
@@ -66,6 +67,7 @@ export const Main = () => {
             <RightSideProvider>
                 <RightSide />
             </RightSideProvider>
+            <ShowRightSide />
         </div>
     );
 };
