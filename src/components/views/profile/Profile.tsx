@@ -8,6 +8,7 @@ import { ProfileAchievements } from "./profile-achievements/ProfileAchievements"
 import { ProfileAnime } from "./profile-anime/ProfileAnime";
 import { ProfileEdit } from "./profile-edit/ProfileEdit";
 import { ProfileHome } from "./profile-home/ProfileHome";
+import { ProfilePrivacySettings } from "./profile-privacy-settings/ProfilePrivacySettings";
 import { ProfileNav } from "./ProfileNav";
 
 export const Profile = () => {
@@ -25,7 +26,7 @@ export const Profile = () => {
                     <Route path="/anime" element={<ProfileAnime />} />
                     <Route path="/achievements" element={<ProfileAchievements />} />
                     <Route path="/edit" element={<ProfileEdit profile={data} setRefresh={setRefresh} />} />
-                    <Route path="/privacy-settings" element={<ProfileHome profile={data} setRefresh={setRefresh} />} />
+                    <Route path="/privacy-settings" element={<ProfilePrivacySettings />} />
                     <Route path="*" element={<SmallNotFound />} />
                 </Routes>
             </> : <Loading />}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AnimeCreateEntity, AnimeEditEntity, AudioPreview, FormEntity, ImagePreview, LoginFormEntity, NewsEditEntity, NewsFormEntity, ProfileEditEntity, ProjectCreateEntity, RegistrationFormEntity, ValidationType } from "../types";
+import { AnimeCreateEntity, AnimeEditEntity, AudioPreview, FormEntity, ImagePreview, LoginFormEntity, NewsEditEntity, NewsFormEntity, PrivacyEditEntity, ProfileEditEntity, ProjectCreateEntity, RegistrationFormEntity, ValidationType } from "../types";
 import { animeCreateValidation } from "../validation/animeCreateValidation";
 import { animeEditInformationsValidation } from "../validation/animeEditInformationsValidation";
 import { imageEditValidation } from "../validation/imageEditValidation";
@@ -11,6 +11,7 @@ import { profileEditValidation } from "../validation/profileEditValidation";
 import { projectCreateValidation } from "../validation/projectCreateValidation";
 import { registartionValidation } from "../validation/registraction";
 import { soundtracksAddValidation } from "../validation/soundtracksAddValidation";
+import { privacyEditValidation } from "../validation/privacyEditValidation";
 
 export const useValidation = (form: FormEntity, type: ValidationType, prevState?: FormEntity) => {
 
@@ -70,6 +71,11 @@ export const useValidation = (form: FormEntity, type: ValidationType, prevState?
 
             case 'PROFILE_EDIT': {
                 setErrors(profileEditValidation(form as ProfileEditEntity, prevState as ProfileEditEntity));
+                break;
+            }
+
+            case 'PROFILE_PRIVACY_EDIT': {
+                setErrors(privacyEditValidation(form as PrivacyEditEntity, prevState as PrivacyEditEntity));
                 break;
             }
         }
