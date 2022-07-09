@@ -1,8 +1,6 @@
 import { HOST_ADDRESS } from "../config";
-import { ClientApiResponse, ClientErrorResponse, ClientResponse } from "../types";
+import { ClientApiResponse, ClientErrorResponse, ClientResponse, Method } from "../types";
 import { getLocalStorage } from "./localStorageHelper";
-
-type Method = 'POST' | 'DELETE' | 'PATCH' | 'PUT' | 'GET';
 
 interface ResponseProblem {
     message: string;
@@ -17,11 +15,11 @@ const showProblem = (response: Response, res: ResponseProblem): ClientErrorRespo
 
 export const fetchTool = async (path: string, method: Method = 'GET', body: any = undefined): Promise<ClientResponse> => {
     try {
-        const headers = ['POST', 'PATCH', 'PUT'].includes(method) ? { 'Content-Type': 'application/json' } : undefined;
-
         const response = await fetch(`${HOST_ADDRESS}/${path}`, {
             method,
-            headers,
+            headers: ['POST', 'PATCH', 'PUT'].includes(method) ? { 'Content-Type': 'application/json', 'token': getLocalStorage('token') || undefined } : {
+                'token': getLocalStorage('token') || undefined,
+            },
             body: body && JSON.stringify(body),
         });
         const res = await response.json();
@@ -35,6 +33,9 @@ export const fetchTool = async (path: string, method: Method = 'GET', body: any 
 export const fetchApiTool = async (path: string): Promise<ClientApiResponse> => {
     try {
         const response = await fetch(`${HOST_ADDRESS}/${path}`, {
+            headers: {
+                'token': getLocalStorage('token') || undefined,
+            },
         });
         const res = await response.json();
         if (response.ok) return { ...res, status: true };
@@ -49,7 +50,7 @@ export const fetchWithFileUpload = async (path: string, method: Method = 'POST',
         const response = await fetch(`${HOST_ADDRESS}/${path}`, {
             method,
             headers: {
-                'authorization': getLocalStorage('token'),
+                'token': getLocalStorage('token'),
             },
             body,
         });

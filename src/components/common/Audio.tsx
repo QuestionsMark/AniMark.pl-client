@@ -125,9 +125,9 @@ export const AudioComponent = ({ id, isStatic }: Props) => {
         if (volume > 50) return <FontAwesomeIcon icon={faVolumeHigh} className="audio__icon" onClick={handleToggleVolume} />;
     };
 
-    // useEffect(() => {
-    //     setSrc(id);
-    // }, [id]);
+    useEffect(() => {
+        setSrc(id);
+    }, [id]);
 
     useEffect(() => {
         if (!audio) return;

@@ -21,7 +21,7 @@ export const WhatsTheMelodyQuestion = ({ handleRollWhatsTheMelody }: Props) => {
     const { user, token } = useUser();
     const { socket } = useSocket();
     const { whatsTheMelodyQuestion } = useRightSide();
-    const { setLoginPopup, setResponsePopup } = usePopup();
+    const { setLoginPopup } = usePopup();
     const { _id, answears, src } = whatsTheMelodyQuestion as WhatsTheMelodyQuestionAPI;
 
     const [vote, setVote] = useState<string>('');

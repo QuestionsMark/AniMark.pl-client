@@ -1,4 +1,4 @@
-const PREFIX = 'sheet-of-flower-'
+const PREFIX = 'animark-'
 
 export const setLocalStorage = (key: string, value: any): void => {
     localStorage.setItem(`${PREFIX}${key}`, JSON.stringify(value));
