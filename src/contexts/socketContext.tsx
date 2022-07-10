@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
+import { createContext, ReactNode, useContext, useEffect, useRef, useState } from 'react';
 import io, { Socket } from 'socket.io-client';
 
 import { HOST_ADDRESS } from '../config';
@@ -14,6 +14,8 @@ export const useSocket = () => useContext(SocketContext);
 
 export const SocketProvider = ({ children }: { children: ReactNode }) => {
 
+    const debounceTimeoutId = useRef<NodeJS.Timeout | null>(null);
+
     const { user } = useUser();
 
     const [socket, setSocket] = useState<Socket | null>(null);
@@ -26,7 +28,12 @@ export const SocketProvider = ({ children }: { children: ReactNode }) => {
 
     useEffect(() => {
         if (!socket) return;
-        socket.emit('set-user', { userId: user.userId });
+        if (debounceTimeoutId.current) {
+            clearTimeout(debounceTimeoutId.current);
+        }
+        debounceTimeoutId.current = setTimeout(() => {
+            socket.emit('online-users__new', { userId: user.userId || null });
+        }, 500);
         return () => { socket.off('connect') };
     }, [socket, user.userId]);
 
