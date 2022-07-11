@@ -47,6 +47,8 @@ To learn React, check out the [React documentation](https://reactjs.org/). -->
 
 # Zaliczenie MegaK
 
+## Client
+
 Drodzy samurajowie!
 
 Dzięki wielkie za przekazaną wiedzę w kursach. Nie tylko MegaK, ale także w innych autorstwa kuby i Bartka. Oto mój projekt końcowy zbudowany na podstawie całej posiadanej wiedzy na temat tworzenia aplikacji webowych.
