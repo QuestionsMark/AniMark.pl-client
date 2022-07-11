@@ -542,9 +542,9 @@
         font-size: 13px;
         color: $text-color;
     }
-
-    & > span.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root {
-        color: $main-color;
+    & > span:nth-child(2) {
+        font-size: 13px;
+        color: $text-color;
     }
     margin-bottom: 20px;
 }
@@ -556,7 +556,8 @@
         font-size: 14px;
         color: $text-color;
     }
-    & > span.css-vqmohf-MuiButtonBase-root-MuiRadio-root {
+    
+    & > span.MuiRadio-root.MuiRadio-colorPrimary.MuiButtonBase-root.MuiRadio-root.MuiRadio-colorPrimary.PrivateSwitchBase-root {
         color: $main-color;
     }
 }
@@ -564,44 +565,34 @@
 #select {
     width: 100%;
     margin-bottom: 20px;
-
-    &.css-1nrlq1o-MuiFormControl-root {
+    
+    &.without-margin {
+        margin-bottom: 0;
+    }
+    
+    & > div:nth-child(2) {
         max-width: 250px;
+
+        &.Mui-focused > .MuiOutlinedInput-notchedOutline {
+            border-color: $main-color;
+        }
+    }
+    
+    & > div:nth-child(2) > div {
+        color: $text-color;
+        padding: 10px;
+        border-bottom: 2px solid $main-color;
     }
 }
-.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
-    color: $text-color;
-    padding: 10px;
-    border-bottom: 2px solid $main-color;
-}
-div.css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
-    color: $main-color;
-}
-div.css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-    border-color: $main-color;
-}
 
-span.css-vqmohf-MuiButtonBase-root-MuiRadio-root {
+span.MuiRadio-root.MuiRadio-colorPrimary.MuiButtonBase-root.MuiRadio-root.MuiRadio-colorPrimary.PrivateSwitchBase-root.Mui-checked {
     color: $main-color;
 }
 
-span.css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
-    color: $main-color;
-}
-
-span.css-ahj2mt-MuiTypography-root {
+span.MuiTypography-root.MuiTypography-body1.MuiFormControlLabel-label {
     font-size: 14px;
 }
 
-span.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root {
-    color: $main-color;
-}
-span.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked {
-    color: $main-color;
-}
-
-label.css-1sumxir-MuiFormLabel-root-MuiInputLabel-root, label.css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
-    padding: 0 4px;
-    background-color: rgba(0,0,0,0.8);
+span.MuiCheckbox-root.MuiCheckbox-colorPrimary.MuiButtonBase-root.MuiCheckbox-root.MuiCheckbox-colorPrimary.PrivateSwitchBase-root {
     color: $main-color;
 }

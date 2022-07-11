@@ -11,18 +11,14 @@ interface Props {
 
 export const RecommendedProfileElement = ({ profile }: Props) => {
 
-    const { _id, avatar, background, likes, points, username } = profile;
-
-    const getPoints = () => {
-        return Object.entries(points).reduce((p, a) => p + (points as any)[`${a[0]}`], 0);
-    }
+    const { _id, avatar, background, likes, sumOfPoints, username } = profile;
 
     return (
         <Link to={`/users/${_id}`} className="recommended-profiles__profile" style={{ backgroundImage: `url('${HOST_ADDRESS}/media/${background}')` }}>
             <div className="recommended-profiles__curtain" />
             <div className="recommended-profiles__statistics">
                 <FontAwesomeIcon icon={faMedal} className="recommended-profiles__icon special" />
-                <p className="recommended-profiles__value">{getPoints()}</p>
+                <p className="recommended-profiles__value">{sumOfPoints}</p>
             </div>
             <div className="recommended-profiles__img-wrapper">
                 <Image alt="Avatar" src={avatar} />

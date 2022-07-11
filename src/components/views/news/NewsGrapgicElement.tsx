@@ -7,7 +7,7 @@ interface Props {
 export const NewsGrapgicElement = ({ src }: Props) => {
     return (
         <li className="news-page__images-item">
-            <Image alt="Artykuł" src={src} className="img--natural" />
+            <Image alt="Artykuł" src={src} className="img--natural img--radius" />
         </li>
     );
 };

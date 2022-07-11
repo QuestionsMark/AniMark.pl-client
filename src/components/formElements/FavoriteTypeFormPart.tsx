@@ -27,7 +27,7 @@ export const FavoriteTypeFormPart = ({ className, title, value, types, dispatch 
                     onChange={(e) => dispatch({ type: 'FAVORITE_TYPE_CHANGE', payload: e.target.value })}
                 >
                     <MenuItem value="">
-                        <em>Brak</em>
+                        Brak
                     </MenuItem>
                     {formAnimeList()}
                 </Select>

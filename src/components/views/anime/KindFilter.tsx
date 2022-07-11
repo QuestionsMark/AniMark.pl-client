@@ -13,7 +13,7 @@ export const KindFilter = ({ value, dispatch }: Props) => {
         <div className="filter__others--part">
             <h3 className="filter__subtitle filter__subtitle--center">Rodzaj</h3>
             <div className="filter__kind">
-                <FormControl>
+                <FormControl id="select" className="without-margin">
                     <InputLabel>Rodzaj</InputLabel>
                     <Select
                         value={value}
