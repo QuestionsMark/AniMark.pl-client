@@ -1,0 +1,51 @@
+.response-popup {
+    position: relative;
+    width: calc(100vw - 40px);
+    max-width: 500px;
+    min-height: 180px;
+    padding: 30px 30px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 20px 10px;
+    color: $text-color;
+    background-color: black;
+    font-weight: bold;
+    text-align: left;
+    overflow: hidden;
+    
+    &--ok {
+        color: $green-color;
+    }
+    
+    &--not-ok {
+        color: $red-color;
+    }
+
+    &__icon {
+        @include position-absolute(calc(100% - 20px), 20px, -100%, 0);
+        font-size: 20px;
+        color: $text-color;
+        transition: $transition-time;
+        cursor: pointer;
+
+        &:hover {
+            color: $main-color;
+        }
+    }
+
+    &__title {
+        margin-bottom: 20px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    &__text {
+        margin-bottom: 40px;
+        color: $text-color;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+    }
+}

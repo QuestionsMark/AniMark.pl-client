@@ -1,0 +1,113 @@
+.achievements {
+    padding: 20px;
+
+    &__search {
+        margin-bottom: 20px;
+    }
+
+    &__group {
+        &-title {
+            font-size: 20px;
+            color: $text-color2;
+            margin-bottom: 10px;
+        }
+
+        &-list {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        &-item {
+            position: relative;
+            width: 60px;
+            aspect-ratio: 1/1;
+            cursor: pointer;
+            
+            &.done {
+                .achievements__group-circle {
+                    color: $special-color;
+                    box-shadow: 0 0 6px 3px $special-color;
+                }
+            }
+
+            &.active {
+                .achievements__group-circle {
+                    color: $main-color;
+                }
+            }
+
+            &:hover {
+                .achievements__group-circle {
+                    color: $main-color;
+                }
+            }
+
+        }
+
+        &-circle {
+            @include position-absolute(50%, 50%, -50%, -50%);
+            width: 90%;
+            border: 2px solid;
+            border-radius: 50%;
+            transition: $transition-time;
+        }
+
+        &-content {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(25,25,25,0.8);
+        }
+
+        &-description {
+            margin-bottom: 20px;
+        }
+        
+        &-informations {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        &-info {
+            flex-basis: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            padding: 10px;
+            background-color: rgba(50,50,50,0.8);
+            border-radius: 10px;
+            font-weight: bold;
+
+            &:nth-child(1) {
+                .achievements__group-icon {
+                    color: $text-color2;
+                }
+            }
+            &:nth-child(2) {
+                .achievements__group-icon {
+                    color: $orange-color;
+                }
+            }
+            &:nth-child(3) {
+                .achievements__group-icon {
+                    color: $special-color;
+                }
+            }
+
+            @media (min-width: $md-mobile) {
+                flex-basis: calc(50% - 10px);
+            }
+
+            @media (min-width: $lg-mobile) {
+                flex-basis: calc(33.33333% - 14px);
+            }
+
+            &-value {
+                width: fit-content;
+                text-align: center;
+            }
+        }
+    }
+}

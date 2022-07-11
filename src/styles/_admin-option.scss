@@ -1,0 +1,19 @@
+.admin-option {
+    position: absolute;
+
+    
+    &__icon {
+        color: darken($special-color, 10%);
+        cursor: pointer;
+        
+        &:hover {
+            color: $special-color;
+        }
+
+        &--refresh {
+            &:hover {
+                animation: rotate 1.5s infinite;
+            }
+        }
+    }
+}

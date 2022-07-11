@@ -1,0 +1,21 @@
+.right-side {
+    display: flex;
+    flex-direction: column;
+    overscroll-behavior: contain;
+    overflow-y: auto;
+    margin-right: 8px;
+
+    &__section {
+        width: 100%;
+        padding: 10px;
+        border-radius: 20px;
+        margin-bottom: 24px;
+        box-shadow: 3px 4px 8px 5px black;
+        background-color: rgba(0,0,0,0.4);
+
+        &:nth-last-of-type(1) {
+            margin-bottom: 0;
+        }
+    }
+
+}

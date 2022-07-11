@@ -1,0 +1,215 @@
+*::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: $main-color;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: black;
+}
+
+body {
+    font-family: $font-content;
+    background-color: #111;
+    // background-color: white;
+    background-image: url(../images/background.webp);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    color: $text-color;
+    transition: background-image 0.5s 0.5s;
+}
+
+.main {
+    position: relative;
+    padding-top: 60px;
+    min-height: 100vh;
+    user-select: none;
+
+    &__show-right-side {
+        position: fixed;
+        right: -8px;
+        top: 80px;
+        padding: 8px;
+        border: 2px solid $main-color;
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+        background-color: black;
+        cursor: pointer;
+        z-index: 100;
+
+        @media (min-width: 1200px) {
+            display: none;
+        }
+
+        &-icon {
+            display: block;
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    &__left-side, &__right-side {
+        position: fixed;
+        top: 60px;
+        width: calc(19% - 8px);
+        min-width: 340px;
+        height: calc(100vh - 60px);
+        padding: 14px 20px 20px;
+        z-index: 100;
+    }
+
+    &__left-side {
+        left: 0;
+        transform: translateX(-100%);
+
+        @media (min-width: $lg-pc) {
+            transform: translateX(0);
+        }
+    }
+    
+    &__right-side {
+        right: 0;
+        width: 100vw;
+        transform: translateX(100%);
+        transition: transform 0.5s;
+        
+        &.active {
+            background-color: black;
+            transform: translateX(8px);
+        }
+        
+        @media (min-width: 1200px) {
+            width: calc(19% - 8px);
+            transform: translateX(0) !important;
+            background-color: transparent !important;
+        }
+    }
+
+    &__content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-height: calc(100vh - 60px);
+        box-shadow: 0 0 6px 6px rgba(10, 10, 10, 0.6);
+        background-color: rgba(0,0,0,0.6);
+
+        &.home {
+            padding: 20px;
+        }
+
+        @media (min-width: 1200px) {
+            width: 81%;
+            max-width: calc(100% - 348px);
+            margin: 0 auto 0 0;
+        }
+        
+        @media (min-width: $lg-pc) {
+            width: 62%;
+            max-width: calc(100% - 696px);
+            margin: 0 auto;
+        }
+    }
+
+    &__section {
+        @include main-style(20px);
+        width: 100%;
+        // max-width: 1100px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+    &__subsection {
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        background-color: rgba(0,0,0,0.4);
+
+        &:nth-last-child(1) {
+            margin-bottom: 0;
+        }
+    }
+
+    &__title {
+        margin-bottom: 26px;
+        color: $main-color;
+        font-size: 26px;
+        text-align: center;
+    }
+}
+
+.curtain {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 10, 0.6);
+    z-index: 0;
+}
+
+.text {
+    font-family: $font-content;
+    word-wrap: break-word;
+    user-select: text;
+
+    &--center {
+        text-align: center;
+    }
+
+    &--indent {
+        text-indent: 30px;
+    }
+
+    &::selection {
+        background-color: darken($main-color, 10%);
+    }
+}
+
+.link {
+    color: $text-color;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.img {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    aspect-ratio: 1/1;
+
+    &--natural {
+        aspect-ratio: inherit;
+    }
+
+    &--radius {
+        border-radius: 10px;
+    }
+}
+
+.red {
+    color: $red-color;
+}
+
+.green {
+    color: $green-color;
+}
+
+.special {
+    color: $special-color;
+}
+
+.color {
+    color: $main-color;
+}

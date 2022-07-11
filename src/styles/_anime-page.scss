@@ -1,0 +1,368 @@
+.anime-page {
+
+    &__header {
+        position: relative;
+        box-shadow: 0 0 8px 4px rgba(0,0,0,0.8);
+    }
+
+    &__edit-link {
+        @include position-absolute(calc(100% - 30px), 30px, -100%, 0);
+        z-index: 1;
+    }
+
+    &__content {
+        padding: 26px 20px 20px;
+    }
+
+    &__subtitle {
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+
+    &__baner {
+        @include image;
+        position: relative;
+        width: 100%;
+        // aspect-ratio: 1/1.5;
+        height: calc(100vh - 60px);
+        border-bottom: 2px solid $main-color;
+        
+        @media (min-width: 1200px) {
+            height: auto;
+            aspect-ratio: 1/0.6;
+        }
+
+        &-layout {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: 0.5s;
+            background-color: rgba(10, 10, 10, 0.6);
+    
+            &:hover {
+                background-color: rgba(10, 10, 10, 0.7);
+            }
+    
+            &:hover .anime-page__baner-icon {
+                opacity: 1;
+            }
+    
+            &--hover {
+                background-color: rgba(10, 10, 10, 0.7);
+            }
+    
+            .anime-page__baner-icon {
+                display: block;
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                color: darken($main-color, 20%);
+                opacity: 0;
+                transition: 0.5s;
+    
+                &:hover {
+                    color: $main-color;
+                }
+    
+                &--hover {
+                    opacity: 1;
+                }
+            }
+    
+            .watch-link {
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 70px;
+                height: 70px;
+            }
+    
+            .watch-icon {
+                width: 70px;
+                height: 70px;
+                cursor: pointer;
+            }
+    
+            .anime-page__baner-icon.corner1-icon {
+                left: 10px;
+                top: 10px;
+                transform: rotate(45deg);
+            }
+    
+            .anime-page__baner-icon.corner2-icon {
+                right: 10px;
+                top: 10px;
+                transform: rotate(135deg);
+            }
+    
+            .anime-page__baner-icon.corner3-icon {
+                right: 10px;
+                bottom: 10px;
+                transform: rotate(-135deg);
+            }
+    
+            .anime-page__baner-icon.corner4-icon {
+                left: 10px;
+                bottom: 10px;
+                transform: rotate(-45deg);
+            }
+    
+            .anime-page__baner-icon.play-icon {
+                left: 34px;
+                bottom: 34px;
+                width: 30px;
+                height: 30px;
+            }
+    
+            .anime-page__baner-icon.volume-icon {
+                left: 64px;
+                bottom: 34px;
+                width: 30px;
+                height: 30px;
+            }
+    
+            .anime-page__baner-icon.line-icon {
+                left: 104px;
+                bottom: 49px;
+                transform: translateY(50%);
+                width: calc(100% - 178px);
+                height: 3px;
+                background-color: darken($main-color, 20%);
+            }
+    
+            .anime-page__baner-icon.dot-icon {
+                left: 200px;
+                bottom: 49px;
+                transform: translateY(50%);
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: darken($main-color, 20%);
+    
+                &:hover {
+                    background-color: $main-color;
+                }
+            }
+    
+            .anime-page__baner-icon.full-screen-icon {
+                right: 34px;
+                bottom: 34px;
+                width: 30px;
+                height: 30px;
+            }
+        }
+    
+        &-recommend {
+            position: absolute;
+            left: 34px;
+            top: 34px;
+            font-size: 16px;
+            font-weight: bold;
+            color: $special-color;
+        }
+    
+        &-title {
+            position: absolute;
+            left: 34px;
+            bottom: 34%;
+            font-size: 18px;
+            color: $text-color2;
+            @media (min-width: 1200px) {
+                font-size: 2vh;
+            }
+        }
+    
+        &-info {
+            position: absolute;
+            left: 34px;
+            bottom: calc(34% - 18px);
+            font-size: 14px;
+            @media (min-width: 1200px) {
+                bottom: 30.5%;
+                font-size: 1.5vh;
+            }
+        }
+    
+        &-inf {
+            margin-right: 20px
+        }
+    
+        &-rate {
+            position: absolute;
+            left: 34px;
+            bottom: calc(34% - 34px);
+            display: flex;
+            align-items: center;
+
+            @media (min-width: 1200px) {
+                bottom: 27%;
+            }
+    
+            &-icon {
+                width: 14px;
+                height: 14px;
+                margin-right: 2px;
+                color: $special-color;
+                
+                @media (min-width: 1200px) {
+                    width: 1.5vh;
+                    height: 1.5vh;
+                }
+            }
+        }
+
+        &-like-icon {
+            width: 14px;
+            height: 14px;
+            margin-right: 2px;
+            color: $main-color;
+            
+            @media (min-width: 1200px) {
+                width: 1.5vh;
+                height: 1.5vh;
+            }
+        }
+    
+        &-rate-value {
+            margin-right: 14px;
+            font-weight: bold;
+            font-size: 12px;
+            
+            @media (min-width: 1200px) {
+                font-size: 1.4vh;
+            }
+        }
+    }
+
+    &__user-rate {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        background-color: black;
+
+        @media (min-width: $md-mobile) {
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        @media (min-width: $lg-mobile) {
+            flex-direction: row;
+        }
+
+        &-title {
+            flex-shrink: 0;
+            width: max-content;
+            margin-bottom: 0;
+        }
+
+        &-stars {
+            flex-shrink: 0;
+            &-list {
+                display: flex;
+            }
+            &-icon {
+                cursor: pointer;
+            }
+        }
+
+        &-anime-status {
+            flex-shrink: 0;
+            flex-basis: 100%;
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            
+            @media (min-width: $lg-mobile) {
+                flex-basis: auto;
+                justify-content: flex-end;
+            }
+        }
+    }
+
+    &__types {
+        &-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__description {
+        &-text {
+            font-size: 15px;
+        }
+
+        &-author {
+            display: block;
+            width: fit-content;
+            margin: 0 0 0 auto;
+            color: $text-color2;
+        }
+    }
+
+    &__images {
+        &-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        &-item {
+            flex-basis: 100%;
+
+            @media (min-width: $md-mobile) {
+                flex-basis: calc(50% - 10px);
+            }
+
+            @media (min-width: $lg-mobile) {
+                flex-basis: calc(33.33333% - 14px);
+            }
+        }
+    }
+
+    &__soundtracks {
+        &-item {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            min-height: 56px;
+            padding: 8px 0;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            background-color: rgba(25,25,25,0.9);
+            
+            @media (min-width: $lg-mobile) {
+                flex-direction: row;
+                padding: 8px;
+            }
+        }
+
+        &-info {
+            font-size: 14px;
+        }
+
+        &-like {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 14px;
+
+            &-icon {
+                margin-top: -1px;
+                color: $main-color;
+            }
+        }
+    }
+
+    &__seasons {
+        &-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+}

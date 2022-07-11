@@ -1,0 +1,16 @@
+.left-nav {
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 5px black;
+    background-color: rgba(10, 10, 10, 0.4);
+    font-size: 18px;
+    font-weight: bold;
+    user-select: none;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+        background-color: rgba(10, 10, 10, 0.5);
+        transform: scale(1.04);
+    }
+}

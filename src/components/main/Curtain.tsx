@@ -1,0 +1,1 @@
+export const Curtain = () => <div className="curtain" />;

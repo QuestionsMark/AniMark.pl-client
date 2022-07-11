@@ -1,0 +1,52 @@
+$main-color: #f50057;
+$main-color2: #b95ad1;
+$special-color: #ffb700;
+$green-color: #63b963;
+$red-color: #e66565;
+$orange-color: #e6620a;
+
+$text-color: #d0d0d0;
+$text-color2: #f0f0f0;
+
+$link: 'Nunito Sans', sans-serif;
+$font-content: 'Roboto Condensed', sans-serif;
+$title: 'Nunito Sans', sans-serif;
+
+$sm-mobile: 400px;
+$md-mobile: 520px;
+$lg-mobile: 780px;
+$sm-pc: 1024px;
+$md-pc: 1366px;
+$lg-pc: 1500px;
+
+$transition-time: 0.3s;
+
+
+
+
+@mixin position-absolute($left, $top, $translateX, $translateY) {
+    position: absolute;
+    left: $left;
+    top: $top;
+    transform: translate($translateX, $translateY);
+}
+
+@mixin line-limit($limit) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $limit;
+    line-clamp: $limit;
+    -webkit-box-orient: vertical;
+}
+
+@mixin main-style($padding) {
+    padding: $padding;
+    border-bottom: 2px solid $main-color;
+    background-color: rgba(0,0,0,0.4);
+}
+
+@mixin image {
+    background-position: center;
+    background-size: cover;
+}

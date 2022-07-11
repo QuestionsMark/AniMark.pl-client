@@ -1,0 +1,78 @@
+.btn {
+    padding: 6px 8px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    line-height: 1.65;
+    font-size: 0.875rem;
+    letter-spacing: 0.02857em;
+    cursor: pointer;
+
+    &:focus {
+        outline: auto;
+        outline-color: $main-color;
+    }
+
+    &:disabled {
+        cursor: default;
+    }
+
+    &-add {
+        width: 20px;
+        height: 20px;
+        padding: 10px;
+        border-radius: 8px;
+        color: $text-color;
+        background-color: rgba(25,25,25,0.9);
+        cursor: pointer;
+
+        &.active {
+            color: $main-color;
+            box-shadow: inset 0 0 6px 3px $main-color;
+        }
+
+        &:hover {
+            background-color: rgba(50,50,50,0.9);
+        }
+    }
+
+    &-close {
+        width: 20px;
+        height: 20px;
+        color: darken($main-color, 15%);
+        cursor: pointer;
+        transition: $transition-time;
+
+        &:hover {
+            color: $main-color;
+        }
+    }
+}
+
+#btn {
+    display: block;
+    background-color: $main-color;
+    color: $text-color2;
+    font-weight: bold;
+    text-transform: capitalize;
+
+    &:disabled {
+        color: rgba(0,0,0,0.4);
+        background-color: darken($main-color, 10%);
+    }
+}
+
+#btn-center {
+    display: block;
+    width: fit-content;
+    background-color: $main-color;
+    color: $text-color2;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin: 0 auto;
+
+    &:disabled {
+        color: rgba(0,0,0,0.4);
+        background-color: darken($main-color, 10%);
+    }
+}

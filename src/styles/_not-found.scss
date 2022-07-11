@@ -1,0 +1,24 @@
+.not-found {
+    justify-content: center;
+
+    &__content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 80px 20px;
+        box-shadow: 0 0 30px 20px rgba(0,0,0,0.8);
+        background-color: rgba(0,0,0,0.8);
+    }
+
+    &__icon {
+        font-size: 50px;
+        color: $red-color;
+    }
+
+    &__text {
+        text-align: center;
+    }
+}

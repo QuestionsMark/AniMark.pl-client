@@ -1,0 +1,14 @@
+.source {
+    padding: 20px;
+
+    &__item {
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        background-color: rgba(25,25,25,0.8);
+
+        &:nth-last-child(1) {
+            margin-bottom: 0;
+        }
+    }
+}
