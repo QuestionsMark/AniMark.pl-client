@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -43,4 +43,15 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To learn React, check out the [React documentation](https://reactjs.org/). -->
+
+# Zaliczenie MegaK
+
+Drodzy samurajowie!
+
+Dzięki wielkie za przekazaną wiedzę w kursach. Nie tylko MegaK, ale także w innych autorstwa kuby i Bartka. Oto mój projekt końcowy zbudowany na podstawie całej posiadanej wiedzy na temat tworzenia aplikacji webowych.
+
+Jeśli chodzi o prowadzenie repozytorium to wybaczcie ale jakoś tego jeszcze nie ogarniam i wyszło jak wyszło xd
+
+Co do konfiguracji frontu to eventualnie trzeba w pliku config.ts w katalogu /src ustawić adres hosta api.
+Server API znajduje się w następnym odnośniku.
