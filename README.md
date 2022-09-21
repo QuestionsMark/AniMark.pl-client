@@ -122,7 +122,7 @@ Lista innych moich projektów ze stakiem technologicznym i krótkim opisem.
 [linkedin-url]: https://www.linkedin.com/in/s%C5%82awomir-dziurman-75464b205/
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
-[sass]: https://img.shields.io/badge/sass-20232A?style=for-the-badge&logo=sass&logoColor=d5699f
+[sass]: https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white
 [sass-url]: https://sass-lang.com/
 [axios]: https://img.shields.io/badge/axios-20232A?style=for-the-badge&logo=axios&logoColor=1D80AB
 [axios-url]: https://axios-http.com/docs/intro
@@ -130,7 +130,7 @@ Lista innych moich projektów ze stakiem technologicznym i krótkim opisem.
 [dropzone-url]: https://react-dropzone.js.org/
 [typescript]: https://img.shields.io/badge/typescript-20232A?style=for-the-badge&logo=typescript&logoColor=3178c6
 [typescript-url]: https://www.typescriptlang.org/
-[reactrouter]: https://img.shields.io/badge/React%20Router-20232A?style=for-the-badge&logo=reactrouter&logoColor=fff
+[reactrouter]: https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white
 [reactrouter-url]: https://reactrouter.com/
 [reactpopup]: https://img.shields.io/badge/reactjs%20popup-20232A?style=for-the-badge&logo=reactjs-popup&logoColor=fff
 [reactpopup-url]: https://react-popup.elazizi.com/
