@@ -118,6 +118,7 @@ Lista innych moich projektów ze stakiem technologicznym i krótkim opisem.
 
 [animark-url]: https://animark.pl
 [contributors-shield]: https://img.shields.io/github/contributors/QuestionsMark/AniMark.pl-client.svg?style=for-the-badge
+[contributors-url]: https://github.com/QuestionsMark/AniMark.pl-client/graphs/contributors
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/s%C5%82awomir-dziurman-75464b205/
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
@@ -134,12 +135,12 @@ Lista innych moich projektów ze stakiem technologicznym i krótkim opisem.
 [reactrouter-url]: https://reactrouter.com/
 [reactpopup]: https://img.shields.io/badge/reactjs%20popup-20232A?style=for-the-badge&logo=reactjs-popup&logoColor=fff
 [reactpopup-url]: https://react-popup.elazizi.com/
-[home]: readme/home.png
-[anime]: readme/anime.png
-[news]: readme/news.png
-[users]: readme/users.png
-[galery]: readme/galery.png
-[profile]: readme/profile.png
-[projects]: readme/projects.png
-[achievements]: readme/achievements.png
-[adding]: readme/adding.png
+[home]: readme/home.PNG
+[anime]: readme/anime.PNG
+[news]: readme/news.PNG
+[users]: readme/users.PNG
+[galery]: readme/galery.PNG
+[profile]: readme/profile.PNG
+[projects]: readme/projects.PNG
+[achievements]: readme/achievements.PNG
+[adding]: readme/adding.PNG
