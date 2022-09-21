@@ -5,6 +5,7 @@ import { useAuthorization } from "../hooks/useAuthorization";
 import { useBackground } from "../hooks/useBackground";
 import { useScrollUp } from "../hooks/useScrollUp";
 import { SocketErrorResponse } from "../types";
+import { setNotificationPermission } from "../utils/setNotification";
 import { Footer } from "./Footer";
 import { Header } from "./header/Header";
 import { Main } from "./main/Main";
@@ -20,6 +21,7 @@ export const App = () => {
     useAuthorization();
     useScrollUp();
     useBackground();
+    setNotificationPermission();
 
     useEffect(() => {
         if (socket === null) return;

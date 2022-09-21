@@ -12,6 +12,8 @@ import { RecommendedAnime } from "./RecommendedAnime";
 import { WhatsTheMelody } from "./WhatsTheMelody";
 import { WhatsTheMelodyComments } from "./WhatsTheMelodyComments";
 
+import { setNotification } from "../../../utils/setNotification";
+
 import plum from "../../../audio/plum.mp3";
 
 export const RightSide = () => {
@@ -51,11 +53,16 @@ export const RightSide = () => {
     // Pobranie zagadki muzycznej po zresetowaniu "Jaka to melodia?" i zresetowanie wyników oraz komentarzy
     useEffect(() => {
         if (socket === null) return;
-        socket.on('whats-the-melody__new', () => {
+        socket.on('whats-the-melody__new', async () => {
             setSource(plum);
             getWhatsTheMelodyQuestion();
             setWhatsTheMelodyResults(null);
             setComments(null);
+            setNotification({
+                title: 'Nowy Soundtrack Quiz!',
+                body: 'Zdobądź Ayaya Point i podbijaj ranking użytkowników poprawnie odpowiadająć na zagadkę muzyczną.',
+                tag: 'new-wtm'
+            });
         });
         return () => { socket.off('whats-the-melody__new') };
     }, [socket]);
