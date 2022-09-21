@@ -36,9 +36,6 @@
     <li>
       <a href="#jak-zacząć">Jak zacząć</a>
     </li>
-    <li>
-      <a href="#użycie">Użycie</a>
-    </li>
   </ol>
 </details>
 
@@ -96,11 +93,11 @@ Lista innych moich projektów ze stakiem technologicznym i krótkim opisem.
 
 1. Sklonuj repozytorium
    ```sh
-   git clone https://github.com/ezterr/head-hunter-fe.git
+   git clone https://github.com/QuestionsMark/AniMark.pl-client.git
    ```
 2. Przejdź do katalogu projektu
    ```sh
-   cd head-hunter-fe
+   cd AniMark.pl-client
    ```
 3. Zainstaluj wszystkie zależności
    ```sh
@@ -115,6 +112,8 @@ Lista innych moich projektów ze stakiem technologicznym i krótkim opisem.
 ## Do zobaczenia na stronie!
 
 [animark.pl][animark-url]
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 [animark-url]: https://animark.pl
 [contributors-shield]: https://img.shields.io/github/contributors/QuestionsMark/AniMark.pl-client.svg?style=for-the-badge
