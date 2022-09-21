@@ -19,10 +19,11 @@
   </p>
 </div>
 
-[![React][react.js]][react-url]
 [![Typescript][typescript]][typescript-url]
-[![Sass][sass]][sass-url]
+[![React][react.js]][react-url]
 [![Reactrouter][reactrouter]][reactrouter-url]
+[![Socket.io][socketio]][socketio-url]
+[![Sass][sass]][sass-url]
 [![Axios][axios]][axios-url]
 [![Dropzone][dropzone]][dropzone-url]
 [![Reactpopup][reactpopup]][reactpopup-url]
@@ -134,6 +135,8 @@ Lista innych moich projektów ze stakiem technologicznym i krótkim opisem.
 [reactrouter-url]: https://reactrouter.com/
 [reactpopup]: https://img.shields.io/badge/reactjs%20popup-20232A?style=for-the-badge&logo=reactjs-popup&logoColor=fff
 [reactpopup-url]: https://react-popup.elazizi.com/
+[socketio]: https://img.shields.io/badge/Socket.io-010101?&style=for-the-badge&logo=Socket.io&logoColor=white
+[socketio-url]: https://socket.io/
 [home]: readme/home.PNG
 [anime]: readme/anime.PNG
 [news]: readme/news.PNG
