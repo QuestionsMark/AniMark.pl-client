@@ -1,59 +1,145 @@
-<!-- # Getting Started with Create React App
+<div id="top"></div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Contributors][contributors-shield]][contributors-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-## Available Scripts
+<br />
+<div align="center">
+  <a href="https://animark.pl">
+    <img src="./readme/logo.jpg" alt="AniMark.pl Logo" width="200" height="200">
+  </a>
 
-In the project directory, you can run:
+<h1 align="center">AniMark.pl</h1>
+  <p align="center">
+    Fascynujesz się japońską kulturą i lubisz obejrzeć dobrą animację? AniMark jest stworzony właśnie dla Ciebie! Tak naprawdę to wieje nudą na tej witrynie, ale jak jednak już na nią zajrzysz to możesz założyć konto, skonfikurować swój profil, podzielić się wrażeniami po oglądniętej chińskiej bajce, albo spróbowac swoich sił w muzycznym quizie.
+    <br />
+    Stronka raczej pełni funkcję mojego portfolio na którym uczę się nowych technologii i dzielę się swoimi pozostałymi projektami.
+    <br />
+    <br />
+  </p>
+</div>
 
-### `npm start`
+[![React][react.js]][react-url]
+[![Typescript][typescript]][typescript-url]
+[![Sass][sass]][sass-url]
+[![Reactrouter][reactrouter]][reactrouter-url]
+[![Axios][axios]][axios-url]
+[![Dropzone][dropzone]][dropzone-url]
+[![Reactpopup][reactpopup]][reactpopup-url]
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<details>
+  <summary>Spis treści</summary>
+  <ol>
+    <li>
+      <a href="#o-projekcie">O projekcie</a>
+    </li>
+    <li>
+      <a href="#jak-zacząć">Jak zacząć</a>
+    </li>
+  </ol>
+</details>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## O projekcie
 
-### `npm test`
+### Strona startowa
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![home]
 
-### `npm run build`
+Na stronie startowej znajduje się wybierane przez uzytkowników platformy "Anime Tygodnia", najnowsze wiadomości ze świata anime, sekcja z rekomendowanymi profilami oraz lista innych moich projektów.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Lista anime
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![anime]
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Lista anime z możliwością filtrowania i sortowania.
 
-### `npm run eject`
+### Nowości
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![news]
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Lista interesujących mnie newsów ze świata anime.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Lista użytkowników
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![users]
 
-## Learn More
+Lista użytkowników połączłona z rankingiem po ilości zebranych punktów (AP - Ayaya Points).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Galeria
 
-To learn React, check out the [React documentation](https://reactjs.org/). -->
+![galery]
 
-# Zaliczenie MegaK
+Galeria grafik.
 
-## Client
+### Profil uzytkownika
 
-Drodzy samurajowie!
+![profile]
 
-Dzięki wielkie za przekazaną wiedzę w kursach. Nie tylko MegaK, ale także w innych autorstwa kuby i Bartka. Oto mój projekt końcowy zbudowany na podstawie całej posiadanej wiedzy na temat tworzenia aplikacji webowych.
+Profil użytkownika skłąda się z 5 podstron. Na głównej stronie profilu znajdują się wszystkie statystyki związane z kontem, avatar profilu oraz opis. Na kolejnych podstronach znajdują się kolejno: subiektywna topka użytkownika, lista jego osiągnięć, możliwość edycji profilu oraz ustawienia prywatności.
 
-Jeśli chodzi o prowadzenie repozytorium to wybaczcie ale jakoś tego jeszcze nie ogarniam i wyszło jak wyszło xd
+### Osiągnięcia
 
-Co do konfiguracji frontu to eventualnie trzeba w pliku config.ts w katalogu /src ustawić adres hosta api.
-Server API znajduje się w następnym odnośniku.
+![achievements]
+
+Lista osiągnięć z opisami możliwe do zdobycia za aktywność na stronie.
+
+### Moje inne projekty
+
+![projects]
+
+Lista innych moich projektów ze stakiem technologicznym i krótkim opisem.
+
+## Jak zacząć
+
+1. Sklonuj repozytorium
+   ```sh
+   git clone https://github.com/QuestionsMark/AniMark.pl-client.git
+   ```
+2. Przejdź do katalogu projektu
+   ```sh
+   cd AniMark.pl-client
+   ```
+3. Zainstaluj wszystkie zależności
+   ```sh
+   npm install
+   ```
+4. Uzupełnij plik konfiguracyjny `src/config.ts`
+   ```js
+   export const HOST_ADDRESS = "http://localhost:3001";
+   export const LOCAL_STORAGE_PREFIX = "animark-";
+   ```
+
+## Do zobaczenia na stronie!
+
+[animark.pl][animark-url]
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+[animark-url]: https://animark.pl
+[contributors-shield]: https://img.shields.io/github/contributors/QuestionsMark/AniMark.pl-client.svg?style=for-the-badge
+[contributors-url]: https://github.com/QuestionsMark/AniMark.pl-client/graphs/contributors
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/s%C5%82awomir-dziurman-75464b205/
+[react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[react-url]: https://reactjs.org/
+[sass]: https://img.shields.io/badge/sass-20232A?style=for-the-badge&logo=sass&logoColor=d5699f
+[sass-url]: https://sass-lang.com/
+[axios]: https://img.shields.io/badge/axios-20232A?style=for-the-badge&logo=axios&logoColor=1D80AB
+[axios-url]: https://axios-http.com/docs/intro
+[dropzone]: https://img.shields.io/badge/react%20dropzone-20232A?style=for-the-badge&logo=reactdropzone&logoColor=1D80AB
+[dropzone-url]: https://react-dropzone.js.org/
+[typescript]: https://img.shields.io/badge/typescript-20232A?style=for-the-badge&logo=typescript&logoColor=3178c6
+[typescript-url]: https://www.typescriptlang.org/
+[reactrouter]: https://img.shields.io/badge/React%20Router-20232A?style=for-the-badge&logo=reactrouter&logoColor=fff
+[reactrouter-url]: https://reactrouter.com/
+[reactpopup]: https://img.shields.io/badge/reactjs%20popup-20232A?style=for-the-badge&logo=reactjs-popup&logoColor=fff
+[reactpopup-url]: https://react-popup.elazizi.com/
+[home]: readme/home.PNG
+[anime]: readme/anime.PNG
+[news]: readme/news.PNG
+[users]: readme/users.PNG
+[galery]: readme/galery.PNG
+[profile]: readme/profile.PNG
+[projects]: readme/projects.PNG
+[achievements]: readme/achievements.PNG
+[adding]: readme/adding.PNG
