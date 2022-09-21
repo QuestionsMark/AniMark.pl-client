@@ -6,7 +6,7 @@
 <br />
 <div align="center">
   <a href="https://animark.pl">
-    <img src="./readme/logo.png" alt="AniMark.pl Logo" width="200" height="200">
+    <img src="./readme/logo.jpg" alt="AniMark.pl Logo" width="200" height="200">
   </a>
 
 <h1 align="center">AniMark.pl</h1>
