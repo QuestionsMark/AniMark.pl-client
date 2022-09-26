@@ -1,5 +1,5 @@
 import { FavoriteAnimeCondensed } from "../../../../types";
-import { FavoriteAnimeElement } from "../../../common/FavoriteAnimeElement";
+import { AnimeBrickElement } from "../../../common/AnimeBrickElement";
 
 interface Props {
     favoriteAnime: FavoriteAnimeCondensed[]
@@ -8,7 +8,7 @@ interface Props {
 export const ProfileFavoriteAnime = ({ favoriteAnime }: Props) => {
 
     const animeList = () => {
-        return favoriteAnime.map(a => <FavoriteAnimeElement key={a.anime._id} anime={a} className="profile-home__favorite-anime-item" />);
+        return favoriteAnime.map(a => <AnimeBrickElement key={a.anime._id} anime={a} />);
     };
 
     return (

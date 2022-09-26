@@ -196,6 +196,11 @@ body {
     &--radius {
         border-radius: 10px;
     }
+
+    &--fit {
+        aspect-ratio: inherit;
+        height: 100%;
+    }
 }
 
 .red {

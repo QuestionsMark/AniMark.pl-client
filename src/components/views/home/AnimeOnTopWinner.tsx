@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { useHome } from "../../../contexts/homeContext";
 import { AnimeOnTopPopulateAPI, AnimeOnTopWinnerAPI } from "../../../types";
 import { textHelper } from "../../../utils/textHelper";
+import { AnimeBrickElement } from "../../common/AnimeBrickElement";
 import { Image } from "../../common/Image";
-import { SeasonElement } from "../../common/SeasonElement";
 import { TypeElement } from "../../common/TypeElement";
 import { AnimeOnTopAudio } from "./AnimeOnTopAudio";
 
@@ -21,7 +21,7 @@ export const AnimeOnTopWinner = () => {
     };
 
     const seasonsList = () => {
-        return seasons.map(s => <SeasonElement key={s._id} season={s} />);
+        return seasons.map(s => <AnimeBrickElement key={s._id} anime={{ anime: s }} className="anime-on-top__anime-season-element" />);
     };
 
     const soundtracksList = () => {

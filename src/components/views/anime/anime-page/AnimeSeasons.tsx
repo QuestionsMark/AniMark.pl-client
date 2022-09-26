@@ -1,5 +1,5 @@
 import { AnimeSeason } from "../../../../types";
-import { FavoriteAnimeElement } from "../../../common/FavoriteAnimeElement";
+import { AnimeBrickElement } from "../../../common/AnimeBrickElement";
 
 interface Props {
     seasons: AnimeSeason[];
@@ -8,7 +8,7 @@ interface Props {
 export const AnimeSeasons = ({ seasons }: Props) => {
 
     const seasonsList = () => {
-        return seasons.map(s => <FavoriteAnimeElement key={s._id} anime={{ anime: s, rate: undefined }} />);
+        return seasons.map(s => <AnimeBrickElement key={s._id} anime={{ anime: s }} className="anime-page__seasons-item" />);
     };
 
     return (
