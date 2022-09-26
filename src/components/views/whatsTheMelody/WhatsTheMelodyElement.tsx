@@ -5,11 +5,12 @@ import { AudioComponent } from "../../common/Audio";
 import { WhatsTheMelodyWinnerElement } from "./WhatsTheMelodyWinnerElement";
 
 interface Props {
+    index: number;
     wtm: WhatsTheMelodyAPI;
     observer?: (node: any) => void;
 }
 
-export const WhatsTheMelodyElement = ({ wtm, observer }: Props) => {
+export const WhatsTheMelodyElement = ({ index, wtm, observer }: Props) => {
 
     const { _id, answears, comments, correctAnswear, createdAt, src, votes } = wtm;
 
@@ -38,7 +39,7 @@ export const WhatsTheMelodyElement = ({ wtm, observer }: Props) => {
 
     return (
         <li ref={observer || null} className="main__subsection whats-the-melody__item">
-            <h2 className="whats-the-melody__title">{correctAnswear}</h2>
+            <h2 className="whats-the-melody__title">{index !== 0 ? correctAnswear : '???'}</h2>
             <div className="whats-the-melody__statistics">
                 <div className="whats-the-melody__info">Oddane głosy: {showVotesAmount()}</div>
                 <p className="whats-the-melody__info">Poziom trudności: {showDifficulty()}</p>
