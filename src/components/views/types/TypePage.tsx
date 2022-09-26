@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useData } from "../../../hooks/useData";
 import { TypePageAPI } from "../../../types";
 import { textHelper } from "../../../utils/textHelper";
-import { FavoriteAnimeElement } from "../../common/FavoriteAnimeElement";
+import { AnimeBrickElement } from "../../common/AnimeBrickElement";
 import { TypeLoverElement } from "./TypeLoverElement";
 
 export const TypePage = () => {
@@ -18,7 +18,7 @@ export const TypePage = () => {
     };
 
     const bestAnimeList = () => {
-        return data.bestAnime.map(a => <FavoriteAnimeElement anime={{ anime: a.anime, rate: a.rate }} />);
+        return data.bestAnime.map(a => <AnimeBrickElement anime={{ anime: a.anime, rate: a.rate }} />);
     };
 
     return (
