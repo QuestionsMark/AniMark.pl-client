@@ -1,4 +1,4 @@
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
@@ -10,7 +10,7 @@ export const Footer = () => {
                     <h2 className="footer__title">Social Media</h2>
                     <div className="footer__links-wrapper">
                         <a href="https://www.facebook.com/profile.php?id=100002385831117" target="_blank" rel="noreferrer" className="footer__link"><FontAwesomeIcon icon={faFacebook} className="footer__icon" />Facebook</a>
-                        <a href="https://www.facebook.com/profile.php?id=100002385831117" target="_blank" rel="noreferrer" className="footer__link"><FontAwesomeIcon icon={faFacebook} className="footer__icon" />Facebook</a>
+                        <a href="https://www.linkedin.com/in/s%C5%82awomir-dziurman-75464b205/" target="_blank" rel="noreferrer" className="footer__link"><FontAwesomeIcon icon={faLinkedin} className="footer__icon" />LinkedIn</a>
                     </div>
                 </div>
                 <div className="footer__part footer__links">
