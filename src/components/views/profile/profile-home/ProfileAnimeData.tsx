@@ -16,15 +16,15 @@ export const ProfileAnimeData = ({ userAnimeData }: Props) => {
     const animeList = (nav: number) => {
         switch (nav) {
             case 0:
-                return watched.map(a => <AnimeBrickElement key={a.anime._id} anime={a} />);
+                return watched.map(a => <AnimeBrickElement key={a.anime._id} anime={a} className="card-animation" />);
             case 1:
-                return processOfWatching.map(a => <AnimeBrickElement key={a._id} anime={{ anime: a }} />);
+                return processOfWatching.map(a => <AnimeBrickElement key={a._id} anime={{ anime: a }} className="card-animation" />);
             case 2:
-                return stopped.map(a => <AnimeBrickElement key={a._id} anime={{ anime: a }} />);
+                return stopped.map(a => <AnimeBrickElement key={a._id} anime={{ anime: a }} className="card-animation" />);
             case 3:
-                return planned.map(a => <AnimeBrickElement key={a._id} anime={{ anime: a }} />);
+                return planned.map(a => <AnimeBrickElement key={a._id} anime={{ anime: a }} className="card-animation" />);
             default:
-                return watched.map(a => <AnimeBrickElement key={a.anime._id} anime={a} />);
+                return watched.map(a => <AnimeBrickElement key={a.anime._id} anime={a} className="card-animation" />);
         }
     };
 

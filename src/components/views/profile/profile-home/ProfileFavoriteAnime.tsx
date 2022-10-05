@@ -8,7 +8,7 @@ interface Props {
 export const ProfileFavoriteAnime = ({ favoriteAnime }: Props) => {
 
     const animeList = () => {
-        return favoriteAnime.map(a => <AnimeBrickElement key={a.anime._id} anime={a} />);
+        return favoriteAnime.map(a => <AnimeBrickElement key={a.anime._id} anime={a} className="card-animation" />);
     };
 
     return (
