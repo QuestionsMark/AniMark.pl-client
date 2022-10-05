@@ -19,9 +19,9 @@
     transform: rotateZ(-30deg) scale(0.3);
     transform-origin: 30% 70%;
     animation: show-card 0.3s cubic-bezier(.4,1.51,.82,.98) forwards;
-    @for $i from 1 through 20 {
+    @for $i from 1 through 100 {
         &:nth-of-type(#{$i}n) {
-            animation-delay: #{$i * 0.05 - 0.05}s;
+            animation-delay: #{$i * 0.025 - 0.025}s;
         }
     }
 
