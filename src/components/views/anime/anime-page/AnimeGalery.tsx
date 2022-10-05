@@ -1,4 +1,5 @@
 import { AnimeImage } from "../../../../types";
+import { LightBox, LightBoxActions } from "../../../common/LightBox";
 import { AnimeGaleryImageElement } from "./AnimeGaleryImageElement";
 
 interface Props {
@@ -7,15 +8,23 @@ interface Props {
 
 export const AnimeGalery = ({ galery }: Props) => {
 
-    const imagesList = () => {
-        return galery.map(i => <AnimeGaleryImageElement key={i.src} img={i} />);
+    const imagesList = (actions: LightBoxActions) => {
+        return galery.map((i, index) => (
+            <AnimeGaleryImageElement
+                key={i.src}
+                img={i}
+                actions={{...actions, index}}
+            />
+        ));
     };
 
     return (
         <div className="main__subsection anime-page__galery">
             <h3 className="anime-page__subtitle anime-page__images-title">Galeria</h3>
             <ul className="anime-page__images-list">
-                {imagesList()}
+                <LightBox images={galery} >
+                    {(actions) => imagesList(actions)}
+                </LightBox>
             </ul>
         </div>
     );
