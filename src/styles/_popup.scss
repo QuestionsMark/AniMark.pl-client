@@ -22,6 +22,8 @@
     }
 }
 
-.modal-popup {
-
+.lightbox {
+    &-overlay {
+        animation: none;
+    }
 }
