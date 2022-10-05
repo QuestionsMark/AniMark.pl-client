@@ -2,7 +2,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { ComplexTypeAPI } from "../../../types";
-import { FavoriteAnimeElement } from "../../common/FavoriteAnimeElement";
+import { AnimeBrickElement } from "../../common/AnimeBrickElement";
 import { TypeLoverElement } from "./TypeLoverElement";
 
 interface Props {
@@ -19,7 +19,7 @@ export const ComplexTypeElement = ({ type, observer }: Props) => {
     };
 
     const bestAnimeList = () => {
-        return bestAnime.map(a => <FavoriteAnimeElement anime={{ anime: a.anime, rate: a.rate }} />);
+        return bestAnime.map(a => <AnimeBrickElement anime={{ anime: a.anime, rate: a.rate }} />);
     };
 
     return (

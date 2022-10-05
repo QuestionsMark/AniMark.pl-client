@@ -15,7 +15,7 @@ export const WhatsTheMelodyHistory = () => {
     const { lastDataElementRef } = useInfiniteScroll(amount, hasMore, loading, page, WHATS_THE_MELODY_LIMIT, setPage);
 
     const whatsTheMelodyList = () => {
-        return data.map((w, i) => <WhatsTheMelodyElement key={w._id} wtm={w} observer={(i + 1) % WHATS_THE_MELODY_LIMIT === 0 ? lastDataElementRef : undefined} />);
+        return data.map((w, i) => <WhatsTheMelodyElement key={w._id} index={i} wtm={w} observer={(i + 1) % WHATS_THE_MELODY_LIMIT === 0 ? lastDataElementRef : undefined} />);
     };
 
     return (

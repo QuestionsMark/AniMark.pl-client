@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { UserAnimeDataCondensedAPI } from "../../../../types";
-import { FavoriteAnimeElement } from "../../../common/FavoriteAnimeElement";
+import { AnimeBrickElement } from "../../../common/AnimeBrickElement";
 import { ProfileAnimeDataNav } from "./ProfileAnimeDataNav";
 
 interface Props {
@@ -16,15 +16,15 @@ export const ProfileAnimeData = ({ userAnimeData }: Props) => {
     const animeList = (nav: number) => {
         switch (nav) {
             case 0:
-                return watched.map(a => <FavoriteAnimeElement key={a.anime._id} anime={a} className="profile-home__anime-data-item" />);
+                return watched.map(a => <AnimeBrickElement key={a.anime._id} anime={a} className="card-animation" />);
             case 1:
-                return processOfWatching.map(a => <FavoriteAnimeElement key={a._id} anime={{ anime: a }} className="profile-home__anime-data-item" />);
+                return processOfWatching.map(a => <AnimeBrickElement key={a._id} anime={{ anime: a }} className="card-animation" />);
             case 2:
-                return stopped.map(a => <FavoriteAnimeElement key={a._id} anime={{ anime: a }} className="profile-home__anime-data-item" />);
+                return stopped.map(a => <AnimeBrickElement key={a._id} anime={{ anime: a }} className="card-animation" />);
             case 3:
-                return planned.map(a => <FavoriteAnimeElement key={a._id} anime={{ anime: a }} className="profile-home__anime-data-item" />);
+                return planned.map(a => <AnimeBrickElement key={a._id} anime={{ anime: a }} className="card-animation" />);
             default:
-                return watched.map(a => <FavoriteAnimeElement key={a.anime._id} anime={a} className="profile-home__anime-data-item" />);
+                return watched.map(a => <AnimeBrickElement key={a.anime._id} anime={a} className="card-animation" />);
         }
     };
 

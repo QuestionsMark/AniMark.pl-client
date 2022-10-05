@@ -183,6 +183,7 @@ body {
 }
 
 .img {
+    user-select: none;
     display: block;
     object-fit: cover;
     object-position: center;
@@ -195,6 +196,11 @@ body {
 
     &--radius {
         border-radius: 10px;
+    }
+
+    &--fit {
+        aspect-ratio: inherit;
+        height: 100%;
     }
 }
 
