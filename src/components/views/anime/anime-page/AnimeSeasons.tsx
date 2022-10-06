@@ -8,7 +8,7 @@ interface Props {
 export const AnimeSeasons = ({ seasons }: Props) => {
 
     const seasonsList = () => {
-        return seasons.map(s => <AnimeBrickElement key={s._id} anime={{ anime: s }} className="anime-page__seasons-item" />);
+        return seasons.map(s => <AnimeBrickElement key={s._id} anime={{ anime: s }} className="anime-page__seasons-item card-animation" />);
     };
 
     return (
