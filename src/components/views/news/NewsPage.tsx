@@ -7,9 +7,9 @@ import { useUser } from "../../../contexts/userContext";
 import { useData } from "../../../hooks/useData";
 import { NewsAPI } from "../../../types";
 import { textHelper } from "../../../utils/textHelper";
-import { AdminOption } from "../../common/AdminOption";
 import { Comments } from "../../common/Comments";
 import { IconButton } from "../../common/IconButton";
+import { LightBox, LightBoxActions } from "../../common/LightBox";
 import { Loading } from "../../common/Loading";
 import { NewsGrapgicElement } from "./NewsGrapgicElement";
 import { NewsVideoElement } from "./NewsVideoElement";
@@ -30,9 +30,9 @@ export const NewsPage = () => {
         if (!data) return;
         return data.videos.map((v, i) => <NewsVideoElement key={String(i)} src={v} />);
     };
-    const imagesList = () => {
+    const imagesList = (actions: LightBoxActions) => {
         if (!data) return;
-        return data.images.map(i => <NewsGrapgicElement key={i} src={i} />);
+        return data.images.map((i, index) => <NewsGrapgicElement key={i} src={i} actions={{...actions, index}} />);
     };
 
     return (
@@ -50,14 +50,14 @@ export const NewsPage = () => {
                             {videosList()}
                         </ul>
                     </div>}
-                    {/* <SRLWrapper> */}
                     <div className="main__subsection news-page__images">
                         <h3 className="news-page__subtitle">Zobacz grafiki:</h3>
                         <ul className="news-page__list">
-                            {imagesList()}
+                            <LightBox images={data.images.map(i => ({ fromAnime: data.title, src: i }))}>
+                                {(actions) => imagesList(actions)}
+                            </LightBox>
                         </ul>
                     </div>
-                    {/* </SRLWrapper> */}
                     {data.otherLinks.length > 0 && <div className="main__subsection news-page__other-links">
                         <h3 className="news-page__subtitle">Dodadkowe odnośniki:</h3>
                         <ul className="news-page__list news-page__other-links-list">
