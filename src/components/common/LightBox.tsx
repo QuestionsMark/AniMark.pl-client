@@ -23,10 +23,10 @@ export const LightBox = ({ children, images }: Props) => {
     const { close, isOpen, open } = useOpen();
 
     const handlePrev = () => {
-        setIndex(state => state > 0 ? state - 1 : state);
+        setIndex(state => state > 0 ? state - 1 : images.length - 1);
     };
     const handleNext = () => {
-        setIndex(state => state < images.length - 1 ? state + 1 : state);
+        setIndex(state => state < images.length - 1 ? state + 1 : 0);
     };
     const changeIndex = (index: number) => {
         setIndex(index);
