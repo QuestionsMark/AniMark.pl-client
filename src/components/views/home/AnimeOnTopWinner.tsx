@@ -21,7 +21,7 @@ export const AnimeOnTopWinner = () => {
     };
 
     const seasonsList = () => {
-        return seasons.map(s => <AnimeBrickElement key={s._id} anime={{ anime: s }} className="anime-on-top__anime-season-element" />);
+        return seasons.map(s => <AnimeBrickElement key={s._id} anime={{ anime: s }} className="anime-on-top__anime-season-element card-animation" />);
     };
 
     const soundtracksList = () => {

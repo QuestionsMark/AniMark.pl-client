@@ -18,7 +18,7 @@ export const TypePage = () => {
     };
 
     const bestAnimeList = () => {
-        return data.bestAnime.map(a => <AnimeBrickElement anime={{ anime: a.anime, rate: a.rate }} />);
+        return data.bestAnime.map(a => <AnimeBrickElement anime={{ anime: a.anime, rate: a.rate }} className="card-animation" />);
     };
 
     return (

@@ -19,7 +19,7 @@ export const ComplexTypeElement = ({ type, observer }: Props) => {
     };
 
     const bestAnimeList = () => {
-        return bestAnime.map(a => <AnimeBrickElement anime={{ anime: a.anime, rate: a.rate }} />);
+        return bestAnime.map(a => <AnimeBrickElement anime={{ anime: a.anime, rate: a.rate }} className="card-animation" />);
     };
 
     return (

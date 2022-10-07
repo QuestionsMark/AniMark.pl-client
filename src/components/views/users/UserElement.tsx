@@ -35,7 +35,7 @@ export const UserElement = ({ place, user, observer }: Props) => {
     const favoriteAnimeList = () => {
         return favoriteAnime
             .slice(0, 3)
-            .map(a => <AnimeBrickElement key={a.anime._id} anime={a} className="users__favorite-anime-item" />);
+            .map(a => <AnimeBrickElement key={a.anime._id} anime={a} className="users__favorite-anime-item card-animation" />);
     };
 
     return (
@@ -82,7 +82,7 @@ export const UserElement = ({ place, user, observer }: Props) => {
                     <h2 className="users__subtitle">Ulubione Anime:</h2>
                     <ul className="users__favorite-anime-list">
                         {favoriteAnime.length > 0 ? favoriteAnimeList() : 'Brak ulubionego anime.'}
-                        {favoriteAnime.length > 3 && <UserFavoriteAnimeMore count={favoriteAnime.length} />}
+                        {favoriteAnime.length > 3 && <UserFavoriteAnimeMore count={favoriteAnime.length} userId={_id} />}
                     </ul>
                 </div>
             </section>
