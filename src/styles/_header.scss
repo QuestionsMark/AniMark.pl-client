@@ -55,31 +55,6 @@
 }
 
 .menu {
-
-    //
-    // .hover-underline-animation {
-    //     display: inline-block;
-    //     position: relative;
-    //     color: #0087ca;
-    // }
-    // .hover-underline-animation::after {
-    // content: '';
-    //     position: absolute;
-    //     width: 100%;
-    //     transform: scaleX(0);
-    //     height: 2px;
-    //     bottom: 0;
-    //     left: 0;
-    //     background-color: #0087ca;
-    //     transform-origin: bottom right;
-    //     transition: transform 0.25s ease-out;
-    // }
-    // .hover-underline-animation:hover::after {
-    //     transform: scaleX(1);
-    //     transform-origin: bottom left;
-    // }
-    //
-
     flex-grow: 1;
     flex-shrink: 1;
     overscroll-behavior: contain;
@@ -105,6 +80,7 @@
     }
 
     &__link {
+        position: relative;
         display: flex;
         align-items: center;
         padding: 10px 14px;
@@ -116,14 +92,24 @@
         &.active {
             color: $main-color;
         }
-    }
 
-    &__border {
-        background-color: $text-color;
-        width: 0;
-        height: 2px;
-        margin-top: -2px;
-        transition: 0.2s;
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: $text-color;
+            transform-origin: bottom right;
+            transition: transform 0.2s ease-out;
+        }
+
+        &:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
     }
 
     &__icon {

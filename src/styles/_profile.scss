@@ -21,6 +21,7 @@
         }
 
         &-link {
+            position: relative;
             display: flex;
             align-items: center;
             padding: 10px 14px;
@@ -32,14 +33,24 @@
             &.active {
                 color: $main-color;
             }
-        }
 
-        &-border {
-            background-color: $text-color;
-            width: 0;
-            height: 2px;
-            margin-top: -2px;
-            transition: 0.2s;
+            &::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                transform: scaleX(0);
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: $text-color;
+                transform-origin: bottom right;
+                transition: transform 0.2s ease-out;
+            }
+    
+            &:hover::after {
+                transform: scaleX(1);
+                transform-origin: bottom left;
+            }
         }
     }
 

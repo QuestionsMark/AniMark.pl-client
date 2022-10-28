@@ -17,7 +17,6 @@ export const Menu = () => {
                 <NavLink to={`/users/${user.userId}`} className="menu__link">
                     <FontAwesomeIcon icon={faUser} className="menu__icon" />Profil
                 </NavLink>
-                <div className="menu__border" />
             </li>;
     }, [user]);
 
@@ -27,7 +26,6 @@ export const Menu = () => {
                 <NavLink to={`/anime-create`} className="menu__link">
                     <FontAwesomeIcon icon={faPlus} className="menu__icon" />Dodaj Nowe Anime
                 </NavLink>
-                <div className="menu__border" />
             </li>;
     }, [user]);
 
@@ -36,23 +34,18 @@ export const Menu = () => {
             <ul className="menu__list">
                 <li className="menu__item">
                     <NavLink to="/" end className="menu__link"><FontAwesomeIcon icon={faHouse} className="menu__icon" />Home</NavLink>
-                    <div className="menu__border"></div>
                 </li>
                 <li className="menu__item">
                     <NavLink to="/anime" end className="menu__link"><FontAwesomeIcon icon={faClapperboard} className="menu__icon" />Anime</NavLink>
-                    <div className="menu__border"></div>
                 </li>
                 <li className="menu__item">
                     <NavLink to="/news" end className="menu__link"><FontAwesomeIcon icon={faEnvelope} className="menu__icon" />Nowości</NavLink>
-                    <div className="menu__border"></div>
                 </li>
                 <li className="menu__item">
                     <NavLink to="/users" end className="menu__link"><FontAwesomeIcon icon={faUserGroup} className="menu__icon" />Users</NavLink>
-                    <div className="menu__border"></div>
                 </li>
                 <li className="menu__item">
                     <NavLink to="/galery" end className="menu__link"><FontAwesomeIcon icon={faImages} className="menu__icon" />Galery</NavLink>
-                    <div className="menu__border"></div>
                 </li>
                 {profileComponent}
                 {addNewAnimeComponent}
