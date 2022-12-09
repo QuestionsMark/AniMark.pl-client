@@ -33,7 +33,7 @@ export const Menu = () => {
         <nav className="menu">
             <ul className="menu__list">
                 <li className="menu__item">
-                    <NavLink to="/" end className="menu__link"><FontAwesomeIcon icon={faHouse} className="menu__icon" />Home</NavLink>
+                    <NavLink to="/" end className="menu__link"><FontAwesomeIcon icon={faHouse} className="menu__icon" />Strona Główna</NavLink>
                 </li>
                 <li className="menu__item">
                     <NavLink to="/anime" end className="menu__link"><FontAwesomeIcon icon={faClapperboard} className="menu__icon" />Anime</NavLink>
@@ -42,10 +42,10 @@ export const Menu = () => {
                     <NavLink to="/news" end className="menu__link"><FontAwesomeIcon icon={faEnvelope} className="menu__icon" />Nowości</NavLink>
                 </li>
                 <li className="menu__item">
-                    <NavLink to="/users" end className="menu__link"><FontAwesomeIcon icon={faUserGroup} className="menu__icon" />Users</NavLink>
+                    <NavLink to="/users" end className="menu__link"><FontAwesomeIcon icon={faUserGroup} className="menu__icon" />Użytkownicy</NavLink>
                 </li>
                 <li className="menu__item">
-                    <NavLink to="/galery" end className="menu__link"><FontAwesomeIcon icon={faImages} className="menu__icon" />Galery</NavLink>
+                    <NavLink to="/galery" end className="menu__link"><FontAwesomeIcon icon={faImages} className="menu__icon" />Galeria</NavLink>
                 </li>
                 {profileComponent}
                 {addNewAnimeComponent}
